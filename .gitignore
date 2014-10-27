@@ -1,0 +1,8 @@
+.DS_Store
+
+gen/
+obj/
+libs/
+jni/
+
+res/raw/
