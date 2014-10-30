@@ -1,14 +1,12 @@
-#include "ofLocais.h"
+#include "ofLocal.h"
 #include "ofApp.h"
 
-ofLocais::ofLocais(float _x, float _y, float _dim, string _path)
-{
+ofLocal::ofLocal(float _x, float _y, float _dim, string _path) {
 
-    if((ofGetWindowHeight()*10/ofApp::getWindowWidth()) > 16) {
+    if (ofApp::screenRatioIsWeird())
         xPos = _x * 0.8 * ofGetWindowHeight() + 0.1 * ofGetWindowHeight();
-    } else {
+    else
         xPos = _x * ofGetWindowHeight();
-    }
 
     yPos = _y * ofApp::getWindowWidth();
     dim = _dim * ofApp::getWindowWidth();
@@ -17,7 +15,7 @@ ofLocais::ofLocais(float _x, float _y, float _dim, string _path)
     bola.set(xPos-0.6*dim, yPos-0.6*dim, 1.4*dim, 1.4*dim);
     ofSetRectMode(OF_RECTMODE_CORNER);
 
-    ofAddListener(ofEvents().mousePressed, this, &ofLocais::mousePressed);
+    ofAddListener(ofEvents().mousePressed, this, &ofLocal::mousePressed);
 
     path = _path;
 
@@ -28,7 +26,8 @@ ofLocais::ofLocais(float _x, float _y, float _dim, string _path)
 
 }
 
-void ofLocais::actual() {
+// TODO: isto não está a ser usado, é mesmo preciso ou pode-se apagar ou comentar?
+void ofLocal::actual() {
 
     if (localOn) {
         if (ofDist(xRato, yRato, xPos, yPos) < dim){
@@ -43,7 +42,7 @@ void ofLocais::actual() {
     }
 }
 
-void ofLocais::mousePressed(ofMouseEventArgs& event) {
+void ofLocal::mousePressed(ofMouseEventArgs& event) {
     if(bola.inside(event.x, event.y)) {
         if(!on) {
             vol = 0.7f;
@@ -55,7 +54,7 @@ void ofLocais::mousePressed(ofMouseEventArgs& event) {
     }
 }
 
-void ofLocais::draw() {
+void ofLocal::draw() {
 
     if (localOn) {
         if (ofDist(xRato, yRato, xPos, yPos) < dim){
@@ -116,6 +115,6 @@ void ofLocais::draw() {
 
 }
 
-int ofLocais::active() {
+int ofLocal::getAlive() {
     return alive;
 }

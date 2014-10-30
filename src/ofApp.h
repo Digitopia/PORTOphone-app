@@ -2,9 +2,10 @@
 
 #include "ofMain.h"
 #include "ofxAndroid.h"
+#include "ofxAccelerometer.h"
 
-#include "ofLocais.h"
-#include "ofBancos.h"
+#include "ofLocal.h"
+#include "ofBanco.h"
 
 class ofApp : public ofxAndroidApp {
 	
@@ -18,6 +19,8 @@ class ofApp : public ofxAndroidApp {
 			return ofGetWindowWidth();
 		}
 		
+		static bool screenRatioIsWeird();
+
 		void setup();
 		void update();
 		void draw();
@@ -42,12 +45,14 @@ class ofApp : public ofxAndroidApp {
 		void okPressed();
 		void cancelPressed();
 
-		ofLocais** locais;   // an array of pointers of type ofLocais
-		int nLocais;         // variable for the number of Locais
+	    void imageStatus(ofMouseEventArgs& event);
+
+		ofLocal** locais;   // an array of pointers of type ofLocal
+		int nLocais;
 
 		vector<int> allLocais;
 
-		ofBancos** bancos;
+		ofBanco** bancos;
 		int nBancos;
 
 		vector<int> allBancos;
