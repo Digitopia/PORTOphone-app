@@ -5,14 +5,6 @@ void ofApp::setup() {
 
 	ofLog(OF_LOG_NOTICE);
 
-	// TODO: não compila, mas estava na versão iOS. É preciso?
-	// register touch events
-	// ofRegisterTouchEvents(this);
-
-	// initialize the accelerometer
-	// TODO: compila, mas é preciso para alguma coisa?
-	ofxAccelerometer.setup();
-
 	ofBackground(127, 127, 127);
 
 	ofSetFrameRate(60);
