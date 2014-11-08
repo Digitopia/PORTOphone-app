@@ -3,13 +3,14 @@
 
 ofLocal::ofLocal(float _x, float _y, float _dim, string _path) {
 
-    if (ofApp::screenRatioIsWeird())
-        xPos = _x * 0.8 * ofGetWindowHeight() + 0.1 * ofGetWindowHeight();
-    else
-        xPos = _x * ofGetWindowHeight();
+    if((ofGetHeight()*10/ofGetWidth()) > 16) {
+        xPos = _x * 0.8 * ofGetHeight() + 0.1 * ofGetHeight();
+    } else {
+        xPos = _x * ofGetHeight();
+    }
 
-    yPos = _y * ofApp::getWindowWidth();
-    dim = _dim * ofApp::getWindowWidth();
+    yPos = _y * ofGetWidth();
+    dim = _dim * ofGetWidth();
 
     ofSetRectMode(OF_RECTMODE_CENTER);
     bola.set(xPos-0.6*dim, yPos-0.6*dim, 1.4*dim, 1.4*dim);
@@ -20,46 +21,37 @@ ofLocal::ofLocal(float _x, float _y, float _dim, string _path) {
     path = _path;
 
     vol = 0.7f;
-
-    somLocal.loadSound(path);
+    // TODO: check if reading from disk is workable
+    somLocal.loadSound(path, true);
     somLocal.setLoop(true);
-
 }
 
-// TODO: isto não está a ser usado, é mesmo preciso ou pode-se apagar ou comentar?
 void ofLocal::actual() {
-
-    if (localOn) {
-        if (ofDist(xRato, yRato, xPos, yPos) < dim){
-            if (!on){
-                on = true;
-            } else if (on){
-                on = false;
-            }
-
-            localOn = false;
-        }
-    }
 }
 
 void ofLocal::mousePressed(ofMouseEventArgs& event) {
-    if(bola.inside(event.x, event.y)) {
-        if(!on) {
-            vol = 0.7f;
-            somLocal.setVolume(vol);
-            somLocal.setPosition(0.0f);
-            somLocal.play();
-        }
-        on = !on;
-    }
+	if(localOn) {
+		if(bola.inside(event.x, event.y)) {
+			if(!on) {
+				vol = 0.7f;
+				somLocal.setVolume(vol);
+				somLocal.setPosition(0.0f);
+				somLocal.play();
+			}
+			else {
+				somLocal.stop();
+				somLocal.setPosition(0.0f);
+			}
+			on = !on;
+		}
+	}
 }
 
 void ofLocal::draw() {
 
-    if (localOn) {
+
+  /*  if (localOn) {
         if (ofDist(xRato, yRato, xPos, yPos) < dim){
-            cout << "chegou aqui!!" << endl;
-            cout << ofDist(xRato, yRato, xPos, yPos) << endl;
             if (!on){
                 on = true;
             } else if (on){
@@ -68,7 +60,7 @@ void ofLocal::draw() {
 
             localOn = false;
         }
-    }
+    }*/
 
     if (on) {
         ofEnableAlphaBlending();
@@ -82,8 +74,7 @@ void ofLocal::draw() {
         ofCircle(xPos, yPos, rad);
         ofDisableAlphaBlending();
         ofDisableSmoothing();
-        alive = 1;
-        rad += 0.006 * ofGetWindowHeight();
+        rad += 0.006 * ofGetHeight();
         if (rad > dim) {
             rad = dim;
         }
@@ -99,8 +90,7 @@ void ofLocal::draw() {
         ofCircle(xPos, yPos, rad);
         ofDisableAlphaBlending();
         ofDisableSmoothing();
-        alive = 0;
-        rad -= 0.006 * ofGetWindowHeight();
+        rad -= 0.006 * ofGetHeight();
         vol -= 0.05f;
         somLocal.setVolume(vol);
         if (rad < 0.) {
@@ -111,10 +101,4 @@ void ofLocal::draw() {
             somLocal.stop();
         }
     }
-
-
-}
-
-int ofLocal::getAlive() {
-    return alive;
 }

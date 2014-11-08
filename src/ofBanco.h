@@ -11,7 +11,6 @@ class ofBanco {
 
 		void actual();
 		void draw();
-		int getAlive();
 		void mousePressed(ofMouseEventArgs& event);
 
 		float xPos, yPos;
@@ -19,7 +18,6 @@ class ofBanco {
 		float rad, vol, dim;
 		bool bancoOn;
 		bool on;
-		int alive;
 		string path;
 		ofRectangle caixa;
 		ofSoundPlayer somBanco;

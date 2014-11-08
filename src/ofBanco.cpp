@@ -3,14 +3,14 @@
 
 ofBanco::ofBanco(float _x, float _y, float _dim, string _path) {
 
-	// TODO: este código está bem? de certeza que não será getWindowWidth na segunda variavél?
-	if ((ofApp::getWindowHeight()*10/ofApp::getWindowHeight()) > 16)
-		xPos = _x * 0.8 * ofApp::getWindowHeight() + 0.1 * ofApp::getWindowHeight();
-	else
-        xPos = _x * ofApp::getWindowHeight();
+    if((ofGetHeight()*10/ofGetWidth()) > 16) {
+    xPos = _x * 0.8 * ofGetHeight() + 0.1 * ofGetHeight();
+    } else {
+        xPos = _x * ofGetHeight();
+    }
 
-    yPos = _y * ofApp::getWindowHeight();
-    dim = _dim * ofApp::getWindowHeight();
+    yPos = _y * ofGetWidth();
+    dim = _dim * ofGetWidth();
 
     ofSetRectMode(OF_RECTMODE_CENTER);
     caixa.set(xPos, yPos, dim, dim);
@@ -21,123 +21,83 @@ ofBanco::ofBanco(float _x, float _y, float _dim, string _path) {
     path = _path;
 
     vol = 0.7f;
-
-    somBanco.loadSound(path);
+// TODO: check if reading from disk is workable
+    somBanco.loadSound(path, true);
     somBanco.setLoop(true);
 
 }
 
-// TODO: isto não está a ser usado. Pode-se apagar ou que?
 void ofBanco::actual() {
-
-    if (bancoOn) {
-        if (ofDist(xRato, yRato, xPos, yPos) < dim){
-            if (!on) {
-                on = true;
-            }
-            else if (on) {
-                on = false;
-            }
-            bancoOn = false;
-        }
-    }
 }
 
 void ofBanco::mousePressed(ofMouseEventArgs& event) {
 
-	if (caixa.inside(event.x, event.y)) {
+	if(bancoOn) {
 
-    	if (!on) {
-            vol = 0.7f;
-            somBanco.setVolume(vol);
-            somBanco.play();
-        }
+		if (caixa.inside(event.x, event.y)) {
 
-    	else {
-            somBanco.stop();
-            somBanco.setPosition(0.0f);
-        }
+			if (!on) {
+				vol = 0.7f;
+				somBanco.setVolume(vol);
+				somBanco.play();
+			}
 
-    	on = !on;
-    }
+			else {
+				somBanco.stop();
+				somBanco.setPosition(0.0f);
+			}
+
+			on = !on;
+		}
+	}
 
 }
 
 void ofBanco::draw() {
-
-	// this function's rectangles work on center mode
-	ofSetRectMode(OF_RECTMODE_CENTER);
-
-	int xRect = xPos + 0.03 * ofApp::getWindowHeight();
-	int yRect = yPos + 0.02 * ofApp::getWindowHeight();
-
-	ofRect(xRect, yRect, rad, rad);
-
-	//if (bancosOn) {
-	//	if (ofDist(xRato, yRato, xPos, yPos) < dim){
-	//		cout << "chegou ao Banco!!" << endl;
-	//		cout << ofDist(xRato, yRato, xPos, yPos) << endl;
-	//		if (!on){
-	//			on = true;
-	//		} else if (on){
-	//			on = false;
-	//		}
-	//
-	//		bancosOn = false;
-	//	}
-	//}
-
-	ofEnableAlphaBlending();
-	ofEnableSmoothing();
-
-	// fill
-	ofFill();
-	ofSetColor(10, 20, 160, 100);
-	ofRect(xRect, yRect, rad, rad);
-
-	// border
-	ofNoFill();
-	ofSetLineWidth(2);
-	ofSetColor(10, 20, 160);
-	ofRect(xRect, yRect, rad, rad);
-
-	ofDisableAlphaBlending();
-	ofDisableSmoothing();
-
 	if (on) {
+	        ofSetRectMode(OF_RECTMODE_CENTER);
+	        ofEnableAlphaBlending();
+	        ofEnableSmoothing();
+	        ofFill();
+	        ofSetColor(10, 20, 160, 100);
 
-		alive = 1;
-		rad += 0.006 * ofApp::getWindowHeight();
+	        // FOR SOME REASON, RECTANGLES ARE NOT CENTERED!
 
-		if (rad > dim) {
-			rad = dim;
-		}
-
-	}
-
-	else if (!on) {
-
-		alive = 0;
-		rad -= 0.006 * ofApp::getWindowHeight();
-
-		vol -= 0.05f;
-		somBanco.setVolume(vol);
-
-		if (rad < 0.) {
-			rad = 0.;
-		}
-
-		if (vol < 0.) {
-			vol = 0.0f;
-			somBanco.stop();
-		}
-	}
-
-	// and back to corner mode because of the rest of the app
-	ofSetRectMode(OF_RECTMODE_CORNER);
-
-}
-
-int ofBanco::getAlive() {
-    return alive;
+	        ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofNoFill();
+	        ofSetLineWidth(2);
+	        ofSetColor(10, 20, 160);
+	      ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofDisableAlphaBlending();
+	        ofDisableSmoothing();
+	        rad  += 0.006 * ofGetHeight();
+	        ofSetRectMode(OF_RECTMODE_CORNER);
+	        if (rad > dim) {
+	            rad = dim;
+	        }
+	    } else if (!on) {
+	        ofSetRectMode(OF_RECTMODE_CENTER);
+	        ofEnableAlphaBlending();
+	        ofEnableSmoothing();
+	        ofFill();
+	        ofSetColor(10, 20, 160, 100);
+	        ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofNoFill();
+	        ofSetLineWidth(2);
+	        ofSetColor(10, 20, 160);
+	        ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofDisableAlphaBlending();
+	        ofDisableSmoothing();
+	        rad  -= 0.006 * ofGetHeight();
+	        ofSetRectMode(OF_RECTMODE_CORNER);
+	        vol -= 0.05f;
+	        somBanco.setVolume(vol);
+	        if (rad < 0.) {
+	            rad = 0.;
+	        }
+	        if( vol <0.) {
+	            vol = 0.0f;
+	            somBanco.stop();
+	        }
+	    }
 }
