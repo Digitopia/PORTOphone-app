@@ -3,14 +3,14 @@
 
 ofLocal::ofLocal(float _x, float _y, float _dim, string _path) {
 
-    if((ofGetHeight()*10/ofGetWidth()) > 16) {
-        xPos = _x * 0.8 * ofGetHeight() + 0.1 * ofGetHeight();
+    if((ofGetWidth()*10/ofGetHeight()) > 16) {
+        xPos = _x * 0.8 * ofGetWidth() + 0.1 * ofGetWidth();
     } else {
-        xPos = _x * ofGetHeight();
+        xPos = _x * ofGetWidth();
     }
 
-    yPos = _y * ofGetWidth();
-    dim = _dim * ofGetWidth();
+    yPos = _y * ofGetHeight();
+    dim = _dim * ofGetHeight();
 
     ofSetRectMode(OF_RECTMODE_CENTER);
     bola.set(xPos-0.6*dim, yPos-0.6*dim, 1.4*dim, 1.4*dim);
@@ -74,7 +74,7 @@ void ofLocal::draw() {
         ofCircle(xPos, yPos, rad);
         ofDisableAlphaBlending();
         ofDisableSmoothing();
-        rad += 0.006 * ofGetHeight();
+        rad += 0.006 * ofGetWidth();
         if (rad > dim) {
             rad = dim;
         }
@@ -90,7 +90,7 @@ void ofLocal::draw() {
         ofCircle(xPos, yPos, rad);
         ofDisableAlphaBlending();
         ofDisableSmoothing();
-        rad -= 0.006 * ofGetHeight();
+        rad -= 0.006 * ofGetWidth();
         vol -= 0.05f;
         somLocal.setVolume(vol);
         if (rad < 0.) {

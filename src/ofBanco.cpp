@@ -3,14 +3,14 @@
 
 ofBanco::ofBanco(float _x, float _y, float _dim, string _path) {
 
-    if((ofGetHeight()*10/ofGetWidth()) > 16) {
-    xPos = _x * 0.8 * ofGetHeight() + 0.1 * ofGetHeight();
+    if((ofGetWidth()*10/ofGetHeight()) > 16) {
+    xPos = _x * 0.8 * ofGetWidth() + 0.1 * ofGetWidth();
     } else {
-        xPos = _x * ofGetHeight();
+        xPos = _x * ofGetWidth();
     }
 
-    yPos = _y * ofGetWidth();
-    dim = _dim * ofGetWidth();
+    yPos = _y * ofGetHeight();
+    dim = _dim * ofGetHeight();
 
     ofSetRectMode(OF_RECTMODE_CENTER);
     caixa.set(xPos, yPos, dim, dim);
@@ -63,14 +63,14 @@ void ofBanco::draw() {
 
 	        // FOR SOME REASON, RECTANGLES ARE NOT CENTERED!
 
-	        ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofRect(xPos+0.03*ofGetWidth(), yPos+0.02*ofGetHeight(), rad, rad);
 	        ofNoFill();
 	        ofSetLineWidth(2);
 	        ofSetColor(10, 20, 160);
-	      ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	      ofRect(xPos+0.03*ofGetWidth(), yPos+0.02*ofGetHeight(), rad, rad);
 	        ofDisableAlphaBlending();
 	        ofDisableSmoothing();
-	        rad  += 0.006 * ofGetHeight();
+	        rad  += 0.006 * ofGetWidth();
 	        ofSetRectMode(OF_RECTMODE_CORNER);
 	        if (rad > dim) {
 	            rad = dim;
@@ -81,14 +81,14 @@ void ofBanco::draw() {
 	        ofEnableSmoothing();
 	        ofFill();
 	        ofSetColor(10, 20, 160, 100);
-	        ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofRect(xPos+0.03*ofGetWidth(), yPos+0.02*ofGetHeight(), rad, rad);
 	        ofNoFill();
 	        ofSetLineWidth(2);
 	        ofSetColor(10, 20, 160);
-	        ofRect(xPos+0.03*ofGetHeight(), yPos+0.02*ofGetWidth(), rad, rad);
+	        ofRect(xPos+0.03*ofGetWidth(), yPos+0.02*ofGetHeight(), rad, rad);
 	        ofDisableAlphaBlending();
 	        ofDisableSmoothing();
-	        rad  -= 0.006 * ofGetHeight();
+	        rad  -= 0.006 * ofGetWidth();
 	        ofSetRectMode(OF_RECTMODE_CORNER);
 	        vol -= 0.05f;
 	        somBanco.setVolume(vol);

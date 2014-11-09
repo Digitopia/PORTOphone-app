@@ -11,13 +11,13 @@ class ofApp : public ofxAndroidApp {
 	
 	public:
 
-		static int getWindowWidth() {
-			return ofGetWindowHeight();
-		}
-
-		static int getWindowHeight() {
-			return ofGetWindowWidth();
-		}
+//		static int getWindowWidth() {
+//			return ofGetWindowHeight();
+//		}
+//
+//		static int getWindowHeight() {
+//			return ofGetWindowWidth();
+//		}
 		
 		static bool screenRatioIsWeird();
 

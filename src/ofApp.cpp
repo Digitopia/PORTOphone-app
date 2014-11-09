@@ -9,16 +9,16 @@ void ofApp::setup() {
 
 	ofSetFrameRate(60);
 
-	ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+//	ofSetOrientation(OF_ORIENTATION_90_RIGHT);
 
 	// poe barras de lado em funcao do tamanho do display
 	if (screenRatioIsWeird()) {
-		novoZeroLargura = 0.1 * getWindowHeight();
-		novoMaxLargura = 0.9 * getWindowHeight();
+		novoZeroLargura = 0.1 * ofGetWidth();
+		novoMaxLargura = 0.9 * ofGetWidth();
 	}
 	else {
 		novoZeroLargura = 0;
-		novoMaxLargura = getWindowHeight();
+		novoMaxLargura = ofGetWidth();
 	}
 
 	novaDifLargura = novoMaxLargura - novoZeroLargura;
@@ -27,8 +27,12 @@ void ofApp::setup() {
 	//	ofLog() << "novoMaxLargura: " << novoMaxLargura;
 	//	ofLog() << "novaDifLargura: " << novaDifLargura;
 	//
-	//	ofLog() << "windowHeight: " << getWindowHeight();
-	//	ofLog() << "windowWidth: " << getWindowWidth();
+		ofLog() << "Height: " << ofGetWidth();
+		ofLog() << "Width: " << ofGetHeight();
+		ofLog() << "screenHeight: " << ofGetScreenHeight();
+		ofLog() << "screenWidth: " << ofGetScreenWidth();
+		ofLog() << "windowHeight: " << ofGetWindowHeight();
+		ofLog() << "windowWidth: " << ofGetWindowWidth();
 
 	nLocais = 8;
 	locais = new ofLocal*[nLocais];
@@ -59,9 +63,9 @@ void ofApp::setup() {
 	noite.loadImage("images/sononoite.jpg");
 	preto.loadImage("images/preto.jpg");
 
-	dia.resize(novaDifLargura, getWindowWidth());
-	ajuda.resize(novaDifLargura, getWindowWidth());
-	noite.resize(novaDifLargura, getWindowWidth());
+	dia.resize(novaDifLargura, ofGetHeight());
+	ajuda.resize(novaDifLargura, ofGetHeight());
+	noite.resize(novaDifLargura, ofGetHeight());
 
 	night = true;
 	help = false;
@@ -88,8 +92,8 @@ void ofApp::setup() {
 
 	ofSetRectMode(OF_RECTMODE_CENTER);
 
-	ligaDesliga.set((0.88*novaDifLargura+novoZeroLargura), 0.8275*getWindowWidth(), (0.08*novaDifLargura+novoZeroLargura), 0.2*getWindowWidth());
-	ajudaDesajuda.set((0.92*novaDifLargura+novoZeroLargura), (0.41*getWindowWidth()), (0.06*novaDifLargura+novoZeroLargura), (0.15*getWindowWidth()));
+	ligaDesliga.set((0.88*novaDifLargura+novoZeroLargura), 0.8275*ofGetHeight(), (0.08*novaDifLargura+novoZeroLargura), 0.2*ofGetHeight());
+	ajudaDesajuda.set((0.92*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.06*novaDifLargura+novoZeroLargura), (0.15*ofGetHeight()));
 
     ofSetRectMode(OF_RECTMODE_CORNER);
 
@@ -97,7 +101,7 @@ void ofApp::setup() {
 
 // TODO: better name
 bool ofApp::screenRatioIsWeird() {
-	return (getWindowHeight() * 10 / getWindowWidth()) > 16;
+	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
 }
 
 //--------------------------------------------------------------
@@ -108,19 +112,26 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw() {
 
+	ofLog() << "drawHeight: " << ofGetWidth();
+	ofLog() << "drawWidth: " << ofGetHeight();
+	ofLog() << "drawscreenHeight: " << ofGetScreenHeight();
+	ofLog() << "drawscreenWidth: " << ofGetScreenWidth();
+	ofLog() << "drawwindowHeight: " << ofGetWindowHeight();
+	ofLog() << "drawwindowWidth: " << ofGetWindowWidth();
+
 	ofSetHexColor(0xFFFFFF);
 
 	if (screenRatioIsWeird()) {
-		preto.draw(0, 0, novoZeroLargura, getWindowWidth());
-		preto.draw(novoMaxLargura, 0, novoZeroLargura, getWindowWidth());
+		preto.draw(0, 0, novoZeroLargura, ofGetHeight());
+		preto.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
 	}
 
 	if (night)
-		 noite.draw(novoZeroLargura, 0, novaDifLargura, getWindowWidth());
+		 noite.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	else if (!help)
-		dia.draw(novoZeroLargura, 0, novaDifLargura, getWindowWidth());
+		dia.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	else
-		ajuda.draw(novoZeroLargura, 0, novaDifLargura, getWindowWidth());
+		ajuda.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 
 	if (!night && !help) {
 
