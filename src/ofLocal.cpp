@@ -22,7 +22,7 @@ ofLocal::ofLocal(float _x, float _y, float _dim, string _path) {
 
     vol = 0.7f;
     // TODO: check if reading from disk is workable
-    somLocal.loadSound(path, true);
+    somLocal.loadSound(path, false);
     somLocal.setLoop(true);
 }
 
@@ -37,6 +37,7 @@ void ofLocal::mousePressed(ofMouseEventArgs& event) {
 				somLocal.setVolume(vol);
 				somLocal.setPosition(0.0f);
 				somLocal.play();
+
 			}
 			else {
 				somLocal.stop();

@@ -22,7 +22,7 @@ ofBanco::ofBanco(float _x, float _y, float _dim, string _path) {
 
     vol = 0.7f;
 // TODO: check if reading from disk is workable
-    somBanco.loadSound(path, true);
+    somBanco.loadSound(path, false);
     somBanco.setLoop(true);
 
 }
@@ -40,6 +40,8 @@ void ofBanco::mousePressed(ofMouseEventArgs& event) {
 				vol = 0.7f;
 				somBanco.setVolume(vol);
 				somBanco.play();
+
+				ofLog() << "SOUND SHOULD BE PLAYING!";
 			}
 
 			else {

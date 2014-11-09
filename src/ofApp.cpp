@@ -26,13 +26,6 @@ void ofApp::setup() {
 	//	ofLog() << "novoZeroLargura: " << novoZeroLargura;
 	//	ofLog() << "novoMaxLargura: " << novoMaxLargura;
 	//	ofLog() << "novaDifLargura: " << novaDifLargura;
-	//
-		ofLog() << "Height: " << ofGetWidth();
-		ofLog() << "Width: " << ofGetHeight();
-		ofLog() << "screenHeight: " << ofGetScreenHeight();
-		ofLog() << "screenWidth: " << ofGetScreenWidth();
-		ofLog() << "windowHeight: " << ofGetWindowHeight();
-		ofLog() << "windowWidth: " << ofGetWindowWidth();
 
 	nLocais = 8;
 	locais = new ofLocal*[nLocais];
@@ -58,6 +51,8 @@ void ofApp::setup() {
 	bancos[4] = new ofBanco(0.5825,  0.8617, 0.12, "b5.mp3");
 	bancos[5] = new ofBanco(0.85875, 0.2750, 0.12, "b6.mp3");
 
+	ofLog() << "bancos e locais criados";
+
 	dia.loadImage("images/sonodia.jpg");
 	ajuda.loadImage("images/sonodiaajuda.jpg");
 	noite.loadImage("images/sononoite.jpg");
@@ -66,6 +61,8 @@ void ofApp::setup() {
 	dia.resize(novaDifLargura, ofGetHeight());
 	ajuda.resize(novaDifLargura, ofGetHeight());
 	noite.resize(novaDifLargura, ofGetHeight());
+
+	ofLog() << "imagens carregadas e redimensionadas";
 
 	night = true;
 	help = false;
@@ -97,6 +94,7 @@ void ofApp::setup() {
 
     ofSetRectMode(OF_RECTMODE_CORNER);
 
+    ofLog() << "setup terminou";
 }
 
 // TODO: better name
@@ -106,18 +104,11 @@ bool ofApp::screenRatioIsWeird() {
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	ofSoundUpdate();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-
-	ofLog() << "drawHeight: " << ofGetWidth();
-	ofLog() << "drawWidth: " << ofGetHeight();
-	ofLog() << "drawscreenHeight: " << ofGetScreenHeight();
-	ofLog() << "drawscreenWidth: " << ofGetScreenWidth();
-	ofLog() << "drawwindowHeight: " << ofGetWindowHeight();
-	ofLog() << "drawwindowWidth: " << ofGetWindowWidth();
 
 	ofSetHexColor(0xFFFFFF);
 
@@ -258,61 +249,61 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
             	if ((counter % 3) == 1) {
 
-                    locais[0]->somLocal.loadSound("metro2.mp3", true); // metro
-                    locais[1]->somLocal.loadSound("p2.mp3", true);     // parque da cidade
-                    locais[2]->somLocal.loadSound("ser2.mp3", true);   // serralves
-                    locais[3]->somLocal.loadSound("bat2.mp3", true);   // batalha
-                    locais[4]->somLocal.loadSound("s2.mp3", true);     // santa catarina
-                    locais[5]->somLocal.loadSound("cdm2.mp3", true);   // casa da musica
-                    locais[6]->somLocal.loadSound("bol2.mp3", true);   // bolhão
-                    locais[7]->somLocal.loadSound("r2.mp3", true);     // ribeira
+                    locais[0]->somLocal.loadSound("metro2.mp3"); // metro
+                    locais[1]->somLocal.loadSound("p2.mp3");     // parque da cidade
+                    locais[2]->somLocal.loadSound("ser2.mp3");   // serralves
+                    locais[3]->somLocal.loadSound("bat2.mp3");   // batalha
+                    locais[4]->somLocal.loadSound("s2.mp3");     // santa catarina
+                    locais[5]->somLocal.loadSound("cdm2.mp3");   // casa da musica
+                    locais[6]->somLocal.loadSound("bol2.mp3");   // bolhão
+                    locais[7]->somLocal.loadSound("r2.mp3");     // ribeira
 
-                    bancos[0]->somBanco.loadSound("b7.mp3", true);
-                    bancos[1]->somBanco.loadSound("b8.mp3", true);
-                    bancos[2]->somBanco.loadSound("b9.mp3", true);
-                    bancos[3]->somBanco.loadSound("b10.mp3", true);
-                    bancos[4]->somBanco.loadSound("b11.mp3", true);
-                    bancos[5]->somBanco.loadSound("b12.mp3", true);
+                    bancos[0]->somBanco.loadSound("b7.mp3");
+                    bancos[1]->somBanco.loadSound("b8.mp3");
+                    bancos[2]->somBanco.loadSound("b9.mp3");
+                    bancos[3]->somBanco.loadSound("b10.mp3");
+                    bancos[4]->somBanco.loadSound("b11.mp3");
+                    bancos[5]->somBanco.loadSound("b12.mp3");
 
                 }
 
                 else if ((counter % 3) == 2) {
 
-                    locais[0]->somLocal.loadSound("metro3.mp3", true); // metro
-                    locais[1]->somLocal.loadSound("p3.mp3", true);     // parque da cidade
-                    locais[2]->somLocal.loadSound("ser1.mp3", true);   // serralves
-                    locais[3]->somLocal.loadSound("bat3.mp3", true);   // batalha
-                    locais[4]->somLocal.loadSound("s3.mp3", true);     // santa catarina
-                    locais[5]->somLocal.loadSound("cdm2.mp3", true);   // casa da musica
-                    locais[6]->somLocal.loadSound("bol3.mp3", true);   // bolhão
-                    locais[7]->somLocal.loadSound("r3.mp3", true);     // ribeira
+                    locais[0]->somLocal.loadSound("metro3.mp3"); // metro
+                    locais[1]->somLocal.loadSound("p3.mp3");     // parque da cidade
+                    locais[2]->somLocal.loadSound("ser1.mp3");   // serralves
+                    locais[3]->somLocal.loadSound("bat3.mp3");   // batalha
+                    locais[4]->somLocal.loadSound("s3.mp3");     // santa catarina
+                    locais[5]->somLocal.loadSound("cdm2.mp3");   // casa da musica
+                    locais[6]->somLocal.loadSound("bol3.mp3");   // bolhão
+                    locais[7]->somLocal.loadSound("r3.mp3");     // ribeira
 
-                    bancos[0]->somBanco.loadSound("b13.mp3", true);
-                    bancos[1]->somBanco.loadSound("b2.mp3", true);
-                    bancos[2]->somBanco.loadSound("b5.mp3", true);
-                    bancos[3]->somBanco.loadSound("b7.mp3", true);
-                    bancos[4]->somBanco.loadSound("b1.mp3", true);
-                    bancos[5]->somBanco.loadSound("b10.mp3", true);
+                    bancos[0]->somBanco.loadSound("b13.mp3");
+                    bancos[1]->somBanco.loadSound("b2.mp3");
+                    bancos[2]->somBanco.loadSound("b5.mp3");
+                    bancos[3]->somBanco.loadSound("b7.mp3");
+                    bancos[4]->somBanco.loadSound("b1.mp3");
+                    bancos[5]->somBanco.loadSound("b10.mp3");
 
                 }
 
                 else if ((counter % 3) == 0) {
 
-                    locais[0]->somLocal.loadSound("metro1.mp3", true); // metro
-                    locais[1]->somLocal.loadSound("p1.mp3", true);     // parque da cidade
-                    locais[2]->somLocal.loadSound("ser1.mp3", true);   // serralves
-                    locais[3]->somLocal.loadSound("bat1.mp3", true);   // batalha
-                    locais[4]->somLocal.loadSound("s1.mp3", true);     // santa catarina
-                    locais[5]->somLocal.loadSound("cdm1.mp3", true);   // casa da musica
-                    locais[6]->somLocal.loadSound("bol1.mp3", true);   // bolhão
-                    locais[7]->somLocal.loadSound("r1.mp3", true);     // ribeira
+                    locais[0]->somLocal.loadSound("metro1.mp3"); // metro
+                    locais[1]->somLocal.loadSound("p1.mp3");     // parque da cidade
+                    locais[2]->somLocal.loadSound("ser1.mp3");   // serralves
+                    locais[3]->somLocal.loadSound("bat1.mp3");   // batalha
+                    locais[4]->somLocal.loadSound("s1.mp3");     // santa catarina
+                    locais[5]->somLocal.loadSound("cdm1.mp3");   // casa da musica
+                    locais[6]->somLocal.loadSound("bol1.mp3");   // bolhão
+                    locais[7]->somLocal.loadSound("r1.mp3");     // ribeira
 
-                    bancos[0]->somBanco.loadSound("b1.mp3", true);
-                    bancos[1]->somBanco.loadSound("b2.mp3", true);
-                    bancos[2]->somBanco.loadSound("b3.mp3", true);
-                    bancos[3]->somBanco.loadSound("b4.mp3", true);
-                    bancos[4]->somBanco.loadSound("b5.mp3", true);
-                    bancos[5]->somBanco.loadSound("b6.mp3", true);
+                    bancos[0]->somBanco.loadSound("b1.mp3");
+                    bancos[1]->somBanco.loadSound("b2.mp3");
+                    bancos[2]->somBanco.loadSound("b3.mp3");
+                    bancos[3]->somBanco.loadSound("b4.mp3");
+                    bancos[4]->somBanco.loadSound("b5.mp3");
+                    bancos[5]->somBanco.loadSound("b6.mp3");
                 }
 
             }
