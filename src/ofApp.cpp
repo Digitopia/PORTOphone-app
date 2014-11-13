@@ -232,7 +232,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 			for (int i = 0; i < nLocais; i++) {
                 locais[i]->on = false;
                 locais[i]->localOn = false;
-                locais[i]->draw();
+                locais[i]->somLocal.stop();
                 locais[i]->somLocal.unloadSound();
                 locais[i]->rad = 0.;
             }
@@ -240,7 +240,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
             for (int i = 0; i < nBancos; i++) {
                 bancos[i]->on = false;
                 bancos[i]->bancoOn = false;
-                bancos[i]->draw();
+                bancos[i]->somBanco.stop();
                 bancos[i]->somBanco.unloadSound();
                 bancos[i]->rad = 0.;
             }
