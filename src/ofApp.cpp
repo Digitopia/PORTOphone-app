@@ -127,14 +127,16 @@ void ofApp::draw() {
 	if (!night && !help) {
 
 		for (int i = 0; i < nLocais; i++) {
+			locais[i]->localOn = true;
 			locais[i]->draw();
-			locais[i]->localOn = true; // TODO é estranho estar a fazer isto no draw
+			 // TODO é estranho estar a fazer isto no draw
 		}
 
 
 		for (int i = 0; i < nBancos; i++) {
+			bancos[i]->bancoOn = true;
 			bancos[i]->draw();
-			bancos[i]->bancoOn = true; //TODO é estranho estar a fazer isto no draw
+			 //TODO é estranho estar a fazer isto no draw
 		}
 	}
 }
@@ -225,6 +227,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 		night = !night;
 
+		// se passa a estar noite
 		if (night) {
 
 			counter++;

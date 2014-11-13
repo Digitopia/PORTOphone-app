@@ -44,10 +44,10 @@ void ofBanco::mousePressed(ofMouseEventArgs& event) {
 				ofLog() << "SOUND SHOULD BE PLAYING!";
 			}
 
-			else {
-				somBanco.stop();
-				somBanco.setPosition(0.0f);
-			}
+//			else {
+//				somBanco.stop();
+//				somBanco.setPosition(0.0f);
+//			}
 
 			on = !on;
 		}
@@ -97,9 +97,10 @@ void ofBanco::draw() {
 	        if (rad < 0.) {
 	            rad = 0.;
 	        }
-	        if( vol <0.) {
+	        if( vol <0.0f) {
 	            vol = 0.0f;
 	            somBanco.stop();
+	            somBanco.setPosition(0.0f);
 	        }
 	    }
 }

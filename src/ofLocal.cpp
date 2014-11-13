@@ -21,6 +21,7 @@ ofLocal::ofLocal(float _x, float _y, float _dim, string _path) {
     path = _path;
 
     vol = 0.7f;
+    stop = false;
     // TODO: check if reading from disk is workable
     somLocal.loadSound(path, false);
     somLocal.setLoop(true);
@@ -33,16 +34,18 @@ void ofLocal::mousePressed(ofMouseEventArgs& event) {
 	if(localOn) {
 		if(bola.inside(event.x, event.y)) {
 			if(!on) {
+				stop = false;
 				vol = 0.7f;
 				somLocal.setVolume(vol);
-				somLocal.setPosition(0.0f);
+//				somLocal.setPosition(0.0f);
 				somLocal.play();
 
 			}
-			else {
-				somLocal.stop();
-				somLocal.setPosition(0.0f);
-			}
+//			else {
+//				somLocal.stop();
+//				somLocal.setPosition(0.0f);
+//			}
+//			stop = !stop;
 			on = !on;
 		}
 	}
@@ -63,6 +66,7 @@ void ofLocal::draw() {
         }
     }*/
 
+	// esta a tocar
     if (on) {
         ofEnableAlphaBlending();
         ofEnableSmoothing();
@@ -79,27 +83,45 @@ void ofLocal::draw() {
         if (rad > dim) {
             rad = dim;
         }
-    } else if (!on) {
-        ofEnableAlphaBlending();
-        ofEnableSmoothing();
-        ofFill();
-        ofSetColor(100, 20, 60, 100);
-        ofCircle(xPos, yPos, rad);
-        ofNoFill();
-        ofSetLineWidth(2);
-        ofSetColor(100, 20, 60);
-        ofCircle(xPos, yPos, rad);
-        ofDisableAlphaBlending();
-        ofDisableSmoothing();
-        rad -= 0.006 * ofGetWidth();
-        vol -= 0.05f;
-        somLocal.setVolume(vol);
-        if (rad < 0.) {
-            rad = 0.;
-        }
-        if( vol <0.) {
-            vol = 0.0f;
-            somLocal.stop();
-        }
+    }
+
+    // esta a fazer fadeout
+    else if (!on) {
+
+    	if (!stop) {
+			ofEnableAlphaBlending();
+			ofEnableSmoothing();
+			ofFill();
+			ofSetColor(100, 20, 60, 100);
+			ofCircle(xPos, yPos, rad);
+			ofNoFill();
+			ofSetLineWidth(2);
+			ofSetColor(100, 20, 60);
+			ofCircle(xPos, yPos, rad);
+			ofDisableAlphaBlending();
+			ofDisableSmoothing();
+			rad -= 0.006 * ofGetWidth();
+
+			if (vol > 0.0f) {
+				vol -= 0.05f;
+			}
+
+			somLocal.setVolume(vol);
+			if (rad < 0.) {
+				rad = 0.;
+			}
+
+			if( vol <=0.0f) {
+				vol = 0.0f;
+			}
+
+			if (rad <= 0.0f && vol <= 0.0) {
+				stop = true;
+				somLocal.stop();
+				somLocal.setPosition(0.0f);
+//				somLocal.loadSound("cdm2.mp3");
+				ofLog() << "CARAAAALHO";
+			}
+		}
     }
 }

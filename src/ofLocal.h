@@ -16,7 +16,16 @@ class ofLocal {
 		float xPos, yPos;
 		float xRato, yRato;
 		float dim, rad, vol;
-		bool on, localOn;
+
+		// on = true makes sound play
+		bool on;
+
+		// se está clicavel
+		bool localOn;
+
+		// parar de diminuir vol e rad
+		bool stop;
+
 		string path;
 		ofRectangle bola;
 		ofSoundPlayer somLocal;
