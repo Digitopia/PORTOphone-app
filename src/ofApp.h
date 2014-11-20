@@ -61,6 +61,9 @@ private:
 	ofRectangle lightSwitch;
 	ofRectangle helpSwitch;
 
+	ofSoundPlayer soundSwitchOn;
+	ofSoundPlayer soundSwitchOff;
+
 	static bool isNight;
 	static bool isHelpOn;
 

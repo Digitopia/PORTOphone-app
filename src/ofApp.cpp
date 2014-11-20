@@ -17,6 +17,14 @@ void ofApp::setup() {
     initSpots();
     initImages();
 
+    soundSwitchOn.loadSound("sounds/switch_on.wav");
+    soundSwitchOn.setVolume(0.7);
+    soundSwitchOn.setPosition(0.0);
+
+    soundSwitchOff.loadSound("sounds/switch_off.wav");
+    soundSwitchOff.setVolume(0.7);
+    soundSwitchOff.setPosition(0.0);
+
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
 }
 
@@ -254,6 +262,9 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
         // night -> day
 		if (!isNight) {
+
+			soundSwitchOn.play();
+
             for (unsigned int i = 0; i < locais.size(); i++)
                 locais[i]->loadSound();
             for (unsigned int i = 0; i < bancos.size(); i++)
@@ -262,6 +273,9 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
         // day -> night
         else {
+
+        	soundSwitchOff.play();
+
             for (unsigned int i = 0; i < locais.size(); i++)
                 locais[i]->reset();
             for (unsigned int i = 0; i < bancos.size(); i++)
