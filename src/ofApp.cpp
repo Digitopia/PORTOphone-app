@@ -1,17 +1,127 @@
 #include "ofApp.h"
 
-//--------------------------------------------------------------
+// initialize static member variables (has to be here)
+bool ofApp::isNight = true;
+bool ofApp::isHelpOn = false;
+
 void ofApp::setup() {
 
 	ofLog(OF_LOG_NOTICE);
 
-	ofBackground(127, 127, 127);
+    ofBackground(127, 127, 127); // grey
 
 	ofSetFrameRate(60);
 
-//	ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+	checkDimensions();
 
-	// poe barras de lado em funcao do tamanho do display
+    initSpots();
+    initImages();
+
+	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
+}
+
+void ofApp::initImages() {
+
+	imgDay.loadImage("images/day.jpg");
+	imgHelp.loadImage("images/help.jpg");
+	imgNight.loadImage("images/night.jpg");
+	imgBlack.loadImage("images/black.jpg");
+
+	imgDay.resize(novaDifLargura, ofGetHeight());
+	imgHelp.resize(novaDifLargura, ofGetHeight());
+	imgNight.resize(novaDifLargura, ofGetHeight());
+
+	ofSetRectMode(OF_RECTMODE_CENTER);
+	lightSwitch.set((0.88*novaDifLargura+novoZeroLargura), 0.8275*ofGetHeight(), (0.08*novaDifLargura+novoZeroLargura), 0.2*ofGetHeight());
+	helpSwitch.set((0.92*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.06*novaDifLargura+novoZeroLargura), (0.15*ofGetHeight()));
+    ofSetRectMode(OF_RECTMODE_CORNER);
+
+}
+
+void ofApp::initSpots() {
+
+    vector<string> metros;
+    metros.push_back("sounds/metro_1.mp3");
+    metros.push_back("sounds/metro_2.mp3");
+    metros.push_back("sounds/metro_3.mp3");
+    
+    vector<string> parque_cidades;
+    parque_cidades.push_back("sounds/parque_cidade_1.mp3");
+    parque_cidades.push_back("sounds/parque_cidade_2.mp3");
+    parque_cidades.push_back("sounds/parque_cidade_3.mp3");
+
+    vector<string> serralves;
+    serralves.push_back("sounds/serralves_1.mp3");
+    serralves.push_back("sounds/serralves_2.mp3");
+
+    vector<string> batalhas;
+    batalhas.push_back("sounds/batalha_1.mp3");
+    batalhas.push_back("sounds/batalha_2.mp3");
+    batalhas.push_back("sounds/batalha_3.mp3");
+
+    vector<string> santa_catarinas;
+    santa_catarinas.push_back("sounds/santa_catarina_1.mp3");
+    santa_catarinas.push_back("sounds/santa_catarina_2.mp3");
+    santa_catarinas.push_back("sounds/santa_catarina_3.mp3");
+
+    vector<string> casa_musicas;
+    casa_musicas.push_back("sounds/casa_musica_1.mp3");
+    casa_musicas.push_back("sounds/casa_musica_2.mp3");
+
+    vector<string> bolhaos;
+    bolhaos.push_back("sounds/bolhao_1.mp3");
+    bolhaos.push_back("sounds/bolhao_2.mp3");
+    bolhaos.push_back("sounds/bolhao_3.mp3");
+
+    vector<string> ribeiras;
+    ribeiras.push_back("sounds/ribeira_1.mp3");
+    ribeiras.push_back("sounds/ribeira_2.mp3");
+    ribeiras.push_back("sounds/ribeira_3.mp3");
+
+    locais.push_back(new Local(0.14, 0.19, metros));
+    locais.push_back(new Local(0.27, 0.57, parque_cidades));
+    locais.push_back(new Local(0.43, 0.78, serralves));
+    locais.push_back(new Local(0.80, 0.71, batalhas));
+    locais.push_back(new Local(0.71, 0.33, santa_catarinas));
+    locais.push_back(new Local(0.83, 0.12, casa_musicas));
+    locais.push_back(new Local(0.45, 0.15, bolhaos));
+    locais.push_back(new Local(0.05, 0.86, ribeiras));
+
+    vector<string> bancos_1;
+    bancos_1.push_back("sounds/banco_1.mp3");
+    bancos_1.push_back("sounds/banco_2.mp3");
+    bancos_1.push_back("sounds/banco_3.mp3");
+
+    vector<string> bancos_2;
+    bancos_2.push_back("sounds/banco_4.mp3");
+    bancos_2.push_back("sounds/banco_5.mp3");
+
+    vector<string> bancos_3;
+    bancos_3.push_back("sounds/banco_6.mp3");
+    bancos_3.push_back("sounds/banco_7.mp3");
+
+    vector<string> bancos_4;
+    bancos_4.push_back("sounds/banco_8.mp3");
+    bancos_4.push_back("sounds/banco_9.mp3");
+
+    vector<string> bancos_5;
+	bancos_5.push_back("sounds/banco_10.mp3");
+	bancos_5.push_back("sounds/banco_11.mp3");
+
+	vector<string> bancos_6;
+	bancos_6.push_back("sounds/banco_12.mp3");
+	bancos_6.push_back("sounds/banco_13.mp3");
+
+	bancos.push_back(new Banco(0.45, 0.31, bancos_1)); // por baixo bolhao
+    bancos.push_back(new Banco(0.64, 0.07, bancos_2)); // casa da musica esquerda
+    bancos.push_back(new Banco(0.06, 0.07, bancos_3)); // metro
+    bancos.push_back(new Banco(0.22, 0.83, bancos_4)); // parque da cidade
+    bancos.push_back(new Banco(0.61, 0.86, bancos_5)); // aliados
+    bancos.push_back(new Banco(0.89, 0.30, bancos_6)); // casa da musica baixo
+
+}
+
+void ofApp::checkDimensions() {
 	if (screenRatioIsWeird()) {
 		novoZeroLargura = 0.1 * ofGetWidth();
 		novoMaxLargura = 0.9 * ofGetWidth();
@@ -20,135 +130,50 @@ void ofApp::setup() {
 		novoZeroLargura = 0;
 		novoMaxLargura = ofGetWidth();
 	}
-
 	novaDifLargura = novoMaxLargura - novoZeroLargura;
-
-	//	ofLog() << "novoZeroLargura: " << novoZeroLargura;
-	//	ofLog() << "novoMaxLargura: " << novoMaxLargura;
-	//	ofLog() << "novaDifLargura: " << novaDifLargura;
-
-	nLocais = 8;
-	locais = new ofLocal*[nLocais];
-	allLocais.reserve(nLocais);
-
-	locais[0] = new ofLocal(0.14,    0.19,  0.14, "metro1.mp3"); // metro
-	locais[1] = new ofLocal(0.26625, 0.565, 0.14, "p1.mp3"); 	 // parque da cidade
-	locais[2] = new ofLocal(0.4325,  0.797, 0.14, "ser1.mp3");   // serralves
-	locais[3] = new ofLocal(0.79875, 0.713, 0.14, "bat1.mp3");   // batalha
-	locais[4] = new ofLocal(0.71375, 0.33,  0.14, "s1.mp3"); 	 // santa catarina
-	locais[5] = new ofLocal(0.8325,  0.118, 0.14, "cdm1.mp3");   // casa da musica
-	locais[6] = new ofLocal(0.44885, 0.15,  0.14, "bol1.mp3");	 // bolhao
-	locais[7] = new ofLocal(0.04875, 0.855, 0.14, "r1.mp3"); 	 // ribeira
-
-	nBancos = 6;
-	bancos = new ofBanco*[nBancos];
-	allBancos.reserve(nBancos);
-
-	bancos[0] = new ofBanco(0.4215,  0.2983, 0.12, "b1.mp3");
-	bancos[1] = new ofBanco(0.6055,  0.0583, 0.12, "b2.mp3"); // bolhao-cdm
-	bancos[2] = new ofBanco(0.0220,  0.0517, 0.12, "b3.mp3"); // canto superior esquerdo
-	bancos[3] = new ofBanco(0.18875, 0.8067, 0.12, "b4.mp3");
-	bancos[4] = new ofBanco(0.5825,  0.8617, 0.12, "b5.mp3");
-	bancos[5] = new ofBanco(0.85875, 0.2750, 0.12, "b6.mp3");
-
-	ofLog() << "bancos e locais criados";
-
-	dia.loadImage("images/sonodia.jpg");
-	ajuda.loadImage("images/sonodiaajuda.jpg");
-	noite.loadImage("images/sononoite.jpg");
-	preto.loadImage("images/preto.jpg");
-
-	dia.resize(novaDifLargura, ofGetHeight());
-	ajuda.resize(novaDifLargura, ofGetHeight());
-	noite.resize(novaDifLargura, ofGetHeight());
-
-	ofLog() << "imagens carregadas e redimensionadas";
-
-	night = true;
-	help = false;
-
-	counter = 0;
-
-	for (int i = 0; i < nLocais; i++) {
-		locais[i]->on = false;
-		locais[i]->rad = 0;
-		locais[i]->xRato = 0;
-		locais[i]->localOn = false;
-		locais[i]->yRato = 0;
-	}
-
-	for (int i = 0; i < nBancos; i++) {
-		bancos[i]->on = false;
-		bancos[i]->rad = 0;
-		bancos[i]->xRato = 0;
-		bancos[i]->bancoOn = false;
-		bancos[i]->yRato = 0;
-	}
-
-	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
-
-	ofSetRectMode(OF_RECTMODE_CENTER);
-
-	ligaDesliga.set((0.88*novaDifLargura+novoZeroLargura), 0.8275*ofGetHeight(), (0.08*novaDifLargura+novoZeroLargura), 0.2*ofGetHeight());
-	ajudaDesajuda.set((0.92*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.06*novaDifLargura+novoZeroLargura), (0.15*ofGetHeight()));
-
-    ofSetRectMode(OF_RECTMODE_CORNER);
-
-    ofLog() << "setup terminou";
 }
 
-// TODO: better name
+void ofApp::update() {
+
+}
+
 bool ofApp::screenRatioIsWeird() {
 	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
 }
 
-//--------------------------------------------------------------
-void ofApp::update(){
-	ofSoundUpdate();
-}
-
-//--------------------------------------------------------------
 void ofApp::draw() {
-
-	ofSetHexColor(0xFFFFFF);
+    
+    ofSetHexColor(0xFFFFFF);
 
 	if (screenRatioIsWeird()) {
-		preto.draw(0, 0, novoZeroLargura, ofGetHeight());
-		preto.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
+		imgBlack.draw(0, 0, novoZeroLargura, ofGetHeight());
+		imgBlack.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
 	}
 
-	if (night)
-		 noite.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
-	else if (!help)
-		dia.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+	if (isNight)
+		 imgNight.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+	else if (isHelpOn)
+		imgHelp.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	else
-		ajuda.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		imgDay.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+    
+	if (!isNight && !isHelpOn) {
 
-	if (!night && !help) {
-
-		for (int i = 0; i < nLocais; i++) {
-			locais[i]->localOn = true;
+        for (unsigned int i = 0; i < locais.size(); i++)
 			locais[i]->draw();
-			 // TODO é estranho estar a fazer isto no draw
-		}
-
-
-		for (int i = 0; i < nBancos; i++) {
-			bancos[i]->bancoOn = true;
+		
+        for (unsigned int i = 0; i < bancos.size(); i++)
 			bancos[i]->draw();
-			 //TODO é estranho estar a fazer isto no draw
-		}
 	}
 }
 
-//--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	
+
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){ 
-	
+void ofApp::keyReleased(int key){
+
 }
 
 //--------------------------------------------------------------
@@ -178,11 +203,6 @@ void ofApp::touchDoubleTap(int x, int y, int id){
 
 //--------------------------------------------------------------
 void ofApp::touchCancelled(int x, int y, int id){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::swipe(ofxAndroidSwipeDir swipeDir, int id){
 
 }
 
@@ -223,115 +243,32 @@ void ofApp::cancelPressed(){
 
 void ofApp::imageStatus(ofMouseEventArgs& event) {
 
-	if (ligaDesliga.inside(event.x, event.y)) {
+	ofLog() << "touch";
 
-		night = !night;
+    if (helpSwitch.inside(event.x, event.y))
+        isHelpOn = !isHelpOn;
 
-		// se passa a estar noite
-		if (night) {
+    if (lightSwitch.inside(event.x, event.y)) {
 
-			counter++;
+        isNight = !isNight;
 
-			for (int i = 0; i < nLocais; i++) {
-                locais[i]->on = false;
-                locais[i]->localOn = false;
-                locais[i]->somLocal.stop();
-                locais[i]->somLocal.unloadSound();
-                locais[i]->rad = 0.;
-            }
-
-            for (int i = 0; i < nBancos; i++) {
-                bancos[i]->on = false;
-                bancos[i]->bancoOn = false;
-                bancos[i]->somBanco.stop();
-                bancos[i]->somBanco.unloadSound();
-                bancos[i]->rad = 0.;
-            }
-
-            if (counter != 0) {
-
-            	if ((counter % 3) == 1) {
-
-                    locais[0]->somLocal.loadSound("metro2.mp3"); // metro
-                    locais[1]->somLocal.loadSound("p2.mp3");     // parque da cidade
-                    locais[2]->somLocal.loadSound("ser2.mp3");   // serralves
-                    locais[3]->somLocal.loadSound("bat2.mp3");   // batalha
-                    locais[4]->somLocal.loadSound("s2.mp3");     // santa catarina
-                    locais[5]->somLocal.loadSound("cdm2.mp3");   // casa da musica
-                    locais[6]->somLocal.loadSound("bol2.mp3");   // bolhão
-                    locais[7]->somLocal.loadSound("r2.mp3");     // ribeira
-
-                    bancos[0]->somBanco.loadSound("b7.mp3");
-                    bancos[1]->somBanco.loadSound("b8.mp3");
-                    bancos[2]->somBanco.loadSound("b9.mp3");
-                    bancos[3]->somBanco.loadSound("b10.mp3");
-                    bancos[4]->somBanco.loadSound("b11.mp3");
-                    bancos[5]->somBanco.loadSound("b12.mp3");
-
-                }
-
-                else if ((counter % 3) == 2) {
-
-                    locais[0]->somLocal.loadSound("metro3.mp3"); // metro
-                    locais[1]->somLocal.loadSound("p3.mp3");     // parque da cidade
-                    locais[2]->somLocal.loadSound("ser1.mp3");   // serralves
-                    locais[3]->somLocal.loadSound("bat3.mp3");   // batalha
-                    locais[4]->somLocal.loadSound("s3.mp3");     // santa catarina
-                    locais[5]->somLocal.loadSound("cdm2.mp3");   // casa da musica
-                    locais[6]->somLocal.loadSound("bol3.mp3");   // bolhão
-                    locais[7]->somLocal.loadSound("r3.mp3");     // ribeira
-
-                    bancos[0]->somBanco.loadSound("b13.mp3");
-                    bancos[1]->somBanco.loadSound("b2.mp3");
-                    bancos[2]->somBanco.loadSound("b5.mp3");
-                    bancos[3]->somBanco.loadSound("b7.mp3");
-                    bancos[4]->somBanco.loadSound("b1.mp3");
-                    bancos[5]->somBanco.loadSound("b10.mp3");
-
-                }
-
-                else if ((counter % 3) == 0) {
-
-                    locais[0]->somLocal.loadSound("metro1.mp3"); // metro
-                    locais[1]->somLocal.loadSound("p1.mp3");     // parque da cidade
-                    locais[2]->somLocal.loadSound("ser1.mp3");   // serralves
-                    locais[3]->somLocal.loadSound("bat1.mp3");   // batalha
-                    locais[4]->somLocal.loadSound("s1.mp3");     // santa catarina
-                    locais[5]->somLocal.loadSound("cdm1.mp3");   // casa da musica
-                    locais[6]->somLocal.loadSound("bol1.mp3");   // bolhão
-                    locais[7]->somLocal.loadSound("r1.mp3");     // ribeira
-
-                    bancos[0]->somBanco.loadSound("b1.mp3");
-                    bancos[1]->somBanco.loadSound("b2.mp3");
-                    bancos[2]->somBanco.loadSound("b3.mp3");
-                    bancos[3]->somBanco.loadSound("b4.mp3");
-                    bancos[4]->somBanco.loadSound("b5.mp3");
-                    bancos[5]->somBanco.loadSound("b6.mp3");
-                }
-
-            }
+        // night -> day
+		if (!isNight) {
+            for (unsigned int i = 0; i < locais.size(); i++)
+                locais[i]->loadSound();
+            for (unsigned int i = 0; i < bancos.size(); i++)
+                bancos[i]->loadSound();
         }
 
-//TODO: verificar se o snippet a seguir é redundante
+        // day -> night
+        else {
+            for (unsigned int i = 0; i < locais.size(); i++)
+                locais[i]->reset();
+            for (unsigned int i = 0; i < bancos.size(); i++)
+                bancos[i]->reset();
+        }
+        
+	}
 
-		/*else {
-
-			for (int i = 0; i < nLocais; i++) {
-                locais[i]->on = false;
-                locais[i]->localOn = false;
-                locais[i]->draw();
-            }
-
-			for (int i = 0; i < nBancos; i++) {
-                bancos[i]->on = false;
-                bancos[i]->bancoOn = false;
-                bancos[i]->draw();
-            }
-        }*/
-    }
-
-    if (ajudaDesajuda.inside(event.x, event.y)) {
-        help = !help;
-    }
 }
 

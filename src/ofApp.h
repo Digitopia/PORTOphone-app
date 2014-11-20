@@ -2,78 +2,68 @@
 
 #include "ofMain.h"
 #include "ofxAndroid.h"
-#include "ofxAccelerometer.h"
 
-#include "ofLocal.h"
-#include "ofBanco.h"
+#include "Local.h"
+#include "Banco.h"
 
 class ofApp : public ofxAndroidApp {
-	
-	public:
 
-//		static int getWindowWidth() {
-//			return ofGetWindowHeight();
-//		}
-//
-//		static int getWindowHeight() {
-//			return ofGetWindowWidth();
-//		}
-		
-		static bool screenRatioIsWeird();
+public:
 
-		void setup();
-		void update();
-		void draw();
-		
-		void keyPressed(int key);
-		void keyReleased(int key);
-		void windowResized(int w, int h);
+	// OF stuff
+	void setup();
+	void update();
+	void draw();
+    
+	// android stuff
+	void keyPressed(int key);
+	void keyReleased(int key);
+	void windowResized(int w, int h);
+	void touchDown(int x, int y, int id);
+	void touchMoved(int x, int y, int id);
+	void touchUp(int x, int y, int id);
+	void touchDoubleTap(int x, int y, int id);
+	void touchCancelled(int x, int y, int id);
+	void pause();
+	void stop();
+	void resume();
+	void reloadTextures();
+	bool backPressed();
+	void okPressed();
+	void cancelPressed();
 
-		void touchDown(int x, int y, int id);
-		void touchMoved(int x, int y, int id);
-		void touchUp(int x, int y, int id);
-		void touchDoubleTap(int x, int y, int id);
-		void touchCancelled(int x, int y, int id);
-		void swipe(ofxAndroidSwipeDir swipeDir, int id);
+	// our stuff
+	void initSpots();
+	void initImages();
+	void checkDimensions();
+	void imageStatus(ofMouseEventArgs& event);
+	static bool screenRatioIsWeird();
+    static bool getIsNight() { return isNight; }
+    static bool getIsHelpOn() { return isHelpOn; }
+    
+	// TODO change this, should be static too, and refactor too
+	int novoZeroLargura;
+	int novoMaxLargura;
+	int novaDifLargura;
 
-		void pause();
-		void stop();
-		void resume();
-		void reloadTextures();
+private:
 
-		bool backPressed();
-		void okPressed();
-		void cancelPressed();
+    // TODO why doens't this work with plain objects and only works with references?
+	// TODO change to single array of spots, makes more sense!
+	vector<Local*> locais;
+	vector<Banco*> bancos;
 
-	    void imageStatus(ofMouseEventArgs& event);
+	ofImage imgDay;
+	ofImage imgNight;
+	ofImage imgHelp;
+	ofImage imgBlack;
 
-		ofLocal** locais;   // an array of pointers of type ofLocal
-		int nLocais;
+	ofRectangle lightSwitch;
+	ofRectangle helpSwitch;
 
-		vector<int> allLocais;
+	static bool isNight;
+	static bool isHelpOn;
 
-		ofBanco** bancos;
-		int nBancos;
-
-		vector<int> allBancos;
-
-		int novoZeroLargura;
-		int novoMaxLargura;
-		int novaDifLargura;
-
-		int counter; // para renovar os sons
-
-	private:
-
-	    ofImage dia;
-	    ofImage noite;
-	    ofImage ajuda;
-	    ofImage preto;
-
-	    ofRectangle ligaDesliga, ajudaDesajuda;
-
-	    bool night;
-	    bool help;
-	    int ratoX, ratoY;
-
+	int mouseX;
+	int mouseY;
 };
