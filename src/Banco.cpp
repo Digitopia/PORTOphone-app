@@ -1,8 +1,8 @@
 #include "Banco.h"
 #include "ofApp.h"
 
-const ofColor Banco::blue(10, 20, 160, 100);
-const ofColor Banco::blue_alpha(10, 20, 160);
+const ofColor Banco::blue_light(10, 20, 160, 100);
+const ofColor Banco::blue(10, 20, 160);
 const float Banco::dimPercentage = 0.07;
 
 Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
@@ -22,13 +22,14 @@ void Banco::draw() {
     
 	// fill
 	ofFill();
-	ofSetColor(blue);
+	ofSetColor(blue_light);
 	ofRect(x, y, rad, rad);
 
 	// outline
 	ofNoFill();
-	ofSetLineWidth(2);
-	ofSetColor(blue_alpha);
+	ofSetLineWidth(10);
+	ofSetColor(10, 10, 10);
+	ofSetLineWidth(12);
 	ofRect(x, y, rad, rad);
 
 	// go back to normal definitions
@@ -37,14 +38,15 @@ void Banco::draw() {
 	ofSetRectMode(OF_RECTMODE_CORNER);
 
     // fading in or playing
-	if (playing) {
+	if (playing)
+	{
 		rad += 0.006 * ofGetWidth();
 		if (rad > dim) rad = dim;
 	}
 
     // fading out or not playing
-	else {
-
+	else
+	{
         rad -= 0.006 * ofGetWidth();
         
         if (vol > 0.0f) vol -= 0.05f;
@@ -58,4 +60,5 @@ void Banco::draw() {
             sound.setPosition(0.0f);
         }
 	}
+
 }

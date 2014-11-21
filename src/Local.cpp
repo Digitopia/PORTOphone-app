@@ -1,8 +1,8 @@
 #include "Local.h"
 #include "ofApp.h"
 
-const ofColor Local::red(100, 20, 60, 100);
-const ofColor Local::red_alpha(100, 20, 60);
+const ofColor Local::red_light(100, 20, 60, 100);
+const ofColor Local::red(100, 20, 60);
 const float Local::dimPercentage = 0.15;
 
 Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
@@ -20,13 +20,13 @@ void Local::draw() {
 
     // inside of circle
     ofFill();
-    ofSetColor(red);
+    ofSetColor(red_light);
     ofCircle(x, y, rad);
 
     // circunference of circle
     ofNoFill();
     ofSetLineWidth(2);
-    ofSetColor(red_alpha);
+    ofSetColor(red);
     ofCircle(x, y, rad);
     
     // go back to normal definitions
