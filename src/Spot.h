@@ -14,7 +14,7 @@ public:
     void setPath(string path);
     void loadSound();
     void playSound();
-    void draw();
+    virtual void draw();
     
 protected:
 

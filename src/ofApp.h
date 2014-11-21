@@ -49,9 +49,7 @@ public:
 private:
 
     // TODO why doens't this work with plain objects and only works with references?
-	// TODO change to single array of spots, makes more sense!
-	vector<Local*> locais;
-	vector<Banco*> bancos;
+	vector<Spot*> spots;
 
 	ofImage imgDay;
 	ofImage imgNight;

@@ -86,14 +86,14 @@ void ofApp::initSpots() {
     ribeiras.push_back("sounds/ribeira_2.mp3");
     ribeiras.push_back("sounds/ribeira_3.mp3");
 
-    locais.push_back(new Local(0.14, 0.19, metros));
-    locais.push_back(new Local(0.27, 0.57, parque_cidades));
-    locais.push_back(new Local(0.43, 0.78, serralves));
-    locais.push_back(new Local(0.80, 0.71, batalhas));
-    locais.push_back(new Local(0.71, 0.33, santa_catarinas));
-    locais.push_back(new Local(0.83, 0.12, casa_musicas));
-    locais.push_back(new Local(0.45, 0.15, bolhaos));
-    locais.push_back(new Local(0.05, 0.86, ribeiras));
+    spots.push_back(new Local(0.14, 0.19, metros));
+    spots.push_back(new Local(0.27, 0.57, parque_cidades));
+    spots.push_back(new Local(0.43, 0.78, serralves));
+    spots.push_back(new Local(0.80, 0.71, batalhas));
+    spots.push_back(new Local(0.71, 0.33, santa_catarinas));
+    spots.push_back(new Local(0.83, 0.12, casa_musicas));
+    spots.push_back(new Local(0.45, 0.15, bolhaos));
+    spots.push_back(new Local(0.05, 0.86, ribeiras));
 
     vector<string> bancos_1;
     bancos_1.push_back("sounds/banco_1.mp3");
@@ -120,12 +120,12 @@ void ofApp::initSpots() {
 	bancos_6.push_back("sounds/banco_12.mp3");
 	bancos_6.push_back("sounds/banco_13.mp3");
 
-	bancos.push_back(new Banco(0.45, 0.31, bancos_1)); // por baixo bolhao
-    bancos.push_back(new Banco(0.64, 0.07, bancos_2)); // casa da musica esquerda
-    bancos.push_back(new Banco(0.06, 0.07, bancos_3)); // metro
-    bancos.push_back(new Banco(0.22, 0.83, bancos_4)); // parque da cidade
-    bancos.push_back(new Banco(0.61, 0.86, bancos_5)); // aliados
-    bancos.push_back(new Banco(0.89, 0.30, bancos_6)); // casa da musica baixo
+	spots.push_back(new Banco(0.45, 0.31, bancos_1)); // por baixo bolhao
+    spots.push_back(new Banco(0.64, 0.07, bancos_2)); // casa da musica esquerda
+    spots.push_back(new Banco(0.06, 0.07, bancos_3)); // metro
+    spots.push_back(new Banco(0.22, 0.83, bancos_4)); // parque da cidade
+    spots.push_back(new Banco(0.61, 0.86, bancos_5)); // aliados
+    spots.push_back(new Banco(0.89, 0.30, bancos_6)); // casa da musica baixo
 
 }
 
@@ -166,12 +166,8 @@ void ofApp::draw() {
 		imgDay.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
     
 	if (!isNight && !isHelpOn) {
-
-        for (unsigned int i = 0; i < locais.size(); i++)
-			locais[i]->draw();
-		
-        for (unsigned int i = 0; i < bancos.size(); i++)
-			bancos[i]->draw();
+        for (unsigned int i = 0; i < spots.size(); i++)
+			spots[i]->draw();
 	}
 }
 
@@ -265,10 +261,8 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 			soundSwitchOn.play();
 
-            for (unsigned int i = 0; i < locais.size(); i++)
-                locais[i]->loadSound();
-            for (unsigned int i = 0; i < bancos.size(); i++)
-                bancos[i]->loadSound();
+            for (unsigned int i = 0; i < spots.size(); i++)
+                spots[i]->loadSound();
         }
 
         // day -> night
@@ -276,10 +270,9 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
         	soundSwitchOff.play();
 
-            for (unsigned int i = 0; i < locais.size(); i++)
-                locais[i]->reset();
-            for (unsigned int i = 0; i < bancos.size(); i++)
-                bancos[i]->reset();
+            for (unsigned int i = 0; i < spots.size(); i++)
+                spots[i]->reset();
+
         }
         
 	}
