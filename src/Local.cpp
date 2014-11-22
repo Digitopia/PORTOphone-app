@@ -27,6 +27,7 @@ void Local::draw() {
     ofNoFill();
     ofSetLineWidth(2);
     ofSetColor(red);
+    ofSetCircleResolution(50);
     ofCircle(x, y, rad);
     
     // go back to normal definitions
