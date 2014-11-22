@@ -16,7 +16,6 @@ void Local::draw() {
 //    Spot::draw();
 
     ofEnableAlphaBlending();
-    ofEnableSmoothing();
 
     // inside of circle
     ofFill();
@@ -32,7 +31,6 @@ void Local::draw() {
     
     // go back to normal definitions
     ofDisableAlphaBlending();
-    ofDisableSmoothing();
 
     // fading in or playing
     if (playing) {

@@ -10,8 +10,6 @@ void ofApp::setup() {
 
 	ofLog(OF_LOG_NOTICE);
 
-    ofBackground(127, 127, 127); // grey
-
 	ofSetFrameRate(60);
 
 	checkDimensions();
@@ -36,10 +34,6 @@ void ofApp::initImages() {
 	imgHelp.loadImage("images/help.jpg");
 	imgNight.loadImage("images/night.jpg");
 	imgBlack.loadImage("images/black.jpg");
-
-	imgDay.resize(novaDifLargura, ofGetHeight());
-	imgHelp.resize(novaDifLargura, ofGetHeight());
-	imgNight.resize(novaDifLargura, ofGetHeight());
 
 	ofSetRectMode(OF_RECTMODE_CENTER);
 	lightSwitch.set((0.88*novaDifLargura+novoZeroLargura), 0.8275*ofGetHeight(), (0.08*novaDifLargura+novoZeroLargura), 0.2*ofGetHeight());

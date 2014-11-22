@@ -18,7 +18,6 @@ void Banco::draw() {
 	// rectangles are not centered by default
 	ofSetRectMode(OF_RECTMODE_CENTER);
     ofEnableAlphaBlending();
-    ofEnableSmoothing();
     
 	// fill
 	ofFill();
@@ -34,7 +33,6 @@ void Banco::draw() {
 
 	// go back to normal definitions
 	ofDisableAlphaBlending();
-	ofDisableSmoothing();
 	ofSetRectMode(OF_RECTMODE_CORNER);
 
     // fading in or playing
