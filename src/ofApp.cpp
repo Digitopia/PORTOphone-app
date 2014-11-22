@@ -4,6 +4,8 @@
 bool ofApp::isNight = true;
 bool ofApp::isHelpOn = false;
 
+// TODO: Fix "Couldn't set thread priority" error on osx
+
 void ofApp::setup() {
 
 	ofLog(OF_LOG_NOTICE);
@@ -211,37 +213,40 @@ void ofApp::touchCancelled(int x, int y, int id){
 }
 
 //--------------------------------------------------------------
-void ofApp::pause(){
+void ofApp::pause() {
+	// so that previous active drawings won't appear
+	for (unsigned int i = 0; i < spots.size(); i++) {
+		spots[i]->resetDrawing();
+	}
+}
+
+//--------------------------------------------------------------
+void ofApp::stop() {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::stop(){
+void ofApp::resume() {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::resume(){
+void ofApp::reloadTextures() {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::reloadTextures(){
-
-}
-
-//--------------------------------------------------------------
-bool ofApp::backPressed(){
+bool ofApp::backPressed() {
 	return false;
 }
 
 //--------------------------------------------------------------
-void ofApp::okPressed(){
+void ofApp::okPressed() {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::cancelPressed(){
+void ofApp::cancelPressed() {
 
 }
 

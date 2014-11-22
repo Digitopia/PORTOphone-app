@@ -11,6 +11,7 @@ public:
 
     void mousePressed(ofMouseEventArgs& event);
     void reset();
+    void resetDrawing();
     void setPath(string path);
     void loadSound();
     void playSound();
