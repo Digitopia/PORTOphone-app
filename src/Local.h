@@ -19,8 +19,8 @@ private:
     
 //    ofCircle circleBox;
 
+    const static ofColor red_light;
     const static ofColor red;
-    const static ofColor red_alpha;
     const static float dimPercentage;
 
 };

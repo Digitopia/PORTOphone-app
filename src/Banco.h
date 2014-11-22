@@ -15,8 +15,8 @@ public:
     
 private:
 
+    const static ofColor blue_light;
     const static ofColor blue;
-    const static ofColor blue_alpha;
     const static float dimPercentage;
     
 };
