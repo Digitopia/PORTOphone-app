@@ -35,6 +35,7 @@ public:
 	// our stuff
 	void initSpots();
 	void initImages();
+	void initSoundSwitches();
 	void checkDimensions();
 	void imageStatus(ofMouseEventArgs& event);
 	static bool screenRatioIsWeird();
@@ -54,7 +55,7 @@ private:
 	ofImage imgDay;
 	ofImage imgNight;
 	ofImage imgHelp;
-	ofImage imgBlack;
+	ofImage imgBlack; // TODO: image isn't black as matter of fact. Refactor this and filename.
 
 	ofRectangle lightSwitch;
 	ofRectangle helpSwitch;

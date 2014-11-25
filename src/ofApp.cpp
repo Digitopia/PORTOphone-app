@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+#include <time.h>
+
 // initialize static member variables (has to be here)
 bool ofApp::isNight = true;
 bool ofApp::isHelpOn = false;
@@ -7,6 +9,8 @@ bool ofApp::isHelpOn = false;
 // TODO: Fix "Couldn't set thread priority" error on osx
 
 void ofApp::setup() {
+
+	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 
 	ofLog(OF_LOG_NOTICE);
 
@@ -16,8 +20,18 @@ void ofApp::setup() {
 
     initSpots();
     initImages();
+    initSoundSwitches();
 
-    soundSwitchOn.loadSound("sounds/switch_on.wav");
+	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
+
+	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
+	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
+
+}
+
+void ofApp::initSoundSwitches() {
+
+	soundSwitchOn.loadSound("sounds/switch_on.wav");
     soundSwitchOn.setVolume(0.7);
     soundSwitchOn.setPosition(0.0);
 
@@ -25,15 +39,13 @@ void ofApp::setup() {
     soundSwitchOff.setVolume(0.7);
     soundSwitchOff.setPosition(0.0);
 
-	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
 }
 
 void ofApp::initImages() {
 
-	imgDay.loadImage("images/day.jpg");
-	imgHelp.loadImage("images/help.jpg");
-	imgNight.loadImage("images/night.jpg");
-	imgBlack.loadImage("images/black.jpg");
+	imgDay.loadImage("images/xs_day.jpg");
+	imgHelp.loadImage("images/xs_help.jpg");
+	imgNight.loadImage("images/xs_night.jpg");
 
 	ofSetRectMode(OF_RECTMODE_CENTER);
 	lightSwitch.set((0.88*novaDifLargura+novoZeroLargura), 0.8275*ofGetHeight(), (0.08*novaDifLargura+novoZeroLargura), 0.2*ofGetHeight());
@@ -150,16 +162,29 @@ void ofApp::draw() {
     ofSetHexColor(0xFFFFFF);
 
 	if (screenRatioIsWeird()) {
+		if (!imgBlack.isAllocated()) imgBlack.loadImage("images/xs_black.jpg");
 		imgBlack.draw(0, 0, novoZeroLargura, ofGetHeight());
 		imgBlack.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
 	}
 
 	if (isNight)
-		 imgNight.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+	{
+		if (!imgNight.isAllocated()) imgNight.loadImage("images/xs_night.jpg");
+		imgNight.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+	}
+
 	else if (isHelpOn)
+	{
+		if (!imgHelp.isAllocated()) imgHelp.loadImage("images/xs_help.jpg");
 		imgHelp.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+	}
+
 	else
+	{
+		if (!imgDay.isAllocated()) imgDay.loadImage("images/xs_day.jpg");
 		imgDay.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+	}
+
     
 	if (!isNight && !isHelpOn) {
         for (unsigned int i = 0; i < spots.size(); i++)
