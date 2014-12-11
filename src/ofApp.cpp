@@ -10,11 +10,14 @@ bool ofApp::inSplashScreen = true;
 // TODO: Fix "Couldn't set thread priority" error on osx
 
 void ofApp::setup() {
+	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog(OF_LOG_NOTICE);
 	ofSetFrameRate(60);
 	checkDimensions();
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
 	imgSplashScreen.loadImage("images/logo_landscape.png");
+	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
+	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
 }
 
 void ofApp::setupForApp() {
@@ -28,7 +31,7 @@ void ofApp::setupForApp() {
     initSoundSwitches();
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
-	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
+	ofLog() << "setup for app took " << (timer_end - timer_begin) / 1000.0;
 
 }
 
