@@ -38,6 +38,7 @@ public:
 	void initSoundSwitches();
 	void checkDimensions();
 	void imageStatus(ofMouseEventArgs& event);
+	void setupForApp();
 	static bool screenRatioIsWeird();
     static bool getIsNight() { return isNight; }
     static bool getIsHelpOn() { return isHelpOn; }
@@ -56,6 +57,7 @@ private:
 	ofImage imgNight;
 	ofImage imgHelp;
 	ofImage imgBlack; // TODO: image isn't black as matter of fact. Refactor this and filename.
+	ofImage imgSplashScreen; // TODO: image isn't black as matter of fact. Refactor this and filename.
 
 	ofRectangle lightSwitch;
 	ofRectangle helpSwitch;
@@ -65,6 +67,7 @@ private:
 
 	static bool isNight;
 	static bool isHelpOn;
+	static bool inSplashScreen;
 
 	int mouseX;
 	int mouseY;

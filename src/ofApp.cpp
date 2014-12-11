@@ -5,24 +5,27 @@
 // initialize static member variables (has to be here)
 bool ofApp::isNight = true;
 bool ofApp::isHelpOn = false;
+bool ofApp::inSplashScreen = true;
 
 // TODO: Fix "Couldn't set thread priority" error on osx
 
 void ofApp::setup() {
+	ofLog(OF_LOG_NOTICE);
+	ofSetFrameRate(60);
+	checkDimensions();
+	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
+	imgSplashScreen.loadImage("images/logo_landscape.png");
+}
+
+void ofApp::setupForApp() {
 
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
-
-	ofLog(OF_LOG_NOTICE);
-
-	ofSetFrameRate(60);
 
 	checkDimensions();
 
     initSpots();
     initImages();
     initSoundSwitches();
-
-	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
@@ -154,7 +157,9 @@ void ofApp::update() {
 }
 
 bool ofApp::screenRatioIsWeird() {
-	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
+//	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
+//	TODO
+	return false;
 }
 
 void ofApp::draw() {
@@ -165,6 +170,11 @@ void ofApp::draw() {
 		if (!imgBlack.isAllocated()) imgBlack.loadImage("images/xs_black.jpg");
 		imgBlack.draw(0, 0, novoZeroLargura, ofGetHeight());
 		imgBlack.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
+	}
+
+	if (inSplashScreen) {
+		imgSplashScreen.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		return;
 	}
 
 	if (isNight)
@@ -272,6 +282,12 @@ void ofApp::cancelPressed() {
 void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 	ofLog() << "touch";
+
+	if (inSplashScreen) {
+		inSplashScreen = false;
+		setupForApp();
+		return;
+	}
 
     if (helpSwitch.inside(event.x, event.y))
         isHelpOn = !isHelpOn;
