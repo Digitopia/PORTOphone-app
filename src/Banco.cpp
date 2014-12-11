@@ -26,9 +26,8 @@ void Banco::draw() {
 
 	// outline
 	ofNoFill();
-	ofSetLineWidth(10);
+	ofSetLineWidth(2);
 	ofSetColor(10, 10, 10);
-	ofSetLineWidth(12);
 	ofRect(x, y, rad, rad);
 
 	// go back to normal definitions
