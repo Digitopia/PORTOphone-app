@@ -158,9 +158,9 @@ void ofApp::update() {
 }
 
 bool ofApp::screenRatioIsWeird() {
-	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
+//	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
 //	TODO
-//	return false;
+	return false;
 }
 
 void ofApp::draw() {
