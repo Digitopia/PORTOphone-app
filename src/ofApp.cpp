@@ -53,8 +53,8 @@ void ofApp::initImages() {
 	imgHelp.loadImage("images/xs_help.jpg");
 	imgNight.loadImage("images/xs_night.jpg");
 
-    helpSwitch.set((0.895*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.055*novaDifLargura+novoZeroLargura), (0.13*ofGetHeight()));
-    lightSwitch.set((0.90*novaDifLargura+novoZeroLargura), 0.81*ofGetHeight(), (0.07*novaDifLargura+novoZeroLargura), 0.14*ofGetHeight());
+    helpSwitch.set((0.895*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.055*novaDifLargura), (0.13*ofGetHeight()));
+    lightSwitch.set((0.90*novaDifLargura+novoZeroLargura), 0.81*ofGetHeight(), (0.07*novaDifLargura), 0.14*ofGetHeight());
 
 }
 
@@ -158,9 +158,9 @@ void ofApp::update() {
 }
 
 bool ofApp::screenRatioIsWeird() {
-//	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
+	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
 //	TODO
-	return false;
+//	return false;
 }
 
 void ofApp::draw() {
