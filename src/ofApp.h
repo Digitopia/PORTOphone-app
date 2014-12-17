@@ -50,14 +50,13 @@ public:
 
 private:
 
-    // TODO why doens't this work with plain objects and only works with references?
 	vector<Spot*> spots;
 
 	ofImage imgDay;
 	ofImage imgNight;
 	ofImage imgHelp;
-	ofImage imgBlack; // TODO: image isn't black as matter of fact. Refactor this and filename.
-	ofImage imgSplashScreen; // TODO: image isn't black as matter of fact. Refactor this and filename.
+	ofImage imgBlackBar;
+	ofImage imgSplashScreen;
 
 	ofRectangle lightSwitch;
 	ofRectangle helpSwitch;

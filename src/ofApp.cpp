@@ -168,9 +168,9 @@ void ofApp::draw() {
     ofSetHexColor(0xFFFFFF);
 
 	if (screenRatioIsWeird()) {
-		if (!imgBlack.isAllocated()) imgBlack.loadImage("images/xs_black.jpg");
-		imgBlack.draw(0, 0, novoZeroLargura, ofGetHeight());
-		imgBlack.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
+		if (!imgBlackBar.isAllocated()) imgBlackBar.loadImage("images/xs_black_bar.jpg");
+		imgBlackBar.draw(0, 0, novoZeroLargura, ofGetHeight());
+		imgBlackBar.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
 	}
 
 	if (inSplashScreen) {
