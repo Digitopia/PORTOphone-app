@@ -45,6 +45,10 @@ void ofApp::initSoundSwitches() {
     soundSwitchOff.setVolume(0.7);
     soundSwitchOff.setPosition(0.0);
 
+    soundHelpSwitch.loadSound("sounds/help.wav");
+	soundHelpSwitch.setVolume(0.7);
+	soundHelpSwitch.setPosition(0.0);
+
 }
 
 void ofApp::initImages() {
@@ -290,8 +294,10 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 		return;
 	}
 
-    if (helpSwitch.inside(event.x, event.y))
-        isHelpOn = !isHelpOn;
+    if (helpSwitch.inside(event.x, event.y)) {
+    	isHelpOn = !isHelpOn;
+    	soundHelpSwitch.play();
+    }
 
     if (lightSwitch.inside(event.x, event.y)) {
 

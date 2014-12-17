@@ -63,6 +63,7 @@ private:
 
 	ofSoundPlayer soundSwitchOn;
 	ofSoundPlayer soundSwitchOff;
+	ofSoundPlayer soundHelpSwitch;
 
 	static bool isNight;
 	static bool isHelpOn;
