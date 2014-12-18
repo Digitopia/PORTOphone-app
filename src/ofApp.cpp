@@ -11,7 +11,7 @@ void ofApp::setup() {
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog(OF_LOG_NOTICE);
 	ofSetFrameRate(60);
-	checkDimensions();
+	checkDimensions(ofGetWidth());
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
 	imgSplashScreen.loadImage("images/logo_landscape.png");
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
@@ -22,7 +22,7 @@ void ofApp::setupForApp() {
 
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 
-	checkDimensions();
+	checkDimensions(ofGetWidth());
 
     initSpots();
     initImages();
@@ -140,14 +140,14 @@ void ofApp::initSpots() {
 
 }
 
-void ofApp::checkDimensions() {
+void ofApp::checkDimensions(int width) {
 	if (screenRatioIsWeird()) {
-		novoZeroLargura = 0.1 * ofGetWidth();
-		novoMaxLargura = 0.9 * ofGetWidth();
+		novoZeroLargura = 0.1 * width;
+		novoMaxLargura = 0.9 * width;
 	}
 	else {
 		novoZeroLargura = 0;
-		novoMaxLargura = ofGetWidth();
+		novoMaxLargura = width;
 	}
 	novaDifLargura = novoMaxLargura - novoZeroLargura;
 }
@@ -216,8 +216,8 @@ void ofApp::keyReleased(int key){
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
+void ofApp::windowResized(int w, int h) {
+	checkDimensions(w);
 }
 
 //--------------------------------------------------------------

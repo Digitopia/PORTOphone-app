@@ -36,7 +36,7 @@ public:
 	void initSpots();
 	void initImages();
 	void initSoundSwitches();
-	void checkDimensions();
+	void checkDimensions(int width);
 	void imageStatus(ofMouseEventArgs& event);
 	void setupForApp();
 	static bool screenRatioIsWeird();
