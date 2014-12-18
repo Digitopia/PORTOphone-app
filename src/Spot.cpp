@@ -22,8 +22,6 @@ Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
 
 void Spot::mousePressed(ofMouseEventArgs& event) {
     
-//    ofSetRectMode(OF_RECTMODE_CENTER);
-    
     if (!ofApp::getIsNight() && !ofApp::getIsHelpOn() && boundingBox.inside(event.x, event.y)) {
 
 		ofLog() << "click on spot " << paths[ipath];
@@ -34,13 +32,10 @@ void Spot::mousePressed(ofMouseEventArgs& event) {
 		playing = !playing;
 	}
     
-//    ofSetRectMode(OF_RECTMODE_CORNER);
 }
 
 void Spot::playSound() {
-    vol = 0.7f;
-    sound.setVolume(vol);
-    sound.setPosition(0.0f);
+    sound.setVolume(0.7);
     sound.play();
     ofLog() << "playing " << paths[ipath];
 }

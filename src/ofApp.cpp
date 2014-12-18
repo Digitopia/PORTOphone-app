@@ -1,7 +1,5 @@
 #include "ofApp.h"
 
-#include <time.h>
-
 // initialize static member variables (has to be here)
 bool ofApp::isNight = true;
 bool ofApp::isHelpOn = false;
@@ -38,16 +36,13 @@ void ofApp::setupForApp() {
 void ofApp::initSoundSwitches() {
 
 	soundSwitchOn.loadSound("sounds/switch_on.wav");
-    soundSwitchOn.setVolume(0.7);
-    soundSwitchOn.setPosition(0.0);
+    soundSwitchOn.setVolume(0.5);
 
     soundSwitchOff.loadSound("sounds/switch_off.wav");
-    soundSwitchOff.setVolume(0.7);
-    soundSwitchOff.setPosition(0.0);
+    soundSwitchOff.setVolume(0.5);
 
     soundHelpSwitch.loadSound("sounds/help.wav");
-	soundHelpSwitch.setVolume(0.7);
-	soundHelpSwitch.setPosition(0.0);
+	soundHelpSwitch.setVolume(0.5);
 
 }
 
@@ -65,7 +60,7 @@ void ofApp::initImages() {
 void ofApp::initSpots() {
 
     vector<string> metros;
-    metros.push_back("sounds/metro_1.mp3");
+	metros.push_back("sounds/metro_1.mp3");
     metros.push_back("sounds/metro_2.mp3");
     metros.push_back("sounds/metro_3.mp3");
     
