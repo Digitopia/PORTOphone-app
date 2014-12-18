@@ -153,7 +153,11 @@ void ofApp::checkDimensions() {
 }
 
 void ofApp::update() {
-
+	if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
+		inSplashScreen = false;
+		setupForApp();
+		return;
+	}
 }
 
 bool ofApp::screenRatioIsWeird() {
