@@ -53,8 +53,8 @@ void Banco::draw() {
         sound.setVolume(vol);
         
         if (rad <= 0.0f && vol <= 0.0) {
-            sound.stop();
-            sound.setPosition(0.0f);
+            sound.setPaused(true);
+            sound.setPosition(0.0);
         }
 	}
 

@@ -45,7 +45,6 @@ void Spot::reset() {
 	this->clickable = false;
 	this->sound.stop();
     this->rad = 0;
-    this->dim = 0;
 	this->sound.unloadSound();
 }
 
