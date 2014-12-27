@@ -68,7 +68,9 @@ private:
 	static bool isNight;
 	static bool isHelpOn;
 	static bool inSplashScreen;
+	static bool setupForAppFinished;
 
+	// TODO: these are not really being used correct?
 	int mouseX;
 	int mouseY;
 };

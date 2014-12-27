@@ -5,11 +5,9 @@ Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
     this->paths = paths;
 	this->clickable = false;
 	this->playing = false;
-    this->sound.setLoop(true);
-    this->ipath = -1;
+    this->isound = -1;
     this->rad = 0.;
     this->y = yPercentage * ofGetHeight();
-    this->vol = 0.7;
     
     if (ofApp::screenRatioIsWeird())
         this->x = xPercentage * 0.8 * ofGetWidth() + 0.1 * ofGetWidth();
@@ -24,7 +22,7 @@ void Spot::mousePressed(ofMouseEventArgs& event) {
     
     if (!ofApp::getIsNight() && !ofApp::getIsHelpOn() && boundingBox.inside(event.x, event.y)) {
 
-		ofLog() << "click on spot " << paths[ipath];
+		ofLog() << "click on spot " << paths[isound];
 
 		if (!playing) {
             playSound();
@@ -35,19 +33,21 @@ void Spot::mousePressed(ofMouseEventArgs& event) {
 }
 
 void Spot::playSound() {
-    sound.setVolume(0.7);
-    sound.play();
-    ofLog() << "playing " << paths[ipath];
+    ofLog() << isound;
+    sound->setVolume(0.7);
+    sound->play();
+    ofLog() << "playing " << paths[isound];
 }
 
+// TODO: there should be a comment here saying when this method is called
 void Spot::reset() {
 	this->playing = false;
 	this->clickable = false;
-	this->sound.stop();
     this->rad = 0;
-	this->sound.unloadSound();
+    this->sound->setPaused(true);
 }
 
+// TODO: the same here
 void Spot::resetDrawing() {
 	this->playing = false;
 	this->rad = 0;
@@ -68,22 +68,23 @@ void Spot::draw() {
     
 }
 
+ofSoundPlayer* Spot::loadSound(string path) {
+    ofSoundPlayer* s = new ofSoundPlayer;
+    s->loadSound(path);
+    s->setLoop(true);
+    return s;
+}
 
-// whenever this is called, loads the next sound in the paths vector
-void Spot::loadSound() {
-    
-    // first time
-    if (ipath == -1) {
-        ipath = 0;
-    }
-    // other times
-    else {
-        ipath++;
-        ipath = ipath % paths.size();
-    }
-    
-    sound.loadSound(paths[ipath]);
-    
-    ofLog() << "loaded sound " << paths[ipath];
-    
+void Spot::loadSounds() {
+	for (unsigned int i = 0; i < paths.size(); i++) {
+        sounds.push_back(loadSound(paths[i]));
+        isound = (isound + 1) % paths.size();
+	}
+	// the active sound is the first path
+    sound = sounds[0];
+}
+
+void Spot::activateNextSound() {
+	isound = (isound + 1) % paths.size();
+	sound = sounds[isound];
 }

@@ -3,17 +3,26 @@
 // initialize static member variables (has to be here)
 bool ofApp::isNight = true;
 bool ofApp::isHelpOn = false;
-bool ofApp::inSplashScreen = true;
+bool ofApp::inSplashScreen = false;
+bool ofApp::setupForAppFinished = false;
 
 // TODO: Fix "Couldn't set thread priority" error on osx
+// TODO: check if it compiles with C++11 (look at the fancy for, for example)
+// TODO: resuming app takes a long time in black screen, should be different
+// TODO: should clear objects and memory when leaving application, right?
+// TODO: probably don't need so high framerate right?
 
 void ofApp::setup() {
+
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
+
 	ofLog(OF_LOG_NOTICE);
 	ofSetFrameRate(60);
+
 	checkDimensions(ofGetWidth());
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
 	imgSplashScreen.loadImage("images/logo_landscape.png");
+
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
 }
@@ -28,8 +37,16 @@ void ofApp::setupForApp() {
     initImages();
     initSoundSwitches();
 
+	// load all sounds for each spot
+    for (unsigned int i = 0; i < spots.size(); i++) {
+        ofLog() << "loading spot " << i;
+    	spots[i]->loadSounds();
+    }
+
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup for app took " << (timer_end - timer_begin) / 1000.0;
+
+	setupForAppFinished = true;
 
 }
 
@@ -153,11 +170,19 @@ void ofApp::checkDimensions(int width) {
 }
 
 void ofApp::update() {
-	if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
-		inSplashScreen = false;
+
+	// version with timeout
+//	if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
+//		inSplashScreen = false;
+//		setupForApp();
+//		return;
+//	}
+
+	if (inSplashScreen && !setupForAppFinished) {
+		ofLog() << "here";
 		setupForApp();
-		return;
 	}
+
 }
 
 bool ofApp::screenRatioIsWeird() {
@@ -176,8 +201,10 @@ void ofApp::draw() {
 		imgBlackBar.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
 	}
 
-	if (inSplashScreen) {
+	// this will only run once
+	if (!setupForAppFinished) {
 		imgSplashScreen.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		inSplashScreen = true;
 		return;
 	}
 
@@ -287,9 +314,8 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 	ofLog() << "touch";
 
-	if (inSplashScreen) {
-		inSplashScreen = false;
-		setupForApp();
+	// while app is not ready, ignore all touches
+	if (!setupForAppFinished) {
 		return;
 	}
 
@@ -308,7 +334,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 			soundSwitchOn.play();
 
             for (unsigned int i = 0; i < spots.size(); i++)
-                spots[i]->loadSound();
+                spots[i]->activateNextSound();
         }
 
         // day -> night
