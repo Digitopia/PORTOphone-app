@@ -319,7 +319,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 		return;
 	}
 
-    if (helpSwitch.inside(event.x, event.y)) {
+    if (helpSwitch.inside(event.x, event.y) && !isNight) {
     	isHelpOn = !isHelpOn;
     	soundHelpSwitch.play();
     }
