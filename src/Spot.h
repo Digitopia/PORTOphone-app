@@ -7,39 +7,39 @@ class Spot {
 
 public:
 
-    Spot(float xPercentage, float yPercentage, vector<string> paths);
+	Spot(float xPercentage, float yPercentage, vector<string> paths);
 
-    void mousePressed(ofMouseEventArgs& event);
-    void reset();
-    void resetDrawing();
-    void setPath(string path);
-    ofSoundPlayer* loadSound(string path);
-    void playSound();
-    virtual void draw();
-    void loadSounds();
-    void activateNextSound();
-    
+	void mousePressed(ofMouseEventArgs& event);
+	void reset();
+	void resetDrawing();
+	void setPath(string path);
+	ofSoundPlayer* loadSound(string path);
+	void playSound();
+	virtual void draw();
+	void loadSounds();
+	void activateNextSound();
+
 protected:
 
-    float x;
-    float y;
+	float x;
+	float y;
 
-    float rad;
-    float vol;
-    float dim;
+	float rad;
+	float vol;
+	float dim;
 
-    bool clickable;
-    bool playing;
+	bool clickable;
+	bool playing;
 
-    ofRectangle boundingBox;
+	ofRectangle boundingBox;
 
-    vector<ofSoundPlayer*> sounds;
-    ofSoundPlayer* sound;
+	vector<ofSoundPlayer*> sounds;
+	ofSoundPlayer* sound;
 
-    vector<string> paths;
+	vector<string> paths;
 
-    unsigned int isound;
-    
+	unsigned int isound;
+
 };
 
 #endif

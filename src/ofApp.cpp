@@ -170,11 +170,11 @@ void ofApp::checkDimensions(int width) {
 void ofApp::update() {
 
 	// version with timeout
-//	if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
-//		inSplashScreen = false;
-//		setupForApp();
-//		return;
-//	}
+//  if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
+//      inSplashScreen = false;
+//      setupForApp();
+//      return;
+//  }
 
 	if (inSplashScreen && !setupForAppFinished) {
 		ofLog() << "here";
@@ -184,8 +184,8 @@ void ofApp::update() {
 }
 
 bool ofApp::screenRatioIsWeird() {
-//	return (ofGetWidth() * 10 / ofGetHeight()) > 16;
-//	TODO
+//  return (ofGetWidth() * 10 / ofGetHeight()) > 16;
+//  TODO
 	return false;
 }
 

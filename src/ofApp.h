@@ -14,7 +14,7 @@ public:
 	void setup();
 	void update();
 	void draw();
-    
+
 	// android stuff
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -40,9 +40,9 @@ public:
 	void imageStatus(ofMouseEventArgs& event);
 	void setupForApp();
 	static bool screenRatioIsWeird();
-    static bool getIsNight() { return isNight; }
-    static bool getIsHelpOn() { return isHelpOn; }
-    
+	static bool getIsNight() { return isNight; }
+	static bool getIsHelpOn() { return isHelpOn; }
+
 	// TODO change this, should be static too, and refactor too
 	int novoZeroLargura;
 	int novoMaxLargura;

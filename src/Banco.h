@@ -8,17 +8,17 @@ class Banco : public Spot {
 
 public:
 
-    Banco(float xPercentage, float yPercentage, vector<string> paths);
+	Banco(float xPercentage, float yPercentage, vector<string> paths);
 
-    void draw();
-    void mousePressed(ofMouseEventArgs& event);
-    
+	void draw();
+	void mousePressed(ofMouseEventArgs& event);
+
 private:
 
-    const static ofColor blue_light;
-    const static ofColor blue;
-    const static float dimPercentage;
-    
+	const static ofColor blue_light;
+	const static ofColor blue;
+	const static float dimPercentage;
+
 };
 
 #endif
