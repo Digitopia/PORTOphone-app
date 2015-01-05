@@ -1,7 +1,7 @@
 #include "ofMain.h"
 #include "ofApp.h"
 
-int main(){
+int main() {
 
 	ofSetupOpenGL(1024,768, OF_WINDOW);			// <-------- setup the GL context
 
@@ -17,8 +17,8 @@ int main(){
 #include <jni.h>
 
 //========================================================================
-extern "C"{
-	void Java_cc_openframeworks_OFAndroid_init( JNIEnv*  env, jobject  thiz ){
+extern "C" {
+	void Java_cc_openframeworks_OFAndroid_init( JNIEnv*  env, jobject  thiz ) {
 		main();
 	}
 }

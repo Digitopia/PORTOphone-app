@@ -13,7 +13,7 @@ Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(
 
 void Local::draw() {
 
-//    Spot::draw();
+	//    Spot::draw();
 
 	ofEnableAlphaBlending();
 

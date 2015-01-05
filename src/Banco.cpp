@@ -13,7 +13,7 @@ Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(
 
 void Banco::draw() {
 
-//    Spot::draw();
+	//    Spot::draw();
 
 	// rectangles are not centered by default
 	ofSetRectMode(OF_RECTMODE_CENTER);
@@ -35,15 +35,13 @@ void Banco::draw() {
 	ofSetRectMode(OF_RECTMODE_CORNER);
 
 	// fading in or playing
-	if (playing)
-	{
+	if (playing) {
 		rad += 0.006 * ofGetWidth();
 		if (rad > dim) rad = dim;
 	}
 
 	// fading out or not playing
-	else
-	{
+	else {
 		rad -= 0.006 * ofGetWidth();
 
 		if (vol > 0.0f) vol -= 0.05f;

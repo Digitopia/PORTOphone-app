@@ -170,11 +170,11 @@ void ofApp::checkDimensions(int width) {
 void ofApp::update() {
 
 	// version with timeout
-//  if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
-//      inSplashScreen = false;
-//      setupForApp();
-//      return;
-//  }
+	//  if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
+	//      inSplashScreen = false;
+	//      setupForApp();
+	//      return;
+	//  }
 
 	if (inSplashScreen && !setupForAppFinished) {
 		ofLog() << "here";
@@ -184,8 +184,8 @@ void ofApp::update() {
 }
 
 bool ofApp::screenRatioIsWeird() {
-//  return (ofGetWidth() * 10 / ofGetHeight()) > 16;
-//  TODO
+	//  return (ofGetWidth() * 10 / ofGetHeight()) > 16;
+	//  TODO
 	return false;
 }
 
@@ -206,20 +206,17 @@ void ofApp::draw() {
 		return;
 	}
 
-	if (isNight)
-	{
+	if (isNight) {
 		if (!imgNight.isAllocated()) imgNight.loadImage("images/xs_night.jpg");
 		imgNight.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	}
 
-	else if (isHelpOn)
-	{
+	else if (isHelpOn) {
 		if (!imgHelp.isAllocated()) imgHelp.loadImage("images/xs_help.jpg");
 		imgHelp.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	}
 
-	else
-	{
+	else {
 		if (!imgDay.isAllocated()) imgDay.loadImage("images/xs_day.jpg");
 		imgDay.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	}
@@ -231,12 +228,12 @@ void ofApp::draw() {
 	}
 }
 
-void ofApp::keyPressed(int key){
+void ofApp::keyPressed(int key) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
+void ofApp::keyReleased(int key) {
 
 }
 
@@ -246,27 +243,27 @@ void ofApp::windowResized(int w, int h) {
 }
 
 //--------------------------------------------------------------
-void ofApp::touchDown(int x, int y, int id){
+void ofApp::touchDown(int x, int y, int id) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::touchMoved(int x, int y, int id){
+void ofApp::touchMoved(int x, int y, int id) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::touchUp(int x, int y, int id){
+void ofApp::touchUp(int x, int y, int id) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::touchDoubleTap(int x, int y, int id){
+void ofApp::touchDoubleTap(int x, int y, int id) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::touchCancelled(int x, int y, int id){
+void ofApp::touchCancelled(int x, int y, int id) {
 
 }
 
