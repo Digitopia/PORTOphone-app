@@ -39,7 +39,7 @@ void Spot::playSound() {
 	ofLog() << "playing " << paths[isound];
 }
 
-// TODO: there should be a comment here saying when this method is called
+// this is called when switching off the lights
 void Spot::reset() {
 	this->playing = false;
 	this->clickable = false;
@@ -47,7 +47,7 @@ void Spot::reset() {
 	this->sound->setPaused(true);
 }
 
-// TODO: the same here
+// this is called when reentering the application
 void Spot::resetDrawing() {
 	this->playing = false;
 	this->rad = 0;
