@@ -16,19 +16,21 @@ cd ..
 cd sounds
 ln -sf ../../../../data/sounds/* .
 
+cd ../../../../
+
 
 # OSX
 
-# cd PORTOphone_osx/src
-# ln -sf ../../src/* .
-# cd ..
+cd PORTOphone_osx/src
+ln -sf ../../src/* .
+cd ..
 
-# cd bin/data/
+cd bin/data/
 
-# cd images
-# ln -sf ../../../../data/images/* .
+cd images
+ln -sf ../../../../data/images/* .
 
-# cd ..
+cd ..
 
-# cd sounds
-# ln -sf ../../../../data/sounds/* .
+cd sounds
+ln -sf ../../../../data/sounds/* .
