@@ -1,12 +1,19 @@
 #pragma once
 
 #include "ofMain.h"
+
+#ifdef TARGET_ANDROID
 #include "ofxAndroid.h"
+#endif
 
 #include "Local.h"
 #include "Banco.h"
 
+#ifdef TARGET_ANDROID
 class ofApp : public ofxAndroidApp {
+#else
+class ofApp : public ofBaseApp {
+#endif
 
 public:
 
