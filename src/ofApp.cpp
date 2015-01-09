@@ -11,6 +11,10 @@ bool ofApp::setupForAppFinished = false;
 // TODO: shouldn't I add the license at the top of the file for every source
 
 void ofApp::setup() {
+    
+    #ifdef TARGET_OF_IOS
+    ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+    #endif
 
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 
@@ -23,6 +27,9 @@ void ofApp::setup() {
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
+    
+    ofLog() << "width is " << ofGetWidth();
+    ofLog() << "height is " << ofGetHeight();
 }
 
 void ofApp::setupForApp() {
@@ -169,12 +176,12 @@ void ofApp::checkDimensions(int width) {
 
 void ofApp::update() {
 
-	// version with timeout
-	//  if (inSplashScreen && ofGetElapsedTimeMillis() > 2.0 * 1000) {
-	//      inSplashScreen = false;
-	//      setupForApp();
-	//      return;
-	//  }
+//	 version with timeout
+//	  if (inSplashScreen && ofGetElapsedTimeMillis() > 5.0 * 1000) {
+//	      inSplashScreen = false;
+////	      setupForApp();
+//	      return;
+//	  }
 
 	if (inSplashScreen && !setupForAppFinished) {
 		ofLog() << "here";

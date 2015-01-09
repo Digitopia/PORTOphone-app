@@ -1,2 +1,6 @@
 *.apk
 *.app
+
+# TODO
+PORTOphone_ios/PORTOphone_ios.xcodeproj/project.xcworkspace/xcuserdata/
+PORTOphone_osx/PORTOphone_osx.xcodeproj/project.xcworkspace/xcuserdata/

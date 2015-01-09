@@ -3,20 +3,23 @@
 
 int main() {
 
-	ofSetupOpenGL(1024,768, OF_WINDOW);			// <-------- setup the GL context
+    #ifdef TARGET_OF_IOS
+        ofAppiOSWindow * window = new ofAppiOSWindow();
+        window->enableRetina();
+        window->enableHardwareOrientation();
+        window->enableOrientationAnimation();
+        ofSetupOpenGL(window, 1024, 768, OF_WINDOW);
+    #else
+        ofSetupOpenGL(1024, 768, OF_WINDOW);
+    #endif
 
-	// this kicks off the running of my app
-	// can be OF_WINDOW or OF_FULLSCREEN
-	// pass in width and height too:
-	ofRunApp( new ofApp() );
+	ofRunApp(new ofApp());
 	return 0;
 }
 
 
 #ifdef TARGET_ANDROID
 #include <jni.h>
-
-//========================================================================
 extern "C" {
 	void Java_cc_openframeworks_OFAndroid_init( JNIEnv*  env, jobject  thiz ) {
 		main();
