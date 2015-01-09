@@ -2,30 +2,48 @@
 
 # ANDROID
 
-cd PORTOphone_android/src
-ln -sf ../../src/* .
-cd ..
+# cd PORTOphone_android/src
+# ln -sf ../../src/* .
+# cd ..
 
-cd bin/data/
+# cd bin/data/
 
-cd images
-ln -sf ../../../../data/images/* .
+# cd images
+# ln -sf ../../../../data/images/* .
 
-cd ..
+# cd ..
 
-cd sounds
-ln -sf ../../../../data/sounds/* .
+# cd sounds
+# ln -sf ../../../../data/sounds/* .
 
-cd ../../../../
+# cd ../../../../
 
 
 # OSX
 
-cd PORTOphone_osx/src
+# cd PORTOphone_osx/src
+# ln -sf ../../src/* .
+# cd ..
+
+# cd bin/data/
+
+# cd images
+# ln -sf ../../../../data/images/* .
+
+# cd ..
+
+# cd sounds
+# ln -sf ../../../../data/sounds/* .
+
+# OSX
+
+cd PORTOphone_ios/src
 ln -sf ../../src/* .
 cd ..
 
 cd bin/data/
+mkdir -p images
+mkdir -p sounds
 
 cd images
 ln -sf ../../../../data/images/* .
