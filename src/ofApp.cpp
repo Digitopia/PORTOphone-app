@@ -8,7 +8,6 @@ bool ofApp::setupForAppFinished = false;
 // TODO: Fix "Couldn't set thread priority" error on osx
 // TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
-// TODO: shouldn't I add the license at the top of the file for every source
 
 void ofApp::setup() {
     
