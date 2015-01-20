@@ -8,6 +8,7 @@ bool ofApp::setupForAppFinished = false;
 // TODO: Fix "Couldn't set thread priority" error on osx
 // TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
+// TODO: could look into automated travis build, of repo has .travis configuration file
 
 void ofApp::setup() {
     
@@ -234,82 +235,6 @@ void ofApp::draw() {
 	}
 }
 
-void ofApp::keyPressed(int key) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {
-	checkDimensions(w);
-}
-
-//--------------------------------------------------------------
-void ofApp::touchDown(int x, int y, int id) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::touchMoved(int x, int y, int id) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::touchUp(int x, int y, int id) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::touchDoubleTap(int x, int y, int id) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::touchCancelled(int x, int y, int id) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::pause() {
-	// so that previous active drawings won't appear
-	for (unsigned int i = 0; i < spots.size(); i++) {
-		spots[i]->resetDrawing();
-	}
-}
-
-//--------------------------------------------------------------
-void ofApp::stop() {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::resume() {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::reloadTextures() {
-
-}
-
-//--------------------------------------------------------------
-bool ofApp::backPressed() {
-	return false;
-}
-
-//--------------------------------------------------------------
-void ofApp::okPressed() {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::cancelPressed() {
-
-}
 
 void ofApp::imageStatus(ofMouseEventArgs& event) {
 
@@ -352,3 +277,165 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 }
 
+/*===========================================
+=               Android & OSX               =
+===========================================*/
+
+#if defined(TARGET_ANDROID) || defined(TARGET_OSX)
+
+	void ofApp::keyPressed(int key) {
+
+	}
+
+	void ofApp::keyReleased(int key) {
+
+	}
+
+	void ofApp::windowResized(int w, int h) {
+		checkDimensions(w);
+	}
+
+#endif
+
+/*=========================================
+=                 Android                 =
+=========================================*/
+
+#ifdef TARGET_ANDROID
+
+    void ofApp::pause() {
+		// so that previous active drawings won't appear
+		for (unsigned int i = 0; i < spots.size(); i++) {
+			spots[i]->resetDrawing();
+		}
+    }
+
+    void ofApp::stop() {
+
+    }
+
+    void ofApp::resume() {
+
+    }
+
+    void ofApp::reloadTextures() {
+
+    }
+    
+    bool ofApp::backPressed() {
+    	return false;
+    }
+
+    void ofApp::okPressed() {
+
+    }
+
+    void ofApp::cancelPressed() {
+
+    }
+  
+    void ofApp::touchDown(int x, int y, int id) {
+
+    }
+
+    void ofApp::touchMoved(int x, int y, int id) {
+
+    }
+
+    void ofApp::touchUp(int x, int y, int id) {
+
+    }
+
+    void ofApp::touchDoubleTap(int x, int y, int id) {
+
+    }
+
+    void ofApp::touchCancelled(int x, int y, int id) {
+
+    }
+
+    void ofApp::swipe(ofxAndroidSwipeDir swipeDir, int id) {
+
+    }
+
+#endif
+
+/*===============================================
+=                      iOS                      =
+===============================================*/
+
+#ifdef TARGET_OF_IOS
+
+    void ofApp::touchDown(ofTouchEventArgs & touch) {
+
+    }
+
+    void ofApp::touchMoved(ofTouchEventArgs & touch) {
+
+    }
+
+    void ofApp::touchUp(ofTouchEventArgs & touch) {
+
+    }
+
+    void ofApp::touchDoubleTap(ofTouchEventArgs & touch) {
+
+    }
+
+    void ofApp::touchCancelled(ofTouchEventArgs & touch) {
+
+    }
+
+    void ofApp::exit() {
+
+    }
+
+    void ofApp::lostFocus() {
+
+    }
+
+    void ofApp::gotFocus() {
+
+    }
+
+    void ofApp::gotMemoryWarning() {
+
+    }
+
+    void ofApp::deviceOrientationChanged(int newOrientation) {
+
+    }
+
+#endif
+
+/*===============================================
+=                      OSX                      =
+===============================================*/
+
+#ifdef TARGET_OSX
+    
+    void ofApp::mouseMoved(int x, int y) {
+
+    }
+
+    void ofApp::mouseDragged(int x, int y, int button) {
+
+    }
+
+    void ofApp::mousePressed(int x, int y, int button) {
+
+    }
+
+    void ofApp::mouseReleased(int x, int y, int button) {
+
+    }
+
+    void ofApp::dragEvent(ofDragInfo dragInfo) {
+
+    }
+
+    void ofApp::gotMessage(ofMessage msg) {
+
+    }
+
+#endif
