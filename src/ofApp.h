@@ -11,7 +11,7 @@
 
 #ifdef TARGET_OF_IOS
 #include "ofxiOS.h"
-#include "ofxiOSExtras.h" // erro de compilacao se incluir isto
+#include "ofxiOSExtras.h"
 #endif
 
 #ifdef TARGET_ANDROID
