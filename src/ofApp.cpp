@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include "ofxImage.h"
 
 bool ofApp::isNight = true;
 bool ofApp::isHelpOn = false;
@@ -9,6 +10,7 @@ bool ofApp::setupForAppFinished = false;
 // TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
 // TODO: could look into automated travis build, of repo has .travis configuration file
+// TODO: Banco to Bench and Local to Place?
 
 void ofApp::setup() {
     
@@ -23,13 +25,14 @@ void ofApp::setup() {
 
 	checkDimensions(ofGetWidth());
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
-	imgSplashScreen.loadImage("images/logo_landscape.png");
+	imgSplashScreen.loadImage("logo_landscape.png");
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
     
     ofLog() << "width is " << ofGetWidth();
     ofLog() << "height is " << ofGetHeight();
+    
 }
 
 void ofApp::setupForApp() {
@@ -70,9 +73,9 @@ void ofApp::initSoundSwitches() {
 
 void ofApp::initImages() {
 
-	imgDay.loadImage("images/xs_day.jpg");
-	imgHelp.loadImage("images/xs_help.jpg");
-	imgNight.loadImage("images/xs_night.jpg");
+	imgDay.loadImage("day.jpg");
+	imgHelp.loadImage("help.jpg");
+	imgNight.loadImage("night.jpg");
 
 	helpSwitch.set((0.895*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.055*novaDifLargura), (0.13*ofGetHeight()));
 	lightSwitch.set((0.90*novaDifLargura+novoZeroLargura), 0.81*ofGetHeight(), (0.07*novaDifLargura), 0.14*ofGetHeight());
@@ -184,7 +187,6 @@ void ofApp::update() {
 //	  }
 
 	if (inSplashScreen && !setupForAppFinished) {
-		ofLog() << "here";
 		setupForApp();
 	}
 
@@ -201,7 +203,7 @@ void ofApp::draw() {
 	ofSetHexColor(0xFFFFFF);
 
 	if (screenRatioIsWeird()) {
-		if (!imgBlackBar.isAllocated()) imgBlackBar.loadImage("images/xs_black_bar.jpg");
+		if (!imgBlackBar.isAllocated()) imgBlackBar.loadImage("black_bar.jpg");
 		imgBlackBar.draw(0, 0, novoZeroLargura, ofGetHeight());
 		imgBlackBar.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
 	}
@@ -214,17 +216,17 @@ void ofApp::draw() {
 	}
 
 	if (isNight) {
-		if (!imgNight.isAllocated()) imgNight.loadImage("images/xs_night.jpg");
+		if (!imgNight.isAllocated()) imgNight.loadImage("night.jpg");
 		imgNight.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	}
 
 	else if (isHelpOn) {
-		if (!imgHelp.isAllocated()) imgHelp.loadImage("images/xs_help.jpg");
+		if (!imgHelp.isAllocated()) imgHelp.loadImage("help.jpg");
 		imgHelp.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	}
 
 	else {
-		if (!imgDay.isAllocated()) imgDay.loadImage("images/xs_day.jpg");
+		if (!imgDay.isAllocated()) imgDay.loadImage("day.jpg");
 		imgDay.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
 	}
 

@@ -4,6 +4,7 @@
 
 #include "Local.h"
 #include "Banco.h"
+#include "ofxImage.h"
 
 #ifdef TARGET_ANDROID
 #include "ofxAndroid.h"
@@ -98,11 +99,11 @@ private:
 
 	vector<Spot*> spots;
 
-	ofImage imgDay;
-	ofImage imgNight;
-	ofImage imgHelp;
-	ofImage imgBlackBar;
-	ofImage imgSplashScreen;
+	ofxImage imgDay;
+	ofxImage imgNight;
+	ofxImage imgHelp;
+	ofxImage imgBlackBar;
+	ofxImage imgSplashScreen;
 
 	ofRectangle lightSwitch;
 	ofRectangle helpSwitch;

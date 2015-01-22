@@ -13,6 +13,7 @@
 		BC00D56B1A5CD005009A1231 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5641A5CD005009A1231 /* main.cpp */; };
 		BC00D56C1A5CD005009A1231 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5651A5CD005009A1231 /* ofApp.cpp */; };
 		BC00D56D1A5CD005009A1231 /* Spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5671A5CD005009A1231 /* Spot.cpp */; };
+		BC1C93B61A715FC800DCA7D2 /* ofxImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC1C93B41A715FC800DCA7D2 /* ofxImage.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -72,6 +73,8 @@
 		BC00D5661A5CD005009A1231 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = ../../src/ofApp.h; sourceTree = "<group>"; };
 		BC00D5671A5CD005009A1231 /* Spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Spot.cpp; path = ../../src/Spot.cpp; sourceTree = "<group>"; };
 		BC00D5681A5CD005009A1231 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spot.h; path = ../../src/Spot.h; sourceTree = "<group>"; };
+		BC1C93B41A715FC800DCA7D2 /* ofxImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImage.cpp; sourceTree = "<group>"; };
+		BC1C93B51A715FC800DCA7D2 /* ofxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxImage.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../of_v0.8.4_osx_release/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -198,6 +201,8 @@
 				BC00D5661A5CD005009A1231 /* ofApp.h */,
 				BC00D5671A5CD005009A1231 /* Spot.cpp */,
 				BC00D5681A5CD005009A1231 /* Spot.h */,
+				BC1C93B41A715FC800DCA7D2 /* ofxImage.cpp */,
+				BC1C93B51A715FC800DCA7D2 /* ofxImage.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -301,6 +306,7 @@
 				BC00D56C1A5CD005009A1231 /* ofApp.cpp in Sources */,
 				BC00D5691A5CD005009A1231 /* Banco.cpp in Sources */,
 				BC00D56A1A5CD005009A1231 /* Local.cpp in Sources */,
+				BC1C93B61A715FC800DCA7D2 /* ofxImage.cpp in Sources */,
 				BC00D56B1A5CD005009A1231 /* main.cpp in Sources */,
 				BC00D56D1A5CD005009A1231 /* Spot.cpp in Sources */,
 			);
