@@ -11,6 +11,7 @@ bool ofApp::setupForAppFinished = false;
 // TODO: should clear objects and memory when leaving application, right?
 // TODO: could look into automated travis build, of repo has .travis configuration file
 // TODO: Banco to Bench and Local to Place?
+// TODO: Is it for sure that I can't really symlink directory instead of doing it with so many files?
 
 void ofApp::setup() {
     
