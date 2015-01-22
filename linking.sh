@@ -1,52 +1,25 @@
 # run this from the project root
 
-# ANDROID
+# uncomment the one to run
+PLATFORM=osx
+# PLATFORM=ios
+# PLATFORM=android
 
-# cd PORTOphone_android/src
-# ln -sf ../../src/* .
-# cd ..
-
-# cd bin/data/
-
-# cd images
-# ln -sf ../../../../data/images/* .
-
-# cd ..
-
-# cd sounds
-# ln -sf ../../../../data/sounds/* .
-
-# cd ../../../../
-
-
-# OSX
-
-# cd PORTOphone_osx/src
-# ln -sf ../../src/* .
-# cd ..
-
-# cd bin/data/
-
-# cd images
-# ln -sf ../../../../data/images/* .
-
-# cd ..
-
-# cd sounds
-# ln -sf ../../../../data/sounds/* .
-
-# OSX
-
-cd PORTOphone_ios/src
+cd PORTOphone_${PLATFORM}/src
 ln -sf ../../src/* .
 cd ..
 
-cd bin/data/
-mkdir -p images
-mkdir -p sounds
+mkdir -p bin/data/images/low-res
+mkdir -p bin/data/images/high-res
+mkdir -p bin/data/sounds
 
-cd images
-ln -sf ../../../../data/images/* .
+cd bin/data/images/high-res
+ln -sf ../../../../../data/images/high-res/* .
+cd ..
+
+cd low-res
+ln -sf ../../../../../data/images/low-res/* .
+cd ..
 
 cd ..
 
