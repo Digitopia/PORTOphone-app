@@ -20,6 +20,7 @@
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
+		BCC18E341A73FA25005476E6 /* ofxImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCC18E321A73FA25005476E6 /* ofxImage.cpp */; };
 		BCCAA7A51A5FDCB9000A2E3F /* Banco.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAA79C1A5FDCB9000A2E3F /* Banco.cpp */; };
 		BCCAA7A61A5FDCB9000A2E3F /* Local.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAA79E1A5FDCB9000A2E3F /* Local.cpp */; };
 		BCCAA7A71A5FDCB9000A2E3F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAA7A01A5FDCB9000A2E3F /* main.cpp */; };
@@ -69,6 +70,8 @@
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiOS-Info.plist"; sourceTree = "<group>"; };
 		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BCC18E321A73FA25005476E6 /* ofxImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxImage.cpp; path = ../../src/ofxImage.cpp; sourceTree = "<group>"; };
+		BCC18E331A73FA25005476E6 /* ofxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxImage.h; path = ../../src/ofxImage.h; sourceTree = "<group>"; };
 		BCCAA79C1A5FDCB9000A2E3F /* Banco.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Banco.cpp; path = ../../src/Banco.cpp; sourceTree = "<group>"; };
 		BCCAA79D1A5FDCB9000A2E3F /* Banco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banco.h; path = ../../src/Banco.h; sourceTree = "<group>"; };
 		BCCAA79E1A5FDCB9000A2E3F /* Local.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Local.cpp; path = ../../src/Local.cpp; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 		E4D8936A11527B74007E1F53 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BCC18E321A73FA25005476E6 /* ofxImage.cpp */,
+				BCC18E331A73FA25005476E6 /* ofxImage.h */,
 				BCCAA79C1A5FDCB9000A2E3F /* Banco.cpp */,
 				BCCAA79D1A5FDCB9000A2E3F /* Banco.h */,
 				BCCAA79E1A5FDCB9000A2E3F /* Local.cpp */,
@@ -323,6 +328,7 @@
 				BCCAA7A81A5FDCB9000A2E3F /* ofApp.cpp in Sources */,
 				BCCAA7A51A5FDCB9000A2E3F /* Banco.cpp in Sources */,
 				BCCAA7A61A5FDCB9000A2E3F /* Local.cpp in Sources */,
+				BCC18E341A73FA25005476E6 /* ofxImage.cpp in Sources */,
 				BCCAA7A71A5FDCB9000A2E3F /* main.cpp in Sources */,
 				BCCAA7A91A5FDCB9000A2E3F /* Spot.cpp in Sources */,
 			);
