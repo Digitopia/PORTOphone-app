@@ -4,7 +4,7 @@
 
 #include "Local.h"
 #include "Banco.h"
-//#include "ofxImage.h"
+#include "ofxImage.h"
 
 #ifdef TARGET_ANDROID
 #include "ofxAndroid.h"
@@ -90,20 +90,15 @@ public:
         void gotMessage(ofMessage msg);
     #endif
 
-	// TODO change this, should be static too, and refactor too
-	int novoZeroLargura;
-	int novoMaxLargura;
-	int novaDifLargura;
-
 private:
 
 	vector<Spot*> spots;
 
-	ofImage imgDay;
-	ofImage imgNight;
-	ofImage imgHelp;
-	ofImage imgBlackBar;
-	ofImage imgSplashScreen;
+	ofxImage imgDay;
+	ofxImage imgNight;
+	ofxImage imgHelp;
+	ofxImage imgBlackBar;
+	ofxImage imgSplashScreen;
 
 	ofRectangle lightSwitch;
 	ofRectangle helpSwitch;
@@ -116,5 +111,9 @@ private:
 	static bool isHelpOn;
 	static bool inSplashScreen;
 	static bool setupForAppFinished;
+
+    int minWidthBound;
+    int maxWidthBound;
+    int diffWidthBound;
 
 };

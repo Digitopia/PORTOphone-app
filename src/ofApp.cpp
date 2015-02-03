@@ -78,8 +78,8 @@ void ofApp::initImages() {
 	imgHelp.loadImage("help.jpg");
 	imgNight.loadImage("night.jpg");
 
-	helpSwitch.set((0.895*novaDifLargura+novoZeroLargura), (0.41*ofGetHeight()), (0.055*novaDifLargura), (0.13*ofGetHeight()));
-	lightSwitch.set((0.90*novaDifLargura+novoZeroLargura), 0.81*ofGetHeight(), (0.07*novaDifLargura), 0.14*ofGetHeight());
+	helpSwitch.set((0.895*diffWidthBound+minWidthBound), (0.41*ofGetHeight()), (0.055*diffWidthBound), (0.13*ofGetHeight()));
+	lightSwitch.set((0.90*diffWidthBound+minWidthBound), 0.81*ofGetHeight(), (0.07*diffWidthBound), 0.14*ofGetHeight());
 
 }
 
@@ -168,14 +168,14 @@ void ofApp::initSpots() {
 
 void ofApp::checkDimensions(int width) {
 	if (screenRatioIsWeird()) {
-		novoZeroLargura = 0.1 * width;
-		novoMaxLargura = 0.9 * width;
+		minWidthBound = 0.1 * width;
+		maxWidthBound = 0.9 * width;
 	}
 	else {
-		novoZeroLargura = 0;
-		novoMaxLargura = width;
+		minWidthBound = 0;
+		maxWidthBound = width;
 	}
-	novaDifLargura = novoMaxLargura - novoZeroLargura;
+	diffWidthBound = maxWidthBound - minWidthBound;
 }
 
 void ofApp::update() {
@@ -216,30 +216,30 @@ void ofApp::draw() {
 
 	if (screenRatioIsWeird()) {
 		if (!imgBlackBar.isAllocated()) imgBlackBar.loadImage("black_bar.jpg");
-		imgBlackBar.draw(0, 0, novoZeroLargura, ofGetHeight());
-		imgBlackBar.draw(novoMaxLargura, 0, novoZeroLargura, ofGetHeight());
+		imgBlackBar.draw(0, 0, minWidthBound, ofGetHeight());
+		imgBlackBar.draw(maxWidthBound, 0, minWidthBound, ofGetHeight());
 	}
 
 	// this will only run once
 	if (!setupForAppFinished) {
-		imgSplashScreen.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		imgSplashScreen.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 		inSplashScreen = true;
 		return;
 	}
 
 	if (isNight) {
 		if (!imgNight.isAllocated()) imgNight.loadImage("night.jpg");
-		imgNight.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		imgNight.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 	}
 
 	else if (isHelpOn) {
 		if (!imgHelp.isAllocated()) imgHelp.loadImage("help.jpg");
-		imgHelp.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		imgHelp.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 	}
 
 	else {
 		if (!imgDay.isAllocated()) imgDay.loadImage("day.jpg");
-		imgDay.draw(novoZeroLargura, 0, novaDifLargura, ofGetHeight());
+		imgDay.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 	}
 
 
