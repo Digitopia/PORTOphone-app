@@ -10,7 +10,8 @@ bool ofxImage::loadImage(string fileName) {
         imageFolder = baseFolder + "low-res/";
     }
     else {
-        imageFolder = baseFolder + "high-res/";
+    	// TODO: changed to high-res later
+        imageFolder = baseFolder + "low-res/";
     }
         
     
