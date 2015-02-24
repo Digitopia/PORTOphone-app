@@ -242,11 +242,12 @@ void ofApp::draw() {
 		imgDay.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 	}
 
-
 	if (!isNight && !isHelpOn) {
 		for (unsigned int i = 0; i < spots.size(); i++)
 			spots[i]->draw();
 	}
+    
+    ofLog() << ofGetFrameRate() << endl;
 }
 
 
