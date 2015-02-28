@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PORTOphone_ios.xcodeproj">
+      location = "self:PORTOphone.xcodeproj">
    </FileRef>
 </Workspace>
