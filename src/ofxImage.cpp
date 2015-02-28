@@ -10,14 +10,12 @@ bool ofxImage::loadImage(string fileName) {
         imageFolder = baseFolder + "low-res/";
     }
     else {
-    	// TODO: changed to high-res later
-        imageFolder = baseFolder + "low-res/";
+        imageFolder = baseFolder + "high-res/";
     }
-        
     
     string fullPath = imageFolder + fileName;
     
-    std::cout << "loading " << fullPath << endl;
+    ofLog() << "loading " << fullPath;
     
     return ofImage::loadImage(fullPath);
 }
