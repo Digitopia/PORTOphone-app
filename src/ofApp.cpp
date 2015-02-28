@@ -247,7 +247,7 @@ void ofApp::draw() {
 			spots[i]->draw();
 	}
     
-    ofLog() << ofGetFrameRate() << endl;
+     ofLog() << ofGetFrameRate() << endl;
 }
 
 
@@ -418,7 +418,17 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
     }
 
     void ofApp::deviceOrientationChanged(int newOrientation) {
-
+        if (newOrientation == 3)
+            ofSetOrientation(OF_ORIENTATION_90_LEFT);
+        else if (newOrientation == 4)
+            ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+        ofLog() << "new orientation " << newOrientation;
+//        OF_ORIENTATION_DEFAULT = 1,
+//        OF_ORIENTATION_180 = 2,
+//        OF_ORIENTATION_90_LEFT = 3,
+//        OF_ORIENTATION_90_RIGHT = 4,
+//        OF_ORIENTATION_UNKNOWN = 5
+//        ofSetOrientation(OF_ORIENTATION_90_LEFT);
     }
 
 #endif
