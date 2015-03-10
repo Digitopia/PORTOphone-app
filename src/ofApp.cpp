@@ -248,7 +248,7 @@ void ofApp::draw() {
 			spots[i]->draw();
 	}
     
-//     ofLog() << ofGetFrameRate() << endl;
+    // ofLog() << ofGetFrameRate() << endl;
 }
 
 
