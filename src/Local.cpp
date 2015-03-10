@@ -13,7 +13,7 @@ Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(
 
 void Local::draw() {
 
-	//    Spot::draw();
+//	    Spot::draw();
 
 	ofEnableAlphaBlending();
 
@@ -47,11 +47,12 @@ void Local::draw() {
 		if (rad < 0.0f) rad = 0.0f;
 		if (vol < 0.0f) vol = 0.0f;
 
-		sound->setVolume(vol);
+		sound.setVolume(vol);
 
 		if (rad <= 0.0f && vol <= 0.0) {
-			sound->setPaused(true);
-			sound->setPosition(0.0);
+//			sound.setPaused(true);
+//			sound.setPosition(0.0);
+            sound.stop();
 		}
 	}
 

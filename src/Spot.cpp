@@ -21,6 +21,7 @@ Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
 void Spot::mousePressed(ofMouseEventArgs& event) {
 
 	if (!ofApp::getIsNight() && !ofApp::getIsHelpOn() && boundingBox.inside(event.x, event.y)) {
+//    if (!ofApp::getIsNight() && boundingBox.inside(event.x, event.y)) {
 
 		ofLog() << "click on spot " << paths[isound];
 
@@ -34,8 +35,9 @@ void Spot::mousePressed(ofMouseEventArgs& event) {
 
 void Spot::playSound() {
 	ofLog() << isound;
-	sound->setVolume(0.7);
-	sound->play();
+    sound.loadSound(paths[isound], true);
+	sound.setVolume(0.7);
+	sound.play();
 	ofLog() << "playing " << paths[isound];
 }
 
@@ -44,7 +46,9 @@ void Spot::reset() {
 	this->playing = false;
 	this->clickable = false;
 	this->rad = 0;
-	this->sound->setPaused(true);
+//	this->sounds[isound].setPaused(true);
+//    this->sounds[isound].stop();
+    sound.unloadSound();
 }
 
 // this is called when reentering the application
@@ -68,10 +72,11 @@ void Spot::draw() {
 
 }
 
-ofSoundPlayer* Spot::loadSound(string path) {
-	ofSoundPlayer* s = new ofSoundPlayer;
-	s->loadSound(path);
-	s->setLoop(true);
+ofSoundPlayer Spot::loadSound(string path) {
+    ofLog() << "loading a sound ";
+    ofSoundPlayer s;
+	s.setLoop(true);
+	s.loadSound(path);
 	return s;
 }
 
@@ -81,10 +86,10 @@ void Spot::loadSounds() {
 		isound = (isound + 1) % paths.size();
 	}
 	// the active sound is the first path
-	sound = sounds[0];
+	isound = 0;
 }
 
 void Spot::activateNextSound() {
 	isound = (isound + 1) % paths.size();
-	sound = sounds[isound];
+    ofLog() << "isound is now " << isound;
 }

@@ -13,7 +13,7 @@ public:
 	void reset();
 	void resetDrawing();
 	void setPath(string path);
-	ofSoundPlayer* loadSound(string path);
+	ofSoundPlayer loadSound(string path);
 	void playSound();
 	virtual void draw();
 	void loadSounds();
@@ -33,8 +33,9 @@ protected:
 
 	ofRectangle boundingBox;
 
-	vector<ofSoundPlayer*> sounds;
-	ofSoundPlayer* sound;
+	vector<ofSoundPlayer> sounds;
+    
+    ofSoundPlayer sound;
 
 	vector<string> paths;
 

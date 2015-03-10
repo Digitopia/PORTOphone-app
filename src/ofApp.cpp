@@ -47,10 +47,10 @@ void ofApp::setupForApp() {
 	initSoundSwitches();
 
 	// load all sounds for each spot
-	for (unsigned int i = 0; i < spots.size(); i++) {
-		ofLog() << "loading spot " << i;
-		spots[i]->loadSounds();
-	}
+//	for (unsigned int i = 0; i < spots.size(); i++) {
+//		ofLog() << "loading spot " << i;
+//		spots[i]->loadSounds();
+//	}
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup for app took " << (timer_end - timer_begin) / 1000.0;
@@ -240,6 +240,7 @@ void ofApp::draw() {
 	else {
 		if (!imgDay.isAllocated()) imgDay.loadImage("day.jpg");
 		imgDay.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
+//        imgHelp.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 	}
 
 	if (!isNight && !isHelpOn) {
@@ -247,7 +248,7 @@ void ofApp::draw() {
 			spots[i]->draw();
 	}
     
-     ofLog() << ofGetFrameRate() << endl;
+//     ofLog() << ofGetFrameRate() << endl;
 }
 
 

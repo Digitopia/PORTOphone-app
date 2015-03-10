@@ -2,8 +2,8 @@
 
 # uncomment the one to run
 # PLATFORM=osx
-PLATFORM=ios
-# PLATFORM=android
+# PLATFORM=ios
+PLATFORM=android
 
 cd PORTOphone_${PLATFORM}/src
 ln -sf ../../src/* .
