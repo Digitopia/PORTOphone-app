@@ -17,7 +17,6 @@ bool ofApp::setupForAppFinished = false;
 void ofApp::setup() {
     
     #ifdef TARGET_OF_IOS
-//    ofSetOrientation(OF_ORIENTATION_90_RIGHT);
         ofSetOrientation(OF_ORIENTATION_90_LEFT);
     #endif
 
@@ -274,6 +273,9 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 		// night -> day
 		if (!isNight) {
+            
+            // make sure the help doesn't come up again when going to day if it was on before
+            isHelpOn = false;
 
 			soundSwitchOn.play();
 
@@ -283,7 +285,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 		// day -> night
 		else {
-
+            
 			soundSwitchOff.play();
 
 			for (unsigned int i = 0; i < spots.size(); i++)
