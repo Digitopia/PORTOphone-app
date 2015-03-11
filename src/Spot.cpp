@@ -7,6 +7,7 @@ Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
 	this->playing = false;
 	this->isound = -1;
 	this->rad = 0.;
+    this->vol = 0;
 	this->y = yPercentage * ofGetHeight();
 
 	if (ofApp::screenRatioIsWeird())
