@@ -12,11 +12,13 @@ bool ofApp::setupForAppFinished = false;
 // TODO: could look into automated travis build, of repo has .travis configuration file
 // TODO: Banco to Bench and Local to Place?
 // TODO: Is it for sure that I can't really symlink directory instead of doing it with so many files?
+// TODO: hide status bar in iOS
 
 void ofApp::setup() {
     
     #ifdef TARGET_OF_IOS
-    ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+//    ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+        ofSetOrientation(OF_ORIENTATION_90_LEFT);
     #endif
 
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
