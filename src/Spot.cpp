@@ -20,18 +20,30 @@ Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
 }
 
 void Spot::mousePressed(ofMouseEventArgs& event) {
+    
+    bool inside = false;
+    
+    if (dynamic_cast<Local*>(this)) {
+        Local* local = dynamic_cast<Local*>(this);
+        if (ofDist(event.x, event.y, x, y) <= local->getRadius()) {
+            inside = true;
+            ofLog() << "inside local";
+        }
+    }
 
-	if (!ofApp::getIsNight() && !ofApp::getIsHelpOn() && boundingBox.inside(event.x, event.y)) {
-//    if (!ofApp::getIsNight() && boundingBox.inside(event.x, event.y)) {
+    if (dynamic_cast<Banco*>(this)) {
+        Banco *banco = dynamic_cast<Banco*>(this);
+        if (banco->rect.inside(event.x, event.y)) {
+            inside = true;
+            ofLog() << "inside banco";
+        }
+    }
 
-		ofLog() << "click on spot " << paths[isound];
-
-		if (!playing) {
+	if (!ofApp::getIsNight() && !ofApp::getIsHelpOn() && inside) {
+		if (!playing)
 			playSound();
-		}
 		playing = !playing;
 	}
-
 }
 
 void Spot::playSound() {
@@ -62,10 +74,10 @@ void Spot::resetDrawing() {
 void Spot::draw() {
 
 	// bounding box
-    ofNoFill();
-	ofSetLineWidth(5);
-	ofSetColor(100, 100, 100);
-	ofRect(boundingBox);
+//    ofNoFill();
+//	ofSetLineWidth(5);
+//	ofSetColor(100, 100, 100);
+//	ofRect(boundingBox);
 
 	// center point
 	ofFill();
@@ -92,5 +104,5 @@ void Spot::loadSounds() {
 
 void Spot::activateNextSound() {
 	isound = (isound + 1) % paths.size();
-    ofLog() << "isound is now " << isound;
+//    ofLog() << "isound is now " << isound;
 }

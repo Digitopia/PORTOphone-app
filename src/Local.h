@@ -12,6 +12,9 @@ public:
 
 	void draw();
 	void mousePressed(ofMouseEventArgs& event);
+    float getRadius() { return dim/2; }
+    
+    const static float dimPercentage;
 
 private:
 
@@ -19,7 +22,6 @@ private:
 
 	const static ofColor red_light;
 	const static ofColor red;
-	const static float dimPercentage;
 
 };
 

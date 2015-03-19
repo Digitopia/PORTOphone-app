@@ -7,7 +7,7 @@ const float Banco::dimPercentage = 0.08;
 
 Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
 	this->dim = dimPercentage * ofGetWidth();
-	this->boundingBox.set(x-dim/2, y-dim/2, dim, dim);
+	this->rect.set(x-dim/2, y-dim/2, dim, dim);
 	this->rad = 0;
 }
 

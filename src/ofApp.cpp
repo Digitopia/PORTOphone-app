@@ -13,6 +13,7 @@ bool ofApp::setupForAppFinished = false;
 // TODO: Banco to Bench and Local to Place?
 // TODO: Is it for sure that I can't really symlink directory instead of doing it with so many files?
 // TODO: hide status bar in iOS
+// TODO: make the animation equal speed no matter the FPS
 
 void ofApp::setup() {
     
@@ -22,8 +23,10 @@ void ofApp::setup() {
 
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 
-	ofLog(OF_LOG_NOTICE);
-	ofSetFrameRate(60);
+    ofLog(OF_LOG_NOTICE);
+//    ofSetLogLevel(OF_LOG_SILENT);
+
+    ofSetFrameRate(60);
 
 	checkDimensions(ofGetWidth());
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);

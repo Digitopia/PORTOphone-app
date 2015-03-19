@@ -12,12 +12,14 @@ public:
 
 	void draw();
 	void mousePressed(ofMouseEventArgs& event);
+    
+    const static float dimPercentage;
+    ofRectangle rect;
 
 private:
 
 	const static ofColor blue_light;
 	const static ofColor blue;
-	const static float dimPercentage;
 
 };
 

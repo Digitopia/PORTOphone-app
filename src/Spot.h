@@ -24,14 +24,14 @@ protected:
 	float x;
 	float y;
 
+    // is the size of the dimension being incremented or decremented for the animation to work
 	float rad;
-	float vol;
+
+    float vol;
 	float dim;
 
 	bool clickable;
 	bool playing;
-
-	ofRectangle boundingBox;
 
 	vector<ofSoundPlayer> sounds;
     

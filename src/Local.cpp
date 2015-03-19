@@ -6,14 +6,16 @@ const ofColor Local::red(100, 20, 60);
 const float Local::dimPercentage = 0.17;
 
 Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
-	this->dim = dimPercentage * ofGetWidth();
-	this->boundingBox.set(x - dim/2, y - dim/2, dim, dim);
+    this->dim = dimPercentage * ofGetWidth();
 	this->rad = 0;
 }
 
 void Local::draw() {
 
 //    Spot::draw();
+    
+    // for debug purposes
+//    ofCircle(x, y, dim/2);
 
 	ofEnableAlphaBlending();
 
