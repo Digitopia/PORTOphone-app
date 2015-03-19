@@ -37,6 +37,7 @@ void Spot::mousePressed(ofMouseEventArgs& event) {
 void Spot::playSound() {
 	ofLog() << isound;
     sound.loadSound(paths[isound], true);
+    sound.setLoop(true);
 	sound.setVolume(0.7);
 	sound.play();
 	ofLog() << "playing " << paths[isound];
@@ -76,7 +77,6 @@ void Spot::draw() {
 ofSoundPlayer Spot::loadSound(string path) {
     ofLog() << "loading a sound ";
     ofSoundPlayer s;
-	s.setLoop(true);
 	s.loadSound(path);
 	return s;
 }
