@@ -3,7 +3,7 @@
 
 const ofColor Local::red_light(100, 20, 60, 100);
 const ofColor Local::red(100, 20, 60);
-const float Local::dimPercentage = 0.15;
+const float Local::dimPercentage = 0.20;
 
 Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
 	this->dim = dimPercentage * ofGetWidth();
@@ -13,7 +13,7 @@ Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(
 
 void Local::draw() {
 
-//	    Spot::draw();
+//    Spot::draw();
 
 	ofEnableAlphaBlending();
 

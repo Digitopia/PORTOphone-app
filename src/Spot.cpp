@@ -62,15 +62,15 @@ void Spot::resetDrawing() {
 void Spot::draw() {
 
 	// bounding box
-	//    ofNoFill();
-	//    ofSetLineWidth(1);
-	//    ofSetColor(100, 100, 100);
-	//    ofRect(boundingBox);
+    ofNoFill();
+	ofSetLineWidth(5);
+	ofSetColor(100, 100, 100);
+	ofRect(boundingBox);
 
 	// center point
-	//    ofFill();
-	//    ofSetColor(100, 0, 0);
-	//    ofCircle(x, y, 4);
+	ofFill();
+	ofSetColor(100, 0, 0);
+	ofCircle(x, y, 4);
 
 }
 

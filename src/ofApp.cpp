@@ -124,10 +124,10 @@ void ofApp::initSpots() {
 	ribeiras.push_back("sounds/ribeira_2.mp3");
 	ribeiras.push_back("sounds/ribeira_3.mp3");
 
-	spots.push_back(new Local(0.14, 0.19, metros));
+	spots.push_back(new Local(0.16, 0.19, metros));
 	spots.push_back(new Local(0.27, 0.57, parque_cidades));
-	spots.push_back(new Local(0.43, 0.78, serralves));
-	spots.push_back(new Local(0.80, 0.71, batalhas));
+	spots.push_back(new Local(0.43, 0.82, serralves));
+	spots.push_back(new Local(0.80, 0.73, batalhas));
 	spots.push_back(new Local(0.71, 0.33, santa_catarinas));
 	spots.push_back(new Local(0.83, 0.12, casa_musicas));
 	spots.push_back(new Local(0.45, 0.15, bolhaos));
@@ -162,7 +162,7 @@ void ofApp::initSpots() {
 	spots.push_back(new Banco(0.64, 0.07, bancos_2)); // casa da musica esquerda
 	spots.push_back(new Banco(0.06, 0.07, bancos_3)); // metro
 	spots.push_back(new Banco(0.22, 0.83, bancos_4)); // parque da cidade
-	spots.push_back(new Banco(0.61, 0.86, bancos_5)); // aliados
+	spots.push_back(new Banco(0.61, 0.87, bancos_5)); // aliados
 	spots.push_back(new Banco(0.89, 0.30, bancos_6)); // casa da musica baixo
 
 }

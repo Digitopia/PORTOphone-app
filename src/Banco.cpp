@@ -3,7 +3,7 @@
 
 const ofColor Banco::blue_light(10, 20, 160, 100);
 const ofColor Banco::blue(10, 20, 160);
-const float Banco::dimPercentage = 0.07;
+const float Banco::dimPercentage = 0.08;
 
 Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
 	this->dim = dimPercentage * ofGetWidth();
@@ -13,7 +13,7 @@ Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(
 
 void Banco::draw() {
 
-	//    Spot::draw();
+//    Spot::draw();
 
 	// rectangles are not centered by default
 	ofSetRectMode(OF_RECTMODE_CENTER);
