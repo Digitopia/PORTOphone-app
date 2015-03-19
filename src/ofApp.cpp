@@ -158,12 +158,12 @@ void ofApp::initSpots() {
 	bancos_6.push_back("sounds/banco_12.mp3");
 	bancos_6.push_back("sounds/banco_13.mp3");
 
-	spots.push_back(new Banco(0.45, 0.31, bancos_1)); // por baixo bolhao
-	spots.push_back(new Banco(0.64, 0.07, bancos_2)); // casa da musica esquerda
-	spots.push_back(new Banco(0.06, 0.07, bancos_3)); // metro
-	spots.push_back(new Banco(0.22, 0.83, bancos_4)); // parque da cidade
-	spots.push_back(new Banco(0.61, 0.87, bancos_5)); // aliados
-	spots.push_back(new Banco(0.89, 0.30, bancos_6)); // casa da musica baixo
+	spots.push_back(new Banco(0.453, 0.315, bancos_1)); // por baixo bolhao
+	spots.push_back(new Banco(0.637, 0.075, bancos_2)); // casa da musica esquerda
+	spots.push_back(new Banco(0.060, 0.070, bancos_3)); // metro
+	spots.push_back(new Banco(0.223, 0.831, bancos_4)); // parque da cidade
+	spots.push_back(new Banco(0.610, 0.873, bancos_5)); // aliados
+	spots.push_back(new Banco(0.890, 0.305, bancos_6)); // casa da musica baixo
 
 }
 
