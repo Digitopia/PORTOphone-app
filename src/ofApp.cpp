@@ -7,13 +7,15 @@ bool ofApp::inSplashScreen = false;
 bool ofApp::setupForAppFinished = false;
 
 // TODO: Fix "Couldn't set thread priority" error on osx
+// TODO: could look into automated travis build, of repo has .travis configuration file
+
+// TODO: Banco to Bench and Local to Place?
+// TODO: run astyle again
+// TODO: make the animation equal speed no matter the FPS
 // TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
-// TODO: could look into automated travis build, of repo has .travis configuration file
-// TODO: Banco to Bench and Local to Place?
 // TODO: Is it for sure that I can't really symlink directory instead of doing it with so many files?
 // TODO: hide status bar in iOS
-// TODO: make the animation equal speed no matter the FPS
 
 void ofApp::setup() {
     
