@@ -12,9 +12,9 @@ public:
 
 	void draw();
 	void mousePressed(ofMouseEventArgs& event);
-    float getRadius() { return dim/2; }
-    
-    const static float dimPercentage;
+	float getRadius() { return dim/2; }
+
+	const static float dimPercentage;
 
 private:
 

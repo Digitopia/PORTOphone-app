@@ -13,7 +13,7 @@ Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(
 
 void Banco::draw() {
 
-//    Spot::draw();
+	//    Spot::draw();
 
 	// rectangles are not centered by default
 	ofSetRectMode(OF_RECTMODE_CENTER);
@@ -51,9 +51,9 @@ void Banco::draw() {
 		sound.setVolume(vol);
 
 		if (rad <= 0.0f && vol <= 0.0) {
-//			sound.setPaused(true);
-//			sound.setPosition(0.0);
-            sound.stop();
+			//			sound.setPaused(true);
+			//			sound.setPosition(0.0);
+			sound.stop();
 		}
 	}
 

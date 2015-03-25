@@ -6,16 +6,16 @@ const ofColor Local::red(100, 20, 60);
 const float Local::dimPercentage = 0.17;
 
 Local::Local(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
-    this->dim = dimPercentage * ofGetWidth();
+	this->dim = dimPercentage * ofGetWidth();
 	this->rad = 0;
 }
 
 void Local::draw() {
 
-//    Spot::draw();
-    
-    // for debug purposes
-//    ofCircle(x, y, dim/2);
+	//    Spot::draw();
+
+	// for debug purposes
+	//    ofCircle(x, y, dim/2);
 
 	ofEnableAlphaBlending();
 
@@ -52,9 +52,9 @@ void Local::draw() {
 		sound.setVolume(vol);
 
 		if (rad <= 0.0f && vol <= 0.0) {
-//			sound.setPaused(true);
-//			sound.setPosition(0.0);
-            sound.stop();
+			//			sound.setPaused(true);
+			//			sound.setPosition(0.0);
+			sound.stop();
 		}
 	}
 

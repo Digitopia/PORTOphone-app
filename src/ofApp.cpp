@@ -10,7 +10,6 @@ bool ofApp::setupForAppFinished = false;
 // TODO: could look into automated travis build, of repo has .travis configuration file
 
 // TODO: Banco to Bench and Local to Place?
-// TODO: run astyle again
 // TODO: make the animation equal speed no matter the FPS
 // TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
@@ -18,17 +17,17 @@ bool ofApp::setupForAppFinished = false;
 // TODO: hide status bar in iOS
 
 void ofApp::setup() {
-    
-    #ifdef TARGET_OF_IOS
-        ofSetOrientation(OF_ORIENTATION_90_LEFT);
-    #endif
+
+	#ifdef TARGET_OF_IOS
+	ofSetOrientation(OF_ORIENTATION_90_LEFT);
+	#endif
 
 	clock_t timer_begin = clock() / (CLOCKS_PER_SEC / 1000);
 
-    ofLog(OF_LOG_NOTICE);
-//    ofSetLogLevel(OF_LOG_SILENT);
+	ofLog(OF_LOG_NOTICE);
+	//    ofSetLogLevel(OF_LOG_SILENT);
 
-    ofSetFrameRate(60);
+	ofSetFrameRate(60);
 
 	checkDimensions(ofGetWidth());
 	ofAddListener(ofEvents().mousePressed, this, &ofApp::imageStatus);
@@ -36,10 +35,10 @@ void ofApp::setup() {
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup took " << (timer_end - timer_begin) / 1000.0;
-    
-    ofLog() << "width is " << ofGetWidth();
-    ofLog() << "height is " << ofGetHeight();
-    
+
+	ofLog() << "width is " << ofGetWidth();
+	ofLog() << "height is " << ofGetHeight();
+
 }
 
 void ofApp::setupForApp() {
@@ -53,10 +52,10 @@ void ofApp::setupForApp() {
 	initSoundSwitches();
 
 	// load all sounds for each spot
-//	for (unsigned int i = 0; i < spots.size(); i++) {
-//		ofLog() << "loading spot " << i;
-//		spots[i]->loadSounds();
-//	}
+	//	for (unsigned int i = 0; i < spots.size(); i++) {
+	//		ofLog() << "loading spot " << i;
+	//		spots[i]->loadSounds();
+	//	}
 
 	clock_t timer_end = clock() / (CLOCKS_PER_SEC / 1000);
 	ofLog() << "setup for app took " << (timer_end - timer_begin) / 1000.0;
@@ -185,24 +184,24 @@ void ofApp::checkDimensions(int width) {
 }
 
 void ofApp::update() {
-    
-    // TODO: this should be better
-    // this fixes the rotation problems of iOS 8, though it's a workaround
-    #ifdef TARGET_OF_IOS
-    if( [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedDescending ) {
-        if(ofxiOSGetGLView().frame.origin.x != 0
-           || ofxiOSGetGLView().frame.size.width != [[UIScreen mainScreen] bounds].size.width){
-            ofxiOSGetGLView().frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,[[UIScreen mainScreen] bounds].size.height);
-        }
-    }
-    #endif
 
-//	 version with timeout
-//	  if (inSplashScreen && ofGetElapsedTimeMillis() > 5.0 * 1000) {
-//	      inSplashScreen = false;
-////	      setupForApp();
-//	      return;
-//	  }
+	// TODO: this should be better
+	// this fixes the rotation problems of iOS 8, though it's a workaround
+	#ifdef TARGET_OF_IOS
+	if ( [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedDescending ) {
+		if (ofxiOSGetGLView().frame.origin.x != 0
+		        || ofxiOSGetGLView().frame.size.width != [[UIScreen mainScreen] bounds].size.width) {
+			ofxiOSGetGLView().frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,[[UIScreen mainScreen] bounds].size.height);
+		}
+	}
+	#endif
+
+	//	 version with timeout
+	//	  if (inSplashScreen && ofGetElapsedTimeMillis() > 5.0 * 1000) {
+	//	      inSplashScreen = false;
+	////	      setupForApp();
+	//	      return;
+	//	  }
 
 	if (inSplashScreen && !setupForAppFinished) {
 		setupForApp();
@@ -246,15 +245,15 @@ void ofApp::draw() {
 	else {
 		if (!imgDay.isAllocated()) imgDay.loadImage("day.jpg");
 		imgDay.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
-//        imgHelp.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
+		//        imgHelp.draw(minWidthBound, 0, diffWidthBound, ofGetHeight());
 	}
 
 	if (!isNight && !isHelpOn) {
 		for (unsigned int i = 0; i < spots.size(); i++)
 			spots[i]->draw();
 	}
-    
-    // ofLog() << ofGetFrameRate() << endl;
+
+	// ofLog() << ofGetFrameRate() << endl;
 }
 
 
@@ -278,9 +277,9 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 		// night -> day
 		if (!isNight) {
-            
-            // make sure the help doesn't come up again when going to day if it was on before
-            isHelpOn = false;
+
+			// make sure the help doesn't come up again when going to day if it was on before
+			isHelpOn = false;
 
 			soundSwitchOn.play();
 
@@ -290,7 +289,7 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 		// day -> night
 		else {
-            
+
 			soundSwitchOff.play();
 
 			for (unsigned int i = 0; i < spots.size(); i++)
@@ -308,17 +307,17 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 #if defined(TARGET_ANDROID) || defined(TARGET_OSX)
 
-	void ofApp::keyPressed(int key) {
+void ofApp::keyPressed(int key) {
 
-	}
+}
 
-	void ofApp::keyReleased(int key) {
+void ofApp::keyReleased(int key) {
 
-	}
+}
 
-	void ofApp::windowResized(int w, int h) {
-		checkDimensions(w);
-	}
+void ofApp::windowResized(int w, int h) {
+	checkDimensions(w);
+}
 
 #endif
 
@@ -328,60 +327,60 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 #ifdef TARGET_ANDROID
 
-    void ofApp::pause() {
-		// so that previous active drawings won't appear
-		for (unsigned int i = 0; i < spots.size(); i++) {
-			spots[i]->resetDrawing();
-		}
-    }
+void ofApp::pause() {
+	// so that previous active drawings won't appear
+	for (unsigned int i = 0; i < spots.size(); i++) {
+		spots[i]->resetDrawing();
+	}
+}
 
-    void ofApp::stop() {
+void ofApp::stop() {
 
-    }
+}
 
-    void ofApp::resume() {
+void ofApp::resume() {
 
-    }
+}
 
-    void ofApp::reloadTextures() {
+void ofApp::reloadTextures() {
 
-    }
-    
-    bool ofApp::backPressed() {
-    	return false;
-    }
+}
 
-    void ofApp::okPressed() {
+bool ofApp::backPressed() {
+	return false;
+}
 
-    }
+void ofApp::okPressed() {
 
-    void ofApp::cancelPressed() {
+}
 
-    }
-  
-    void ofApp::touchDown(int x, int y, int id) {
+void ofApp::cancelPressed() {
 
-    }
+}
 
-    void ofApp::touchMoved(int x, int y, int id) {
+void ofApp::touchDown(int x, int y, int id) {
 
-    }
+}
 
-    void ofApp::touchUp(int x, int y, int id) {
+void ofApp::touchMoved(int x, int y, int id) {
 
-    }
+}
 
-    void ofApp::touchDoubleTap(int x, int y, int id) {
+void ofApp::touchUp(int x, int y, int id) {
 
-    }
+}
 
-    void ofApp::touchCancelled(int x, int y, int id) {
+void ofApp::touchDoubleTap(int x, int y, int id) {
 
-    }
+}
 
-    void ofApp::swipe(ofxAndroidSwipeDir swipeDir, int id) {
+void ofApp::touchCancelled(int x, int y, int id) {
 
-    }
+}
+
+void ofApp::swipe(ofxAndroidSwipeDir swipeDir, int id) {
+
+}
 
 #endif
 
@@ -391,55 +390,55 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 #ifdef TARGET_OF_IOS
 
-    void ofApp::touchDown(ofTouchEventArgs & touch) {
+void ofApp::touchDown(ofTouchEventArgs& touch) {
 
-    }
+}
 
-    void ofApp::touchMoved(ofTouchEventArgs & touch) {
+void ofApp::touchMoved(ofTouchEventArgs& touch) {
 
-    }
+}
 
-    void ofApp::touchUp(ofTouchEventArgs & touch) {
+void ofApp::touchUp(ofTouchEventArgs& touch) {
 
-    }
+}
 
-    void ofApp::touchDoubleTap(ofTouchEventArgs & touch) {
+void ofApp::touchDoubleTap(ofTouchEventArgs& touch) {
 
-    }
+}
 
-    void ofApp::touchCancelled(ofTouchEventArgs & touch) {
+void ofApp::touchCancelled(ofTouchEventArgs& touch) {
 
-    }
+}
 
-    void ofApp::exit() {
+void ofApp::exit() {
 
-    }
+}
 
-    void ofApp::lostFocus() {
+void ofApp::lostFocus() {
 
-    }
+}
 
-    void ofApp::gotFocus() {
+void ofApp::gotFocus() {
 
-    }
+}
 
-    void ofApp::gotMemoryWarning() {
+void ofApp::gotMemoryWarning() {
 
-    }
+}
 
-    void ofApp::deviceOrientationChanged(int newOrientation) {
-        if (newOrientation == 3)
-            ofSetOrientation(OF_ORIENTATION_90_LEFT);
-        else if (newOrientation == 4)
-            ofSetOrientation(OF_ORIENTATION_90_RIGHT);
-        ofLog() << "new orientation " << newOrientation;
-//        OF_ORIENTATION_DEFAULT = 1,
-//        OF_ORIENTATION_180 = 2,
-//        OF_ORIENTATION_90_LEFT = 3,
-//        OF_ORIENTATION_90_RIGHT = 4,
-//        OF_ORIENTATION_UNKNOWN = 5
-//        ofSetOrientation(OF_ORIENTATION_90_LEFT);
-    }
+void ofApp::deviceOrientationChanged(int newOrientation) {
+	if (newOrientation == 3)
+		ofSetOrientation(OF_ORIENTATION_90_LEFT);
+	else if (newOrientation == 4)
+		ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+	ofLog() << "new orientation " << newOrientation;
+	//        OF_ORIENTATION_DEFAULT = 1,
+	//        OF_ORIENTATION_180 = 2,
+	//        OF_ORIENTATION_90_LEFT = 3,
+	//        OF_ORIENTATION_90_RIGHT = 4,
+	//        OF_ORIENTATION_UNKNOWN = 5
+	//        ofSetOrientation(OF_ORIENTATION_90_LEFT);
+}
 
 #endif
 
@@ -448,29 +447,29 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 ===============================================*/
 
 #ifdef TARGET_OSX
-    
-    void ofApp::mouseMoved(int x, int y) {
 
-    }
+void ofApp::mouseMoved(int x, int y) {
 
-    void ofApp::mouseDragged(int x, int y, int button) {
+}
 
-    }
+void ofApp::mouseDragged(int x, int y, int button) {
 
-    void ofApp::mousePressed(int x, int y, int button) {
+}
 
-    }
+void ofApp::mousePressed(int x, int y, int button) {
 
-    void ofApp::mouseReleased(int x, int y, int button) {
+}
 
-    }
+void ofApp::mouseReleased(int x, int y, int button) {
 
-    void ofApp::dragEvent(ofDragInfo dragInfo) {
+}
 
-    }
+void ofApp::dragEvent(ofDragInfo dragInfo) {
 
-    void ofApp::gotMessage(ofMessage msg) {
+}
 
-    }
+void ofApp::gotMessage(ofMessage msg) {
+
+}
 
 #endif

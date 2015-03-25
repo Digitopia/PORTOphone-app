@@ -6,7 +6,7 @@
 class ofxImage : public ofImage {
 
 public:
-    bool loadImage(string fileName);
+	bool loadImage(string fileName);
 
 };
 

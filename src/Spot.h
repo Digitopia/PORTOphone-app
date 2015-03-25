@@ -24,18 +24,18 @@ protected:
 	float x;
 	float y;
 
-    // is the size of the dimension being incremented or decremented for the animation to work
+	// is the size of the dimension being incremented or decremented for the animation to work
 	float rad;
 
-    float vol;
+	float vol;
 	float dim;
 
 	bool clickable;
 	bool playing;
 
 	vector<ofSoundPlayer> sounds;
-    
-    ofSoundPlayer sound;
+
+	ofSoundPlayer sound;
 
 	vector<string> paths;
 

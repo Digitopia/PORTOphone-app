@@ -12,9 +12,9 @@ public:
 
 	void draw();
 	void mousePressed(ofMouseEventArgs& event);
-    
-    const static float dimPercentage;
-    ofRectangle rect;
+
+	const static float dimPercentage;
+	ofRectangle rect;
 
 private:
 
