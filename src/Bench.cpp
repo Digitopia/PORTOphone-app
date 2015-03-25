@@ -1,19 +1,19 @@
-#include "Banco.h"
+#include "Bench.h"
 #include "ofApp.h"
 
-const ofColor Banco::blue_light(10, 20, 160, 100);
-const ofColor Banco::blue(10, 20, 160);
-const float Banco::dimPercentage = 0.08;
+const ofColor Bench::blue_light(10, 20, 160, 100);
+const ofColor Bench::blue(10, 20, 160);
+const float Bench::dimPercentage = 0.08;
 
-Banco::Banco(float xPercentage, float yPercentage, vector<string> paths) : Spot(xPercentage, yPercentage, paths) {
+Bench::Bench(float xPercentage, float yPercentage, vector<string> paths) : MapSound(xPercentage, yPercentage, paths) {
 	this->dim = dimPercentage * ofGetWidth();
 	this->rect.set(x-dim/2, y-dim/2, dim, dim);
 	this->rad = 0;
 }
 
-void Banco::draw() {
+void Bench::draw() {
 
-	//    Spot::draw();
+	// MapSound::draw();
 
 	// rectangles are not centered by default
 	ofSetRectMode(OF_RECTMODE_CENTER);
@@ -51,8 +51,8 @@ void Banco::draw() {
 		sound.setVolume(vol);
 
 		if (rad <= 0.0f && vol <= 0.0) {
-			//			sound.setPaused(true);
-			//			sound.setPosition(0.0);
+			// sound.setPaused(true);
+			// sound.setPosition(0.0);
 			sound.stop();
 		}
 	}

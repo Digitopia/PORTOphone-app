@@ -2,8 +2,8 @@
 
 #include "ofMain.h"
 
-#include "Local.h"
-#include "Banco.h"
+#include "Place.h"
+#include "Bench.h"
 #include "ofxImage.h"
 
 #ifdef TARGET_ANDROID
@@ -92,7 +92,7 @@ public:
 
 private:
 
-	vector<Spot*> spots;
+	vector<MapSound*> mapsounds;
 
 	ofxImage imgDay;
 	ofxImage imgNight;

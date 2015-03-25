@@ -1,6 +1,6 @@
 #include "ofApp.h"
 
-Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
+MapSound::MapSound(float xPercentage, float yPercentage, vector<string> paths) {
 
 	this->paths = paths;
 	this->clickable = false;
@@ -15,24 +15,24 @@ Spot::Spot(float xPercentage, float yPercentage, vector<string> paths) {
 	else
 		this->x = xPercentage * ofGetWidth();
 
-	ofAddListener(ofEvents().mousePressed, this, &Spot::mousePressed);
+	ofAddListener(ofEvents().mousePressed, this, &MapSound::mousePressed);
 
 }
 
-void Spot::mousePressed(ofMouseEventArgs& event) {
+void MapSound::mousePressed(ofMouseEventArgs& event) {
 
 	bool inside = false;
 
-	if (dynamic_cast<Local*>(this)) {
-		Local* local = dynamic_cast<Local*>(this);
-		if (ofDist(event.x, event.y, x, y) <= local->getRadius()) {
+	if (dynamic_cast<Place*>(this)) {
+		Place* place = dynamic_cast<Place*>(this);
+		if (ofDist(event.x, event.y, x, y) <= place->getRadius()) {
 			inside = true;
-			ofLog() << "inside local";
+			ofLog() << "inside place";
 		}
 	}
 
-	if (dynamic_cast<Banco*>(this)) {
-		Banco* banco = dynamic_cast<Banco*>(this);
+	if (dynamic_cast<Bench*>(this)) {
+		Bench* banco = dynamic_cast<Bench*>(this);
 		if (banco->rect.inside(event.x, event.y)) {
 			inside = true;
 			ofLog() << "inside banco";
@@ -46,7 +46,7 @@ void Spot::mousePressed(ofMouseEventArgs& event) {
 	}
 }
 
-void Spot::playSound() {
+void MapSound::playSound() {
 	ofLog() << isound;
 	sound.loadSound(paths[isound], true);
 	sound.setLoop(true);
@@ -56,28 +56,28 @@ void Spot::playSound() {
 }
 
 // this is called when switching off the lights
-void Spot::reset() {
+void MapSound::reset() {
 	this->playing = false;
 	this->clickable = false;
 	this->rad = 0;
-	//	this->sounds[isound].setPaused(true);
-	//    this->sounds[isound].stop();
+	// this->sounds[isound].setPaused(true);
+	// this->sounds[isound].stop();
 	sound.unloadSound();
 }
 
 // this is called when reentering the application
-void Spot::resetDrawing() {
+void MapSound::resetDrawing() {
 	this->playing = false;
 	this->rad = 0;
 }
 
-void Spot::draw() {
+void MapSound::draw() {
 
 	// bounding box
-	//    ofNoFill();
-	//	ofSetLineWidth(5);
-	//	ofSetColor(100, 100, 100);
-	//	ofRect(boundingBox);
+	// ofNoFill();
+	// ofSetLineWidth(5);
+	// ofSetColor(100, 100, 100);
+	// ofRect(boundingBox);
 
 	// center point
 	ofFill();
@@ -86,14 +86,14 @@ void Spot::draw() {
 
 }
 
-ofSoundPlayer Spot::loadSound(string path) {
+ofSoundPlayer MapSound::loadSound(string path) {
 	ofLog() << "loading a sound ";
 	ofSoundPlayer s;
 	s.loadSound(path);
 	return s;
 }
 
-void Spot::loadSounds() {
+void MapSound::loadSounds() {
 	for (unsigned int i = 0; i < paths.size(); i++) {
 		sounds.push_back(loadSound(paths[i]));
 		isound = (isound + 1) % paths.size();
@@ -102,7 +102,7 @@ void Spot::loadSounds() {
 	isound = 0;
 }
 
-void Spot::activateNextSound() {
+void MapSound::activateNextSound() {
 	isound = (isound + 1) % paths.size();
-	//    ofLog() << "isound is now " << isound;
+	// ofLog() << "isound is now " << isound;
 }

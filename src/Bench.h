@@ -1,14 +1,14 @@
-#ifndef BANCO_H
-#define BANCO_H
+#ifndef BENCH_H
+#define BENCH_H
 
 #include "ofMain.h"
-#include "Spot.h"
+#include "MapSound.h"
 
-class Banco : public Spot {
+class Bench : public MapSound {
 
 public:
 
-	Banco(float xPercentage, float yPercentage, vector<string> paths);
+	Bench(float xPercentage, float yPercentage, vector<string> paths);
 
 	void draw();
 	void mousePressed(ofMouseEventArgs& event);

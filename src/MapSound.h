@@ -1,13 +1,13 @@
-#ifndef SPOT_H
-#define SPOT_H
+#ifndef MAPSOUND_H
+#define MAPSOUND_H
 
 #include "ofMain.h"
 
-class Spot {
+class MapSound {
 
 public:
 
-	Spot(float xPercentage, float yPercentage, vector<string> paths);
+	MapSound(float xPercentage, float yPercentage, vector<string> paths);
 
 	void mousePressed(ofMouseEventArgs& event);
 	void reset();

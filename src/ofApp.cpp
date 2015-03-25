@@ -9,7 +9,6 @@ bool ofApp::setupForAppFinished = false;
 // TODO: Fix "Couldn't set thread priority" error on osx
 // TODO: could look into automated travis build, of repo has .travis configuration file
 
-// TODO: Banco to Bench and Local to Place?
 // TODO: make the animation equal speed no matter the FPS
 // TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
@@ -128,14 +127,14 @@ void ofApp::initSpots() {
 	ribeiras.push_back("sounds/ribeira_2.mp3");
 	ribeiras.push_back("sounds/ribeira_3.mp3");
 
-	spots.push_back(new Local(0.16, 0.19, metros));
-	spots.push_back(new Local(0.27, 0.57, parque_cidades));
-	spots.push_back(new Local(0.43, 0.82, serralves));
-	spots.push_back(new Local(0.80, 0.73, batalhas));
-	spots.push_back(new Local(0.71, 0.33, santa_catarinas));
-	spots.push_back(new Local(0.83, 0.12, casa_musicas));
-	spots.push_back(new Local(0.45, 0.15, bolhaos));
-	spots.push_back(new Local(0.05, 0.86, ribeiras));
+	mapsounds.push_back(new Place(0.16, 0.19, metros));
+	mapsounds.push_back(new Place(0.27, 0.57, parque_cidades));
+	mapsounds.push_back(new Place(0.43, 0.82, serralves));
+	mapsounds.push_back(new Place(0.80, 0.73, batalhas));
+	mapsounds.push_back(new Place(0.71, 0.33, santa_catarinas));
+	mapsounds.push_back(new Place(0.83, 0.12, casa_musicas));
+	mapsounds.push_back(new Place(0.45, 0.15, bolhaos));
+	mapsounds.push_back(new Place(0.05, 0.86, ribeiras));
 
 	vector<string> bancos_1;
 	bancos_1.push_back("sounds/banco_1.mp3");
@@ -162,12 +161,12 @@ void ofApp::initSpots() {
 	bancos_6.push_back("sounds/banco_12.mp3");
 	bancos_6.push_back("sounds/banco_13.mp3");
 
-	spots.push_back(new Banco(0.453, 0.315, bancos_1)); // por baixo bolhao
-	spots.push_back(new Banco(0.637, 0.075, bancos_2)); // casa da musica esquerda
-	spots.push_back(new Banco(0.060, 0.070, bancos_3)); // metro
-	spots.push_back(new Banco(0.223, 0.831, bancos_4)); // parque da cidade
-	spots.push_back(new Banco(0.610, 0.873, bancos_5)); // aliados
-	spots.push_back(new Banco(0.890, 0.305, bancos_6)); // casa da musica baixo
+	mapsounds.push_back(new Bench(0.453, 0.315, bancos_1)); // por baixo bolhao
+	mapsounds.push_back(new Bench(0.637, 0.075, bancos_2)); // casa da musica esquerda
+	mapsounds.push_back(new Bench(0.060, 0.070, bancos_3)); // metro
+	mapsounds.push_back(new Bench(0.223, 0.831, bancos_4)); // parque da cidade
+	mapsounds.push_back(new Bench(0.610, 0.873, bancos_5)); // aliados
+	mapsounds.push_back(new Bench(0.890, 0.305, bancos_6)); // casa da musica baixo
 
 }
 
@@ -249,8 +248,8 @@ void ofApp::draw() {
 	}
 
 	if (!isNight && !isHelpOn) {
-		for (unsigned int i = 0; i < spots.size(); i++)
-			spots[i]->draw();
+		for (unsigned int i = 0; i < mapsounds.size(); i++)
+			mapsounds[i]->draw();
 	}
 
 	// ofLog() << ofGetFrameRate() << endl;
@@ -283,8 +282,8 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 			soundSwitchOn.play();
 
-			for (unsigned int i = 0; i < spots.size(); i++)
-				spots[i]->activateNextSound();
+			for (unsigned int i = 0; i < mapsounds.size(); i++)
+				mapsounds[i]->activateNextSound();
 		}
 
 		// day -> night
@@ -292,8 +291,8 @@ void ofApp::imageStatus(ofMouseEventArgs& event) {
 
 			soundSwitchOff.play();
 
-			for (unsigned int i = 0; i < spots.size(); i++)
-				spots[i]->reset();
+			for (unsigned int i = 0; i < mapsounds.size(); i++)
+				mapsounds[i]->reset();
 
 		}
 
@@ -329,8 +328,8 @@ void ofApp::windowResized(int w, int h) {
 
 void ofApp::pause() {
 	// so that previous active drawings won't appear
-	for (unsigned int i = 0; i < spots.size(); i++) {
-		spots[i]->resetDrawing();
+	for (unsigned int i = 0; i < mapsounds.size(); i++) {
+		mapsounds[i]->resetDrawing();
 	}
 }
 
