@@ -7,12 +7,9 @@ bool ofApp::inSplashScreen = false;
 bool ofApp::setupForAppFinished = false;
 
 // TODO: Fix "Couldn't set thread priority" error on osx
-// TODO: could look into automated travis build, of repo has .travis configuration file
-
+// TODO: travis build
 // TODO: make the animation equal speed no matter the FPS
-// TODO: resuming app takes a long time in black screen, should be different
 // TODO: should clear objects and memory when leaving application, right?
-// TODO: Is it for sure that I can't really symlink directory instead of doing it with so many files?
 // TODO: hide status bar in iOS
 
 void ofApp::setup() {
@@ -430,7 +427,7 @@ void ofApp::deviceOrientationChanged(int newOrientation) {
 		ofSetOrientation(OF_ORIENTATION_90_LEFT);
 	else if (newOrientation == 4)
 		ofSetOrientation(OF_ORIENTATION_90_RIGHT);
-	ofLog() << "new orientation " << newOrientation;
+	//		ofLog() << "new orientation " << newOrientation;
 	//        OF_ORIENTATION_DEFAULT = 1,
 	//        OF_ORIENTATION_180 = 2,
 	//        OF_ORIENTATION_90_LEFT = 3,

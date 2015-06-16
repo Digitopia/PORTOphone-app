@@ -13,7 +13,7 @@ Bench::Bench(float xPercentage, float yPercentage, vector<string> paths) : MapSo
 
 void Bench::draw() {
 
-	// MapSound::draw();
+	MapSound::draw();
 
 	// rectangles are not centered by default
 	ofSetRectMode(OF_RECTMODE_CENTER);

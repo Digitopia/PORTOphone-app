@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		BC00D5691A5CD005009A1231 /* Banco.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5601A5CD005009A1231 /* Banco.cpp */; };
-		BC00D56A1A5CD005009A1231 /* Local.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5621A5CD005009A1231 /* Local.cpp */; };
-		BC00D56B1A5CD005009A1231 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5641A5CD005009A1231 /* main.cpp */; };
-		BC00D56C1A5CD005009A1231 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5651A5CD005009A1231 /* ofApp.cpp */; };
-		BC00D56D1A5CD005009A1231 /* Spot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC00D5671A5CD005009A1231 /* Spot.cpp */; };
-		BC1C93B61A715FC800DCA7D2 /* ofxImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC1C93B41A715FC800DCA7D2 /* ofxImage.cpp */; };
+		BC3FBC7F1AC396AE00BF1711 /* Bench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC741AC396AE00BF1711 /* Bench.cpp */; };
+		BC3FBC801AC396AE00BF1711 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC761AC396AE00BF1711 /* main.cpp */; };
+		BC3FBC811AC396AE00BF1711 /* MapSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC771AC396AE00BF1711 /* MapSound.cpp */; };
+		BC3FBC821AC396AE00BF1711 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC791AC396AE00BF1711 /* ofApp.cpp */; };
+		BC3FBC831AC396AE00BF1711 /* ofxImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC7B1AC396AE00BF1711 /* ofxImage.cpp */; };
+		BC3FBC841AC396AE00BF1711 /* Place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC7D1AC396AE00BF1711 /* Place.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -64,17 +64,17 @@
 
 /* Begin PBXFileReference section */
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../of_v0.8.4_osx_release/libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
-		BC00D5601A5CD005009A1231 /* Banco.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Banco.cpp; path = ../../src/Banco.cpp; sourceTree = "<group>"; };
-		BC00D5611A5CD005009A1231 /* Banco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banco.h; path = ../../src/Banco.h; sourceTree = "<group>"; };
-		BC00D5621A5CD005009A1231 /* Local.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Local.cpp; path = ../../src/Local.cpp; sourceTree = "<group>"; };
-		BC00D5631A5CD005009A1231 /* Local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Local.h; path = ../../src/Local.h; sourceTree = "<group>"; };
-		BC00D5641A5CD005009A1231 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../src/main.cpp; sourceTree = "<group>"; };
-		BC00D5651A5CD005009A1231 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofApp.cpp; path = ../../src/ofApp.cpp; sourceTree = "<group>"; };
-		BC00D5661A5CD005009A1231 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = ../../src/ofApp.h; sourceTree = "<group>"; };
-		BC00D5671A5CD005009A1231 /* Spot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Spot.cpp; path = ../../src/Spot.cpp; sourceTree = "<group>"; };
-		BC00D5681A5CD005009A1231 /* Spot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spot.h; path = ../../src/Spot.h; sourceTree = "<group>"; };
-		BC1C93B41A715FC800DCA7D2 /* ofxImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImage.cpp; sourceTree = "<group>"; };
-		BC1C93B51A715FC800DCA7D2 /* ofxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxImage.h; sourceTree = "<group>"; };
+		BC3FBC741AC396AE00BF1711 /* Bench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bench.cpp; path = ../../src/Bench.cpp; sourceTree = "<group>"; };
+		BC3FBC751AC396AE00BF1711 /* Bench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bench.h; path = ../../src/Bench.h; sourceTree = "<group>"; };
+		BC3FBC761AC396AE00BF1711 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../src/main.cpp; sourceTree = "<group>"; };
+		BC3FBC771AC396AE00BF1711 /* MapSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapSound.cpp; path = ../../src/MapSound.cpp; sourceTree = "<group>"; };
+		BC3FBC781AC396AE00BF1711 /* MapSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSound.h; path = ../../src/MapSound.h; sourceTree = "<group>"; };
+		BC3FBC791AC396AE00BF1711 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofApp.cpp; path = ../../src/ofApp.cpp; sourceTree = "<group>"; };
+		BC3FBC7A1AC396AE00BF1711 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = ../../src/ofApp.h; sourceTree = "<group>"; };
+		BC3FBC7B1AC396AE00BF1711 /* ofxImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxImage.cpp; path = ../../src/ofxImage.cpp; sourceTree = "<group>"; };
+		BC3FBC7C1AC396AE00BF1711 /* ofxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxImage.h; path = ../../src/ofxImage.h; sourceTree = "<group>"; };
+		BC3FBC7D1AC396AE00BF1711 /* Place.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Place.cpp; path = ../../src/Place.cpp; sourceTree = "<group>"; };
+		BC3FBC7E1AC396AE00BF1711 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = ../../src/Place.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../of_v0.8.4_osx_release/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -192,17 +192,17 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				BC00D5601A5CD005009A1231 /* Banco.cpp */,
-				BC00D5611A5CD005009A1231 /* Banco.h */,
-				BC00D5621A5CD005009A1231 /* Local.cpp */,
-				BC00D5631A5CD005009A1231 /* Local.h */,
-				BC00D5641A5CD005009A1231 /* main.cpp */,
-				BC00D5651A5CD005009A1231 /* ofApp.cpp */,
-				BC00D5661A5CD005009A1231 /* ofApp.h */,
-				BC00D5671A5CD005009A1231 /* Spot.cpp */,
-				BC00D5681A5CD005009A1231 /* Spot.h */,
-				BC1C93B41A715FC800DCA7D2 /* ofxImage.cpp */,
-				BC1C93B51A715FC800DCA7D2 /* ofxImage.h */,
+				BC3FBC741AC396AE00BF1711 /* Bench.cpp */,
+				BC3FBC751AC396AE00BF1711 /* Bench.h */,
+				BC3FBC761AC396AE00BF1711 /* main.cpp */,
+				BC3FBC771AC396AE00BF1711 /* MapSound.cpp */,
+				BC3FBC781AC396AE00BF1711 /* MapSound.h */,
+				BC3FBC791AC396AE00BF1711 /* ofApp.cpp */,
+				BC3FBC7A1AC396AE00BF1711 /* ofApp.h */,
+				BC3FBC7B1AC396AE00BF1711 /* ofxImage.cpp */,
+				BC3FBC7C1AC396AE00BF1711 /* ofxImage.h */,
+				BC3FBC7D1AC396AE00BF1711 /* Place.cpp */,
+				BC3FBC7E1AC396AE00BF1711 /* Place.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -303,12 +303,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC00D56C1A5CD005009A1231 /* ofApp.cpp in Sources */,
-				BC00D5691A5CD005009A1231 /* Banco.cpp in Sources */,
-				BC00D56A1A5CD005009A1231 /* Local.cpp in Sources */,
-				BC1C93B61A715FC800DCA7D2 /* ofxImage.cpp in Sources */,
-				BC00D56B1A5CD005009A1231 /* main.cpp in Sources */,
-				BC00D56D1A5CD005009A1231 /* Spot.cpp in Sources */,
+				BC3FBC821AC396AE00BF1711 /* ofApp.cpp in Sources */,
+				BC3FBC801AC396AE00BF1711 /* main.cpp in Sources */,
+				BC3FBC831AC396AE00BF1711 /* ofxImage.cpp in Sources */,
+				BC3FBC841AC396AE00BF1711 /* Place.cpp in Sources */,
+				BC3FBC7F1AC396AE00BF1711 /* Bench.cpp in Sources */,
+				BC3FBC811AC396AE00BF1711 /* MapSound.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
