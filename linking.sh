@@ -1,9 +1,9 @@
 # run this from the project root
 
 # uncomment the one to run
-# PLATFORM=osx
+PLATFORM=osx
 # PLATFORM=ios
-PLATFORM=android
+# PLATFORM=android
 
 cd PORTOphone_${PLATFORM}/src
 ln -sf ../../src/* .

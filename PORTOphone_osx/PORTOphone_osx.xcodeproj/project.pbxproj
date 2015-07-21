@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		BC3FBC7F1AC396AE00BF1711 /* Bench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC741AC396AE00BF1711 /* Bench.cpp */; };
-		BC3FBC801AC396AE00BF1711 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC761AC396AE00BF1711 /* main.cpp */; };
-		BC3FBC811AC396AE00BF1711 /* MapSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC771AC396AE00BF1711 /* MapSound.cpp */; };
-		BC3FBC821AC396AE00BF1711 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC791AC396AE00BF1711 /* ofApp.cpp */; };
-		BC3FBC831AC396AE00BF1711 /* ofxImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC7B1AC396AE00BF1711 /* ofxImage.cpp */; };
-		BC3FBC841AC396AE00BF1711 /* Place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC3FBC7D1AC396AE00BF1711 /* Place.cpp */; };
+		BC88229F1B5EAEF70026ADF2 /* Bench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8822941B5EAEF70026ADF2 /* Bench.cpp */; };
+		BC8822A01B5EAEF70026ADF2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8822961B5EAEF70026ADF2 /* main.cpp */; };
+		BC8822A11B5EAEF70026ADF2 /* MapSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8822971B5EAEF70026ADF2 /* MapSound.cpp */; };
+		BC8822A21B5EAEF70026ADF2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8822991B5EAEF70026ADF2 /* ofApp.cpp */; };
+		BC8822A31B5EAEF70026ADF2 /* ofxImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC88229B1B5EAEF70026ADF2 /* ofxImage.cpp */; };
+		BC8822A41B5EAEF70026ADF2 /* Place.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC88229D1B5EAEF70026ADF2 /* Place.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -63,19 +63,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../of_v0.8.4_osx_release/libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
-		BC3FBC741AC396AE00BF1711 /* Bench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bench.cpp; path = ../../src/Bench.cpp; sourceTree = "<group>"; };
-		BC3FBC751AC396AE00BF1711 /* Bench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bench.h; path = ../../src/Bench.h; sourceTree = "<group>"; };
-		BC3FBC761AC396AE00BF1711 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../src/main.cpp; sourceTree = "<group>"; };
-		BC3FBC771AC396AE00BF1711 /* MapSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapSound.cpp; path = ../../src/MapSound.cpp; sourceTree = "<group>"; };
-		BC3FBC781AC396AE00BF1711 /* MapSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSound.h; path = ../../src/MapSound.h; sourceTree = "<group>"; };
-		BC3FBC791AC396AE00BF1711 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofApp.cpp; path = ../../src/ofApp.cpp; sourceTree = "<group>"; };
-		BC3FBC7A1AC396AE00BF1711 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = ../../src/ofApp.h; sourceTree = "<group>"; };
-		BC3FBC7B1AC396AE00BF1711 /* ofxImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxImage.cpp; path = ../../src/ofxImage.cpp; sourceTree = "<group>"; };
-		BC3FBC7C1AC396AE00BF1711 /* ofxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxImage.h; path = ../../src/ofxImage.h; sourceTree = "<group>"; };
-		BC3FBC7D1AC396AE00BF1711 /* Place.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Place.cpp; path = ../../src/Place.cpp; sourceTree = "<group>"; };
-		BC3FBC7E1AC396AE00BF1711 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = ../../src/Place.h; sourceTree = "<group>"; };
-		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../of_v0.8.4_osx_release/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
+		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		BC8822941B5EAEF70026ADF2 /* Bench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bench.cpp; path = ../../src/Bench.cpp; sourceTree = "<group>"; };
+		BC8822951B5EAEF70026ADF2 /* Bench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bench.h; path = ../../src/Bench.h; sourceTree = "<group>"; };
+		BC8822961B5EAEF70026ADF2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../src/main.cpp; sourceTree = "<group>"; };
+		BC8822971B5EAEF70026ADF2 /* MapSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapSound.cpp; path = ../../src/MapSound.cpp; sourceTree = "<group>"; };
+		BC8822981B5EAEF70026ADF2 /* MapSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSound.h; path = ../../src/MapSound.h; sourceTree = "<group>"; };
+		BC8822991B5EAEF70026ADF2 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofApp.cpp; path = ../../src/ofApp.cpp; sourceTree = "<group>"; };
+		BC88229A1B5EAEF70026ADF2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = ../../src/ofApp.h; sourceTree = "<group>"; };
+		BC88229B1B5EAEF70026ADF2 /* ofxImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxImage.cpp; path = ../../src/ofxImage.cpp; sourceTree = "<group>"; };
+		BC88229C1B5EAEF70026ADF2 /* ofxImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxImage.h; path = ../../src/ofxImage.h; sourceTree = "<group>"; };
+		BC88229D1B5EAEF70026ADF2 /* Place.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Place.cpp; path = ../../src/Place.cpp; sourceTree = "<group>"; };
+		BC88229E1B5EAEF70026ADF2 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = ../../src/Place.h; sourceTree = "<group>"; };
+		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
@@ -84,12 +84,12 @@
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E4B69B5B0A3A1756003C02F2 /* PORTOphone_osxDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PORTOphone_osxDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* PORTOphone_osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PORTOphone_osx.app; path = "/Users/Nuno/Development/openFrameworks/apps/PORTOphone-app/PORTOphone_osx/bin/PORTOphone_osx.app"; sourceTree = "<absolute>"; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../of_v0.8.4_osx_release/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
@@ -185,24 +185,23 @@
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
-				E4B69B5B0A3A1756003C02F2 /* PORTOphone_osxDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				BC3FBC741AC396AE00BF1711 /* Bench.cpp */,
-				BC3FBC751AC396AE00BF1711 /* Bench.h */,
-				BC3FBC761AC396AE00BF1711 /* main.cpp */,
-				BC3FBC771AC396AE00BF1711 /* MapSound.cpp */,
-				BC3FBC781AC396AE00BF1711 /* MapSound.h */,
-				BC3FBC791AC396AE00BF1711 /* ofApp.cpp */,
-				BC3FBC7A1AC396AE00BF1711 /* ofApp.h */,
-				BC3FBC7B1AC396AE00BF1711 /* ofxImage.cpp */,
-				BC3FBC7C1AC396AE00BF1711 /* ofxImage.h */,
-				BC3FBC7D1AC396AE00BF1711 /* Place.cpp */,
-				BC3FBC7E1AC396AE00BF1711 /* Place.h */,
+				BC8822941B5EAEF70026ADF2 /* Bench.cpp */,
+				BC8822951B5EAEF70026ADF2 /* Bench.h */,
+				BC8822961B5EAEF70026ADF2 /* main.cpp */,
+				BC8822971B5EAEF70026ADF2 /* MapSound.cpp */,
+				BC8822981B5EAEF70026ADF2 /* MapSound.h */,
+				BC8822991B5EAEF70026ADF2 /* ofApp.cpp */,
+				BC88229A1B5EAEF70026ADF2 /* ofApp.h */,
+				BC88229B1B5EAEF70026ADF2 /* ofxImage.cpp */,
+				BC88229C1B5EAEF70026ADF2 /* ofxImage.h */,
+				BC88229D1B5EAEF70026ADF2 /* Place.cpp */,
+				BC88229E1B5EAEF70026ADF2 /* Place.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -235,7 +234,7 @@
 			);
 			name = PORTOphone_osx;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* PORTOphone_osxDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* PORTOphone_osx.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -294,7 +293,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f ../../../of_v0.8.4_osx_release/libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\ncp -f \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n";
+			shellScript = "cp -f ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\ncp -f \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -303,12 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3FBC821AC396AE00BF1711 /* ofApp.cpp in Sources */,
-				BC3FBC801AC396AE00BF1711 /* main.cpp in Sources */,
-				BC3FBC831AC396AE00BF1711 /* ofxImage.cpp in Sources */,
-				BC3FBC841AC396AE00BF1711 /* Place.cpp in Sources */,
-				BC3FBC7F1AC396AE00BF1711 /* Bench.cpp in Sources */,
-				BC3FBC811AC396AE00BF1711 /* MapSound.cpp in Sources */,
+				BC8822A21B5EAEF70026ADF2 /* ofApp.cpp in Sources */,
+				BC8822A01B5EAEF70026ADF2 /* main.cpp in Sources */,
+				BC8822A31B5EAEF70026ADF2 /* ofxImage.cpp in Sources */,
+				BC8822A41B5EAEF70026ADF2 /* Place.cpp in Sources */,
+				BC88229F1B5EAEF70026ADF2 /* Bench.cpp in Sources */,
+				BC8822A11B5EAEF70026ADF2 /* MapSound.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +392,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../of_v0.8.4_osx_release/libs/glut/lib/osx\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
@@ -479,7 +478,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../of_v0.8.4_osx_release/libs/glut/lib/osx\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
 				ICON = "$(ICON_NAME_RELEASE)";
