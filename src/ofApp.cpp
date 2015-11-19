@@ -62,13 +62,13 @@ void ofApp::setupForApp() {
 
 void ofApp::initSoundSwitches() {
 
-	soundSwitchOn.loadSound("sounds/switch_on.wav");
+	soundSwitchOn.load("sounds/switch_on.wav");
 	soundSwitchOn.setVolume(0.5);
 
-	soundSwitchOff.loadSound("sounds/switch_off.wav");
+	soundSwitchOff.load("sounds/switch_off.wav");
 	soundSwitchOff.setVolume(0.5);
 
-	soundHelpSwitch.loadSound("sounds/help.wav");
+	soundHelpSwitch.load("sounds/help.wav");
 	soundHelpSwitch.setVolume(0.5);
 
 }

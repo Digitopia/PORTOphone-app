@@ -22,14 +22,14 @@ void Place::draw() {
 	// inside of circle
 	ofFill();
 	ofSetColor(red_light);
-	ofCircle(x, y, rad);
+	ofDrawCircle(x, y, rad);
 
 	// circunference of circle
 	ofNoFill();
 	ofSetLineWidth(2);
 	ofSetColor(red);
 	ofSetCircleResolution(50);
-	ofCircle(x, y, rad);
+	ofDrawCircle(x, y, rad);
 
 	// go back to normal definitions
 	ofDisableAlphaBlending();

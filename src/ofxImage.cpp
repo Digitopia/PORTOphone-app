@@ -17,5 +17,5 @@ bool ofxImage::loadImage(string fileName) {
 
 	ofLog() << "loading " << fullPath;
 
-	return ofImage::loadImage(fullPath);
+	return ofImage::load(fullPath);
 }

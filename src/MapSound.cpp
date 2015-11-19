@@ -48,7 +48,7 @@ void MapSound::mousePressed(ofMouseEventArgs& event) {
 
 void MapSound::playSound() {
 	ofLog() << isound;
-	sound.loadSound(paths[isound], true);
+	sound.load(paths[isound], true);
 	sound.setLoop(true);
 	sound.setVolume(0.7);
 	sound.play();
@@ -62,7 +62,7 @@ void MapSound::reset() {
 	this->rad = 0;
 	// this->sounds[isound].setPaused(true);
 	// this->sounds[isound].stop();
-	sound.unloadSound();
+	sound.unload();
 }
 
 // this is called when reentering the application
@@ -82,14 +82,14 @@ void MapSound::draw() {
 	// center point
 	ofFill();
 	ofSetColor(100, 0, 0);
-	ofCircle(x, y, 4);
+	ofDrawCircle(x, y, 4);
 
 }
 
 ofSoundPlayer MapSound::loadSound(string path) {
 	ofLog() << "loading a sound ";
 	ofSoundPlayer s;
-	s.loadSound(path);
+	s.load(path);
 	return s;
 }
 

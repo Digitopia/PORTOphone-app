@@ -22,13 +22,13 @@ void Bench::draw() {
 	// fill
 	ofFill();
 	ofSetColor(blue_light);
-	ofRect(x, y, rad, rad);
+	ofDrawRectangle(x, y, rad, rad);
 
 	// outline
 	ofNoFill();
 	ofSetLineWidth(2);
 	ofSetColor(blue);
-	ofRect(x, y, rad, rad);
+	ofDrawRectangle(x, y, rad, rad);
 
 	// go back to normal definitions
 	ofDisableAlphaBlending();
