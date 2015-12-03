@@ -4,11 +4,12 @@
 int main() {
 
 	#ifdef TARGET_OF_IOS
-	ofAppiOSWindow* window = new ofAppiOSWindow();
-	window->enableRetina();
-	window->enableHardwareOrientation();
-	window->enableOrientationAnimation();
-	ofSetupOpenGL(window, 1024, 768, OF_WINDOW);
+    ofiOSWindowSettings window;
+    window.enableRetina = true;
+    window.enableHardwareOrientation = true;
+    window.enableAntiAliasing = true;
+    window.numOfAntiAliasingSamples = 4;
+    ofCreateWindow(window);
 	#else
 	ofSetupOpenGL(1024, 768, OF_WINDOW);
 	#endif

@@ -7,7 +7,7 @@ bool ofxImage::loadImage(string fileName) {
 	// TODO: need a better check here
 	string imageFolder;
     #ifdef TARGET_OF_IOS
-	if (ofGetWidth() < 568) {
+	if (ofGetWidth() < 1136) {
     #else
     if (ofGetWidth() < 700) {
     #endif
