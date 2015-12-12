@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>PORTOphone</name>
+	<name>androidEmptyExample</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -94,4 +94,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>ofxAndroid</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-3-PROJECT_LOC%7D/addons/ofxAndroid</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
