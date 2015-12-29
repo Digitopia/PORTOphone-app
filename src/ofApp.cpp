@@ -10,7 +10,6 @@ bool ofApp::setupForAppFinished = false;
 // TODO: travis build
 // TODO: make the animation equal speed no matter the FPS
 // TODO: should clear objects and memory when leaving application, right?
-// TODO: hide status bar in iOS
 
 void ofApp::setup() {
 
