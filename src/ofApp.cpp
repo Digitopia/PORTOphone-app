@@ -222,10 +222,22 @@ void ofApp::draw() {
 
 	ofSetHexColor(0xFFFFFF);
 
-	if (screenRatioIsWeird()) {
-		if (!imgBlackBar.isAllocated()) imgBlackBar.loadImage("black_bar.jpg");
-		imgBlackBar.draw(0, 0, minWidthBound, ofGetHeight());
-		imgBlackBar.draw(maxWidthBound, 0, minWidthBound, ofGetHeight());
+	if (screenRatioIsWeird() >= 1) {
+        if (isNight) {
+            ofPushStyle();
+            ofFill();
+            ofSetColor(0);
+            ofDrawRectangle(0, 0, minWidthBound, ofGetHeight());
+            ofDrawRectangle(maxWidthBound, 0, minWidthBound, ofGetHeight());
+            ofPopStyle();
+        } else {
+            ofPushStyle();
+            ofFill();
+            ofSetColor(243);
+            ofDrawRectangle(0, 0, minWidthBound, ofGetHeight());
+            ofDrawRectangle(maxWidthBound, 0, minWidthBound, ofGetHeight());
+            ofPopStyle();
+        }
 	}
 
 	// this will only run once

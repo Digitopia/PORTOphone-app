@@ -97,7 +97,6 @@ private:
 	ofxImage imgDay;
 	ofxImage imgNight;
 	ofxImage imgHelp;
-	ofxImage imgBlackBar;
 	ofxImage imgSplashScreen;
 
 	ofRectangle lightSwitch;
