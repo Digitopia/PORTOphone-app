@@ -167,9 +167,14 @@ void ofApp::initSpots() {
 }
 
 void ofApp::checkDimensions(int width) {
-	if (screenRatioIsWeird()) {
-		minWidthBound = 0.1 * width;
-		maxWidthBound = 0.9 * width;
+	if (screenRatioIsWeird() != 0) {
+        if (screenRatioIsWeird() == 2) {
+		minWidthBound = 0.125 * width;
+		maxWidthBound = 0.875 * width;
+        } else if (screenRatioIsWeird() == 1) {
+            minWidthBound = 0.055 * width;
+            maxWidthBound = 0.945 * width;
+        }
 	}
 	else {
 		minWidthBound = 0;
@@ -204,10 +209,13 @@ void ofApp::update() {
 
 }
 
-bool ofApp::screenRatioIsWeird() {
-	//  return (ofGetWidth() * 10 / ofGetHeight()) > 16;
-	//  TODO
-	return false;
+int ofApp::screenRatioIsWeird() {
+    float ratio = ofGetWidth() * 10 / ofGetHeight();
+    if (ratio <= 40/3) {
+        return 0;
+    } else if (ratio > 15) {
+        return 2;
+    } else return 1;
 }
 
 void ofApp::draw() {

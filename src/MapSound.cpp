@@ -10,10 +10,11 @@ MapSound::MapSound(float xPercentage, float yPercentage, vector<string> paths) {
 	this->vol = 0;
 	this->y = yPercentage * ofGetHeight();
 
-	if (ofApp::screenRatioIsWeird())
-		this->x = xPercentage * 0.8 * ofGetWidth() + 0.1 * ofGetWidth();
-	else
-		this->x = xPercentage * ofGetWidth();
+	if (ofApp::screenRatioIsWeird() == 2)
+		this->x = xPercentage * 0.75 * ofGetWidth() + 0.125 * ofGetWidth();
+	else if ((ofApp::screenRatioIsWeird() == 1))
+		this->x = xPercentage * 0.89 * ofGetWidth() + 0.055 * ofGetWidth();
+    else this->x = xPercentage * ofGetWidth();
 
 	ofAddListener(ofEvents().mousePressed, this, &MapSound::mousePressed);
 

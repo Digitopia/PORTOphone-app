@@ -39,7 +39,7 @@ public:
 	void checkDimensions(int width);
 	void imageStatus(ofMouseEventArgs& event);
 	void setupForApp();
-	static bool screenRatioIsWeird();
+	static int screenRatioIsWeird();
 	static bool getIsNight() { return isNight; }
 	static bool getIsHelpOn() { return isHelpOn; }
 
