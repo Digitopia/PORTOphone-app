@@ -4,6 +4,7 @@
 /jni
 .gradle/
 .idea/
+local.properties
 
 res/raw/
 
