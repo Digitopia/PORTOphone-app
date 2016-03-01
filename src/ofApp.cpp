@@ -185,17 +185,6 @@ void ofApp::checkDimensions(int width) {
 
 void ofApp::update() {
 
-	// TODO: this should be better
-	// this fixes the rotation problems of iOS 8, though it's a workaround
-	#ifdef TARGET_OF_IOS
-	if ( [[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] == NSOrderedDescending ) {
-		if (ofxiOSGetGLView().frame.origin.x != 0
-		        || ofxiOSGetGLView().frame.size.width != [[UIScreen mainScreen] bounds].size.width) {
-			ofxiOSGetGLView().frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,[[UIScreen mainScreen] bounds].size.height);
-		}
-	}
-	#endif
-
 	//	 version with timeout
 	//	  if (inSplashScreen && ofGetElapsedTimeMillis() > 5.0 * 1000) {
 	//	      inSplashScreen = false;
